@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pro-Light Solutions – Systemy sterowania oświetleniem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=Barlow+Condensed:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #0a0c10;
+  --ink2: #13161e;
+  --ink3: #1c2030;
+  --white: #ffffff;
+  --off: #f5f5f3;
+  --amber: #f59e0b;
+  --amber2: #fbbf24;
+  --amber-dim: rgba(245,158,11,0.1);
+  --mid: #6b7280;
+  --muted: #9ca3af;
+  --border-light: #e5e7eb;
+  --border-dark: rgba(255,255,255,0.1);
+  --font-head: 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* SCROLL REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s cubic-bezier(.22,1,.36,1), transform 0.65s cubic-bezier(.22,1,.36,1);
+}
+.reveal.visible { opacity: 1; transform: none; }
+.d1 { transition-delay: 0.08s; }
+.d2 { transition-delay: 0.16s; }
+.d3 { transition-delay: 0.24s; }
+.d4 { transition-delay: 0.32s; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px;
+  background: rgba(10,12,16,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+
+.nav-logo-mark {
+  width: 32px; height: 32px;
+  background: var(--amber);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.nav-logo-mark svg { display: block; }
+
+.nav-logo-text {
+  font-family: var(--font-head);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1;
+}
+
+.nav-logo-text span {
+  display: block;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.4);
+  margin-top: 2px;
+}
+
+.nav-links {
+  display: flex; align-items: center; gap: 32px; list-style: none;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--white); }
+
+.nav-cta {
+  background: var(--amber) !important;
+  color: var(--ink) !important;
+  padding: 9px 18px !important;
+  border-radius: 6px;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--amber2) !important; }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  background: var(--ink);
+  display: grid;
+  grid-template-rows: 1fr auto;
+  padding-top: 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background-image:
+    url('https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=1800&q=85');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.18;
+  transform: scale(1.03);
+  transition: transform 12s ease;
+}
+
+.hero:hover .hero-bg { transform: scale(1); }
+
+.hero-noise {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, rgba(10,12,16,0.6) 0%, rgba(10,12,16,0.2) 50%, rgba(10,12,16,0.85) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 80px 40px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 24px;
+  animation: fadeIn 0.6s ease 0.2s both;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.hero-tag::before {
+  content: '';
+  display: block;
+  width: 20px; height: 2px;
+  background: var(--amber);
+}
+
+.hero-headline {
+  font-family: var(--font-head);
+  font-size: clamp(56px, 8vw, 120px);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  animation: slideUp 0.9s cubic-bezier(.22,1,.36,1) 0.3s both;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-headline em {
+  font-style: italic;
+  color: var(--amber);
+}
+
+.hero-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  animation: slideUp 0.9s cubic-bezier(.22,1,.36,1) 0.45s both;
+}
+
+.hero-desc {
+  font-size: 17px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  max-width: 480px;
+  line-height: 1.7;
+}
+
+.hero-desc strong {
+  color: rgba(255,255,255,0.85);
+  font-weight: 500;
+}
+
+.hero-actions {
+  display: flex; flex-direction: column; align-items: flex-end; gap: 16px;
+  flex-shrink: 0;
+}
+
+.btn-hero {
+  background: var(--amber);
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  border-radius: 6px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-hero:hover { background: var(--amber2); transform: translateY(-2px); }
+
+.btn-hero-ghost {
+  color: rgba(255,255,255,0.45);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  display: flex; align-items: center; gap: 8px;
+  transition: color 0.2s;
+}
+.btn-hero-ghost:hover { color: rgba(255,255,255,0.9); }
+
+/* HERO STATS BAR */
+.hero-stats-bar {
+  position: relative; z-index: 2;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.hero-stat {
+  padding: 28px 40px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.hero-stat:last-child { border-right: none; }
+
+.hero-stat-val {
+  font-family: var(--font-head);
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+.hero-stat-val span { color: var(--amber); }
+.hero-stat-label { font-size: 12px; color: rgba(255,255,255,0.4); font-weight: 400; letter-spacing: 0.02em; }
+
+/* ─── PROBLEM SECTION ─── */
+.problem-section {
+  background: var(--off);
+  padding: 80px 40px;
+}
+
+.problem-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.problem-label {
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 20px;
+}
+
+.problem-title {
+  font-family: var(--font-head);
+  font-size: clamp(32px, 3.5vw, 52px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+
+.problem-title em {
+  font-style: italic;
+  color: var(--amber);
+}
+
+.problem-text {
+  font-size: 17px;
+  color: var(--mid);
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+.problem-text strong { color: var(--ink); font-weight: 600; }
+
+.problem-cards {
+  display: flex; flex-direction: column; gap: 12px;
+}
+
+.problem-card {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  transition: border-color 0.2s, transform 0.2s;
+  cursor: default;
+}
+
+.problem-card:hover {
+  border-color: var(--amber);
+  transform: translateX(4px);
+}
+
+.problem-card-icon {
+  width: 40px; height: 40px;
+  background: var(--amber-dim);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--font-head);
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--amber);
+}
+
+.problem-card h4 {
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.problem-card p {
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.6;
+}
+
+/* ─── SYSTEMS STRIP ─── */
+.systems-strip {
+  background: var(--ink2);
+  padding: 22px 40px;
+  display: flex; align-items: center; gap: 0;
+  overflow: hidden;
+}
+
+.systems-label {
+  font-family: var(--font-head);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  white-space: nowrap;
+  padding-right: 32px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  margin-right: 32px;
+  flex-shrink: 0;
+}
+
+.systems-list {
+  display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+}
+
+.system-tag {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  transition: color 0.2s;
+  cursor: default;
+}
+.system-tag:hover { color: rgba(255,255,255,0.75); }
+
+/* ─── OFFER ─── */
+.offer-section {
+  padding: 96px 40px;
+  background: var(--white);
+}
+
+.offer-inner { max-width: 1200px; margin: 0 auto; }
+
+.section-eyebrow {
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-eyebrow::before {
+  content: '';
+  width: 20px; height: 2px;
+  background: var(--amber);
+  display: block;
+}
+
+.section-title {
+  font-family: var(--font-head);
+  font-size: clamp(36px, 4vw, 60px);
+  font-weight: 900;
+  color: var(--ink);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin-bottom: 56px;
+}
+
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.offer-card {
+  padding: 40px 32px;
+  border-right: 1px solid var(--border-light);
+  background: var(--white);
+  transition: background 0.25s;
+  cursor: default;
+  position: relative;
+}
+
+.offer-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--amber);
+  transform: scaleX(0);
+  transition: transform 0.25s cubic-bezier(.22,1,.36,1);
+  transform-origin: left;
+}
+
+.offer-card:hover::after { transform: scaleX(1); }
+.offer-card:hover { background: var(--off); }
+.offer-card:last-child { border-right: none; }
+
+.offer-num {
+  font-family: var(--font-head);
+  font-size: 48px;
+  font-weight: 900;
+  color: rgba(245,158,11,0.12);
+  line-height: 1;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.offer-card h3 {
+  font-family: var(--font-head);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.15;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 14px;
+}
+
+.offer-card p {
+  font-size: 14px;
+  color: var(--mid);
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.offer-tag {
+  display: inline-block;
+  margin-top: 18px;
+  font-family: var(--font-head);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber);
+  background: var(--amber-dim);
+  border: 1px solid rgba(245,158,11,0.2);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* ─── WHY ─── */
+.why-section {
+  background: var(--ink);
+  padding: 96px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.why-section::before {
+  content: '';
+  position: absolute;
+  right: -200px; top: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(245,158,11,0.07) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.why-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.why-section .section-eyebrow { color: rgba(245,158,11,0.7); }
+.why-section .section-eyebrow::before { background: rgba(245,158,11,0.7); }
+.why-section .section-title { color: var(--white); }
+
+.why-points { display: flex; flex-direction: column; gap: 0; margin-top: 8px; }
+
+.why-point {
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 16px;
+}
+.why-point:last-child { border-bottom: none; padding-bottom: 0; }
+
+.why-num {
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--amber);
+  letter-spacing: 0.08em;
+  padding-top: 2px;
+}
+
+.why-point h4 {
+  font-family: var(--font-head);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+
+.why-point p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.7;
+}
+
+.why-visual {
+  position: relative;
+}
+
+.why-img-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  position: relative;
+}
+
+.why-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+  transition: opacity 0.4s, transform 0.6s;
+  display: block;
+}
+
+.why-img-wrap:hover img { opacity: 0.85; transform: scale(1.03); }
+
+.why-badge {
+  position: absolute;
+  bottom: -1px; left: -1px; right: -1px;
+  background: linear-gradient(to top, rgba(10,12,16,0.95) 0%, transparent 100%);
+  padding: 48px 28px 28px;
+  border-radius: 0 0 16px 16px;
+}
+
+.why-badge-val {
+  font-family: var(--font-head);
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.why-badge-val span { color: var(--amber); }
+
+.why-badge-label {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  font-weight: 400;
+}
+
+/* ─── PROCESS ─── */
+.process-section {
+  padding: 96px 40px;
+  background: var(--off);
+}
+.process-inner { max-width: 1200px; margin: 0 auto; }
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border-light);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.process-step {
+  background: var(--white);
+  padding: 36px 28px;
+  transition: background 0.2s;
+}
+.process-step:hover { background: var(--off); }
+
+.process-step-num {
+  font-family: var(--font-head);
+  font-size: 56px;
+  font-weight: 900;
+  color: rgba(0,0,0,0.05);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.process-step h3 {
+  font-family: var(--font-head);
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 10px;
+}
+
+.process-step p {
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.7;
+}
+
+/* ─── PROJECTS ─── */
+.projects-section {
+  padding: 96px 40px;
+  background: var(--white);
+}
+.projects-inner { max-width: 1200px; margin: 0 auto; }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 16px;
+}
+
+.proj {
+  background: var(--off);
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s;
+}
+.proj:hover { transform: translateY(-3px); }
+
+.proj-img {
+  width: 100%; height: 100%;
+  position: absolute; inset: 0;
+}
+
+.proj-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.proj:hover .proj-img img { transform: scale(1.04); }
+
+.proj-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,12,16,0.85) 0%, rgba(10,12,16,0.1) 55%, transparent 100%);
+}
+
+.proj-body {
+  position: relative; z-index: 2;
+  padding: 28px;
+  height: 100%;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+
+.proj.tall { grid-row: span 2; min-height: 520px; }
+.proj.short { min-height: 220px; }
+
+.proj-type {
+  font-family: var(--font-head);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+
+.proj-body h3 {
+  font-family: var(--font-head);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+.proj-body p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.65;
+}
+
+/* ─── CTA ─── */
+.cta-section {
+  background: var(--ink);
+  padding: 100px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  left: 50%; top: -300px;
+  transform: translateX(-50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(245,158,11,0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.cta-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.cta-left .section-eyebrow { color: rgba(245,158,11,0.7); }
+.cta-left .section-eyebrow::before { background: rgba(245,158,11,0.7); }
+
+.cta-title {
+  font-family: var(--font-head);
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.cta-title em { font-style: italic; color: var(--amber); }
+
+.cta-sub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.75;
+  max-width: 420px;
+}
+
+.cta-right {
+  display: flex; flex-direction: column; gap: 16px;
+}
+
+.cta-contact-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex; align-items: center; gap: 16px;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.cta-contact-card:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.15);
+}
+
+.cta-contact-icon {
+  width: 40px; height: 40px;
+  background: var(--amber-dim);
+  border: 1px solid rgba(245,158,11,0.2);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  color: var(--amber);
+}
+
+.cta-contact-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.cta-contact-val {
+  font-family: var(--font-head);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.02em;
+}
+
+.btn-cta {
+  background: var(--amber);
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 18px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.2s, transform 0.15s;
+  margin-top: 8px;
+}
+.btn-cta:hover { background: var(--amber2); transform: translateY(-2px); }
+
+.cta-address {
+  font-size: 11px;
+  color: rgba(255,255,255,0.2);
+  text-align: center;
+  margin-top: 8px;
+  letter-spacing: 0.04em;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--ink2);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 32px 40px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+}
+
+.footer-logo {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-logo:hover { color: rgba(255,255,255,0.7); }
+
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
+
+.footer-links {
+  display: flex; gap: 24px; list-style: none;
+}
+.footer-links a {
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: rgba(255,255,255,0.6); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .offer-grid { grid-template-columns: 1fr 1fr; }
+  .why-inner { grid-template-columns: 1fr; gap: 48px; }
+  .why-img-wrap { aspect-ratio: 16/7; }
+  .cta-inner { grid-template-columns: 1fr; gap: 48px; }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
+  .hero-content { padding: 60px 20px 40px; }
+  .hero-stats-bar { grid-template-columns: 1fr 1fr; }
+  .hero-stat { padding: 20px; }
+  .problem-inner { grid-template-columns: 1fr; gap: 40px; }
+  .offer-grid { grid-template-columns: 1fr; border-radius: 12px; }
+  .offer-card { border-right: none; border-bottom: 1px solid var(--border-light); }
+  .offer-card:last-child { border-bottom: none; }
+  .process-grid { grid-template-columns: 1fr 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .proj.tall { grid-row: span 1; min-height: 300px; }
+  section, .offer-section, .why-section, .process-section, .projects-section, .cta-section { padding: 64px 20px; }
+  .problem-section { padding: 64px 20px; }
+  .systems-strip, .partners-strip { padding: 16px 20px; }
+  footer { padding: 24px 20px; }
+}
+
+@media (max-width: 480px) {
+  .hero-stats-bar { grid-template-columns: 1fr 1fr; }
+  .process-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <path d="M9 2L16 6V12L9 16L2 12V6L9 2Z" stroke="#0a0c10" stroke-width="1.5" fill="none"/>
+        <circle cx="9" cy="9" r="2.5" fill="#0a0c10"/>
+      </svg>
+    </div>
+    <div class="nav-logo-text">
+      Pro-Light
+      <span>Solutions</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#oferta">Oferta</a></li>
+    <li><a href="#o-nas">O nas</a></li>
+    <li><a href="#realizacje">Realizacje</a></li>
+    <li><a href="#kontakt" class="nav-cta">Zapytaj o wycenę</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Systemy sterowania oświetleniem</div>
+    <h1 class="hero-headline">
+      Twój system<br>
+      <em>nie może</em><br>
+      stanąć.
+    </h1>
+    <div class="hero-bottom">
+      <p class="hero-desc">
+        Uruchamiamy, serwisujemy i modernizujemy systemy sterowania oświetleniem oraz oświetlenia awaryjnego.<br><br>
+        <strong>Dla facility managerów, którzy nie mogą pozwolić sobie na awarię.</strong>
+      </p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn-hero">Bezpłatna konsultacja</a>
+        <a href="#realizacje" class="btn-hero-ghost">
+          Zobacz realizacje
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-stats-bar">
+    <div class="hero-stat">
+      <div class="hero-stat-val">14<span>+</span></div>
+      <div class="hero-stat-label">Lat w branży</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">100<span>+</span></div>
+      <div class="hero-stat-label">Projektów</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">48<span>h</span></div>
+      <div class="hero-stat-label">Reakcja serwisowa</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">90<span>%</span></div>
+      <div class="hero-stat-label">Klientów wraca</div>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEMS STRIP -->
+<div class="systems-strip">
+  <span class="systems-label">Obsługiwane systemy</span>
+  <div class="systems-list">
+    <span class="system-tag">Helvar</span>
+    <span class="system-tag">Vertex</span>
+    <span class="system-tag">WAGO</span>
+    <span class="system-tag">Glamox / Hybryd</span>
+    <span class="system-tag">GFS</span>
+    <span class="system-tag">TM Technology</span>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem-section">
+  <div class="problem-inner">
+    <div>
+      <div class="problem-label reveal">Znamy Twój problem</div>
+      <h2 class="problem-title reveal">Kiedy system<br>przestaje<br><em>działać</em></h2>
+      <p class="problem-text reveal d1">
+        Facility manager dużego obiektu nie ma czasu na szukanie firmy która "może spróbuje". Potrzebuje kogoś kto <strong>zna system, przyjedzie szybko i rozwiąże problem.</strong><br><br>
+        Przez ponad 14 lat zajmujemy się systemami sterowania oświetleniem od środka – znamy każdy z nich lepiej niż większość ich dystrybutorów.
+      </p>
+    </div>
+    <div class="problem-cards">
+      <div class="problem-card reveal d1">
+        <div class="problem-card-icon">!</div>
+        <div>
+          <h4>Awaria systemu w obiekcie</h4>
+          <p>System przestał odpowiadać. Następuje kontrola. Masz 48h. Dzwonisz do nas – przyjeżdżamy.</p>
+        </div>
+      </div>
+      <div class="problem-card reveal d2">
+        <div class="problem-card-icon">§</div>
+        <div>
+          <h4>Kontrola przeciwpożarowa</h4>
+          <p>Nadzór oświetlenia awaryjnego musi być aktualny i udokumentowany. Zajmujemy się tym kompleksowo.</p>
+        </div>
+      </div>
+      <div class="problem-card reveal d3">
+        <div class="problem-card-icon">↗</div>
+        <div>
+          <h4>Rosnące koszty energii</h4>
+          <p>Stary system sterowania zużywa więcej niż powinien. Modernizacja zwraca się w ciągu miesięcy.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="offer-section" id="oferta">
+  <div class="offer-inner">
+    <div class="section-eyebrow reveal">Oferta</div>
+    <h2 class="section-title reveal">Co robimy</h2>
+    <div class="offer-grid">
+      <div class="offer-card reveal">
+        <div class="offer-num">01</div>
+        <h3>Uruchomienie systemów sterowania</h3>
+        <p>Instalacja i konfiguracja systemów sterowania oświetleniem podstawowym. Optymalne działanie i energooszczędność od pierwszego dnia.</p>
+        <span class="offer-tag">Helvar · Vertex · WAGO</span>
+      </div>
+      <div class="offer-card reveal d1">
+        <div class="offer-num">02</div>
+        <h3>Nadzór oświetlenia awaryjnego</h3>
+        <p>Konfiguracja i uruchomienie systemów monitorowania opraw awaryjnych. Pełna zgodność z normami i dokumentacja dla kontroli.</p>
+        <span class="offer-tag">Glamox · GFS · TM Tech</span>
+      </div>
+      <div class="offer-card reveal d2">
+        <div class="offer-num">03</div>
+        <h3>Serwis i konserwacja</h3>
+        <p>Diagnostyka, konserwacja i naprawy. Reakcja serwisowa do 48h. Utrzymujemy Twój system sprawnym przez cały cykl eksploatacji.</p>
+        <span class="offer-tag">Wszystkie systemy</span>
+      </div>
+      <div class="offer-card reveal d3">
+        <div class="offer-num">04</div>
+        <h3>Modernizacja instalacji</h3>
+        <p>Unowocześniamy przestarzałe systemy sterowania i instalacje oświetleniowe. Lepsza efektywność energetyczna, niższe koszty.</p>
+        <span class="offer-tag">Audyt + projekt + realizacja</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why-section" id="o-nas">
+  <div class="why-inner">
+    <div class="why-visual reveal">
+      <div class="why-img-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80"
+          alt="Specjalista pracuje przy systemie sterowania oświetleniem"
+          loading="lazy"
+        >
+        <div class="why-badge">
+          <div class="why-badge-val">90<span>%</span></div>
+          <div class="why-badge-label">klientów wraca do nas przy kolejnych projektach</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="section-eyebrow reveal">Dlaczego Pro-Light</div>
+      <h2 class="section-title reveal">Znamy te systemy<br>od środka</h2>
+      <div class="why-points">
+        <div class="why-point reveal">
+          <div class="why-num">01</div>
+          <div>
+            <h4>Doświadczenie z lidera branży</h4>
+            <p>Zanim założyliśmy Pro-Light Solutions, przez kilkanaście lat pracowaliśmy przy największych projektach oświetleniowych w Polsce. Tę wiedzę wnosimy do każdego zlecenia.</p>
+          </div>
+        </div>
+        <div class="why-point reveal d1">
+          <div class="why-num">02</div>
+          <div>
+            <h4>Wszechstronność systemów</h4>
+            <p>Helvar, Vertex, WAGO, Glamox, GFS, TM Technology, Hybryd – znamy każdy wiodący system sterowania i oświetlenia awaryjnego na rynku.</p>
+          </div>
+        </div>
+        <div class="why-point reveal d2">
+          <div class="why-num">03</div>
+          <div>
+            <h4>Obiekty każdej skali</h4>
+            <p>Hale produkcyjne, biurowce, hotele, galerie handlowe, parki rozrywki – mamy doświadczenie z każdym typem obiektu.</p>
+          </div>
+        </div>
+        <div class="why-point reveal d3">
+          <div class="why-num">04</div>
+          <div>
+            <h4>Stała współpraca, nie jednorazowe zlecenie</h4>
+            <p>Ponad 90% naszych klientów to stałe współprace. Traktujemy każdy obiekt jak własny – bo tak jest łatwiej pracować.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="process-inner">
+    <div class="section-eyebrow reveal">Jak działamy</div>
+    <h2 class="section-title reveal" style="margin-bottom: 40px;">Prosty proces</h2>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="process-step-num">01</div>
+        <h3>Audyt i konsultacja</h3>
+        <p>Przyjeżdżamy, oglądamy obiekt i istniejące systemy. Bezpłatna konsultacja bez zobowiązań.</p>
+      </div>
+      <div class="process-step reveal d1">
+        <div class="process-step-num">02</div>
+        <h3>Wycena i projekt</h3>
+        <p>Szczegółowa wycena i plan działania. Jasne warunki, bez ukrytych kosztów.</p>
+      </div>
+      <div class="process-step reveal d2">
+        <div class="process-step-num">03</div>
+        <h3>Realizacja</h3>
+        <p>Wykonujemy zgodnie z harmonogramem. Minimalizujemy wpływ na działanie obiektu.</p>
+      </div>
+      <div class="process-step reveal d3">
+        <div class="process-step-num">04</div>
+        <h3>Serwis i wsparcie</h3>
+        <p>Pozostajemy do dyspozycji. Czas reakcji serwisowej do 48 godzin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-section" id="realizacje">
+  <div class="projects-inner">
+    <div class="section-eyebrow reveal">Realizacje</div>
+    <h2 class="section-title reveal">Wybrane projekty</h2>
+    <div class="projects-grid">
+      <div class="proj tall reveal">
+        <div class="proj-img">
+          <img src="https://images.unsplash.com/photo-1545348020-7f6f4dcd5fac?w=900&q=80" alt="Hala przemysłowa – system Helvar" loading="lazy">
+        </div>
+        <div class="proj-overlay"></div>
+        <div class="proj-body">
+          <div class="proj-type">Hala produkcyjna · Serwis i modernizacja</div>
+          <h3>System sterowania oświetleniem</h3>
+          <p>Kompleksowy serwis i modernizacja systemu sterowania oświetleniem w dużym obiekcie przemysłowym. System Helvar.</p>
+        </div>
+      </div>
+      <div class="proj short reveal d1">
+        <div class="proj-img">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Biurowiec – oświetlenie awaryjne" loading="lazy">
+        </div>
+        <div class="proj-overlay"></div>
+        <div class="proj-body">
+          <div class="proj-type">Biurowiec · Uruchomienie</div>
+          <h3>Nadzór opraw awaryjnych</h3>
+          <p>Uruchomienie systemu monitoringu oświetlenia awaryjnego.</p>
+        </div>
+      </div>
+      <div class="proj short reveal d2">
+        <div class="proj-img">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Obiekt rozrywkowy – serwis" loading="lazy">
+        </div>
+        <div class="proj-overlay"></div>
+        <div class="proj-body">
+          <div class="proj-type">Park rozrywki · Serwis</div>
+          <h3>Obsługa serwisowa systemów</h3>
+          <p>Bieżący serwis systemów oświetleniowych w dużym obiekcie rozrywkowym.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="kontakt">
+  <div class="cta-inner">
+    <div class="cta-left">
+      <div class="section-eyebrow reveal">Kontakt</div>
+      <h2 class="cta-title reveal">
+        Masz problem<br>z systemem?<br>
+        <em>Zadzwoń.</em>
+      </h2>
+      <p class="cta-sub reveal d1">Bezpłatna konsultacja, szybka wycena, konkretne działanie. Nie zostawiamy klientów bez odpowiedzi.</p>
+    </div>
+    <div class="cta-right reveal d1">
+      <a href="tel:+48608633434" class="cta-contact-card">
+        <div class="cta-contact-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="cta-contact-label">Telefon</div>
+          <div class="cta-contact-val">+48 608 633 434</div>
+        </div>
+      </a>
+      <a href="tel:+48698028684" class="cta-contact-card">
+        <div class="cta-contact-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="cta-contact-label">Telefon</div>
+          <div class="cta-contact-val">+48 698 028 684</div>
+        </div>
+      </a>
+      <a href="mailto:biuro@prolightsolutions.pl" class="cta-contact-card">
+        <div class="cta-contact-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div>
+          <div class="cta-contact-label">E-mail</div>
+          <div class="cta-contact-val">biuro@prolightsolutions.pl</div>
+        </div>
+      </a>
+      <a href="mailto:biuro@prolightsolutions.pl" class="btn-cta">Napisz do nas</a>
+      <p class="cta-address">Prolight Solutions Sp. z o.o. · Węgrzce Wielkie 1326, 32-002 Węgrzce Wielkie</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">Pro-Light Solutions</a>
+  <span class="footer-copy">© 2025 Prolight Solutions Sp. z o.o.</span>
+  <ul class="footer-links">
+    <li><a href="#">Polityka prywatności</a></li>
+    <li><a href="#oferta">Oferta</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+</footer>
+
+<script>
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  nav.style.borderBottomColor = window.scrollY > 10
+    ? 'rgba(255,255,255,0.12)'
+    : 'rgba(255,255,255,0.07)';
+});
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
