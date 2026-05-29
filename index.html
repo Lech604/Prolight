@@ -409,7 +409,7 @@ nav {
 /* ─── SYSTEMS STRIP ─── */
 .systems-strip {
   background: var(--ink2);
-  padding: 48px 40px;
+  padding: 56px 40px;
   border-top: 1px solid rgba(255,255,255,0.06);
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
@@ -420,70 +420,104 @@ nav {
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
-  margin-bottom: 32px;
+  color: rgba(255,255,255,0.25);
+  margin-bottom: 40px;
 }
 
 .systems-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px 40px;
-  margin-bottom: 32px;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-bottom: 40px;
 }
 
-.systems-category {}
+.systems-category {
+  padding: 32px 40px;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 8px;
+}
+
+.systems-category:first-child {
+  margin-right: 16px;
+}
 
 .systems-cat-label {
   font-family: var(--font-head);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--amber);
-  margin-bottom: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 .systems-tags {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 24px;
 }
 
 .system-tag {
   font-family: var(--font-head);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.6);
   transition: color 0.2s;
   cursor: default;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.system-tag::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--amber);
+  opacity: 0.5;
+  flex-shrink: 0;
 }
 .system-tag:hover { color: rgba(255,255,255,0.95); }
 
+.system-tag.tag-cti {
+  grid-column: 1 / -1;
+  color: rgba(255,255,255,0.35);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0.04em;
+  font-family: var(--font-body);
+}
+.system-tag.tag-cti::before { display: none; }
+
 .systems-service {
   border-top: 1px solid rgba(255,255,255,0.08);
-  padding-top: 24px;
+  padding-top: 28px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 16px;
 }
 
 .systems-service-icon {
   font-size: 18px;
   flex-shrink: 0;
-  opacity: 0.6;
+  opacity: 0.55;
+  margin-top: 1px;
 }
 
 .systems-service-text {
   font-family: var(--font-body);
   font-size: 13px;
-  color: rgba(255,255,255,0.45);
-  line-height: 1.5;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.55;
 }
 
 .systems-service-text strong {
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.65);
   font-weight: 600;
 }
 /* ─── OFFER ─── */
@@ -1015,14 +1049,16 @@ footer {
   section, .offer-section, .why-section, .process-section, .projects-section, .cta-section { padding: 64px 20px; }
   .problem-section { padding: 64px 20px; }
   .systems-strip, .partners-strip { padding: 24px 20px; }
-  .systems-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .systems-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .systems-category { padding: 24px 20px; }
+  .systems-tags { grid-template-columns: 1fr; }
   footer { padding: 24px 20px; }
 }
 
 @media (max-width: 480px) {
   .hero-stats-bar { grid-template-columns: 1fr 1fr; }
   .process-grid { grid-template-columns: 1fr; }
-  .systems-grid { grid-template-columns: 1fr; gap: 20px; }
+  .systems-grid { grid-template-columns: 1fr; gap: 12px; }
 }
 </style>
 </head>
@@ -1093,11 +1129,13 @@ footer {
   <div class="systems-grid">
 
     <div class="systems-category">
-      <div class="systems-cat-label">Systemy DALI</div>
+      <div class="systems-cat-label">DALI &amp; DMX</div>
       <div class="systems-tags">
         <span class="system-tag">Helvar</span>
         <span class="system-tag">Vertex</span>
         <span class="system-tag">E2D</span>
+        <span class="system-tag">WAGO</span>
+        <span class="system-tag">OSRAM / LEDVANCE</span>
       </div>
     </div>
 
@@ -1108,15 +1146,9 @@ footer {
         <span class="system-tag">Hybryd</span>
         <span class="system-tag">Glamox</span>
         <span class="system-tag">ES System</span>
-      </div>
-    </div>
-
-    <div class="systems-category">
-      <div class="systems-cat-label">Sterowanie DMX</div>
-      <div class="systems-tags">
-        <span class="system-tag">DMX / DALI Bridge</span>
-        <span class="system-tag">WAGO</span>
         <span class="system-tag">GFS</span>
+        <span class="system-tag">Centralne baterie</span>
+        <span class="system-tag tag-cti">⚙️ Sterowniki CTI 3×64 &mdash; regeneracja i serwis</span>
       </div>
     </div>
 
@@ -1124,7 +1156,7 @@ footer {
 
   <div class="systems-service">
     <span class="systems-service-icon">🔧</span>
-    <p class="systems-service-text"><strong>Serwis pogwarancyjny wszystkich obsługiwanych systemów</strong> — diagnostyka, naprawa i uruchomienie. W tym regeneracja sterowników CTI&nbsp;3×34 produkcji ES&nbsp;System.</p>
+    <p class="systems-service-text"><strong>Serwis pogwarancyjny wszystkich obsługiwanych systemów</strong> — diagnostyka, naprawa i uruchomienie. Specjalizujemy się również w regeneracji sterowników CTI&nbsp;3×64 produkcji ES&nbsp;System.</p>
   </div>
 
 </div>
