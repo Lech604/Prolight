@@ -409,40 +409,64 @@ nav {
 /* ─── SYSTEMS STRIP ─── */
 .systems-strip {
   background: var(--ink2);
-  padding: 22px 40px;
-  display: flex; align-items: center; gap: 0;
-  overflow: hidden;
+  padding: 48px 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
-.systems-label {
+.systems-strip-title {
   font-family: var(--font-head);
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.25);
-  white-space: nowrap;
-  padding-right: 32px;
-  border-right: 1px solid rgba(255,255,255,0.1);
-  margin-right: 32px;
-  flex-shrink: 0;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 32px;
 }
 
-.systems-list {
-  display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+.systems-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px 40px;
+}
+
+.systems-category {}
+
+.systems-cat-label {
+  font-family: var(--font-head);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 12px;
+}
+
+.systems-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .system-tag {
   font-family: var(--font-head);
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.65);
   transition: color 0.2s;
   cursor: default;
 }
-.system-tag:hover { color: rgba(255,255,255,0.75); }
+.system-tag:hover { color: rgba(255,255,255,0.95); }
+.system-tag.tag-note {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.3);
+  text-transform: none;
+  font-family: var(--font-body);
+}
 
 /* ─── OFFER ─── */
 .offer-section {
@@ -972,7 +996,8 @@ footer {
   .proj.tall { grid-row: span 1; min-height: 300px; }
   section, .offer-section, .why-section, .process-section, .projects-section, .cta-section { padding: 64px 20px; }
   .problem-section { padding: 64px 20px; }
-  .systems-strip, .partners-strip { padding: 16px 20px; }
+  .systems-strip, .partners-strip { padding: 24px 20px; }
+  .systems-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
   footer { padding: 24px 20px; }
 }
 
@@ -1045,14 +1070,46 @@ footer {
 
 <!-- SYSTEMS STRIP -->
 <div class="systems-strip">
-  <span class="systems-label">Obsługiwane systemy</span>
-  <div class="systems-list">
-    <span class="system-tag">Helvar</span>
-    <span class="system-tag">Vertex</span>
-    <span class="system-tag">WAGO</span>
-    <span class="system-tag">Glamox / Hybryd</span>
-    <span class="system-tag">GFS</span>
-    <span class="system-tag">TM Technology</span>
+  <div class="systems-strip-title">Obsługiwane systemy</div>
+  <div class="systems-grid">
+
+    <div class="systems-category">
+      <div class="systems-cat-label">Systemy DALI</div>
+      <div class="systems-tags">
+        <span class="system-tag">Helvar</span>
+        <span class="system-tag">Vertex</span>
+        <span class="system-tag">E2D</span>
+      </div>
+    </div>
+
+    <div class="systems-category">
+      <div class="systems-cat-label">Oświetlenie awaryjne &amp; ewakuacyjne</div>
+      <div class="systems-tags">
+        <span class="system-tag">TM Technology</span>
+        <span class="system-tag">Hybryd</span>
+        <span class="system-tag">Glamox</span>
+        <span class="system-tag">ES System</span>
+      </div>
+    </div>
+
+    <div class="systems-category">
+      <div class="systems-cat-label">Sterowanie DMX</div>
+      <div class="systems-tags">
+        <span class="system-tag">DMX / DALI Bridge</span>
+        <span class="system-tag">WAGO</span>
+        <span class="system-tag">GFS</span>
+      </div>
+    </div>
+
+    <div class="systems-category">
+      <div class="systems-cat-label">Serwis &amp; regeneracja</div>
+      <div class="systems-tags">
+        <span class="system-tag">Sterowniki CTI 3×34</span>
+        <span class="system-tag tag-note">produkcja ES System</span>
+        <span class="system-tag">Serwis pogwarancyjny</span>
+      </div>
+    </div>
+
   </div>
 </div>
 
