@@ -426,15 +426,16 @@ nav {
 
 .systems-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px 40px;
+  margin-bottom: 32px;
 }
 
 .systems-category {}
 
 .systems-cat-label {
   font-family: var(--font-head);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -459,15 +460,32 @@ nav {
   cursor: default;
 }
 .system-tag:hover { color: rgba(255,255,255,0.95); }
-.system-tag.tag-note {
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: rgba(255,255,255,0.3);
-  text-transform: none;
-  font-family: var(--font-body);
+
+.systems-service {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
+.systems-service-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.systems-service-text {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.5;
+}
+
+.systems-service-text strong {
+  color: rgba(255,255,255,0.7);
+  font-weight: 600;
+}
 /* ─── OFFER ─── */
 .offer-section {
   padding: 96px 40px;
@@ -997,13 +1015,14 @@ footer {
   section, .offer-section, .why-section, .process-section, .projects-section, .cta-section { padding: 64px 20px; }
   .problem-section { padding: 64px 20px; }
   .systems-strip, .partners-strip { padding: 24px 20px; }
-  .systems-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .systems-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
   footer { padding: 24px 20px; }
 }
 
 @media (max-width: 480px) {
   .hero-stats-bar { grid-template-columns: 1fr 1fr; }
   .process-grid { grid-template-columns: 1fr; }
+  .systems-grid { grid-template-columns: 1fr; gap: 20px; }
 }
 </style>
 </head>
@@ -1101,16 +1120,13 @@ footer {
       </div>
     </div>
 
-    <div class="systems-category">
-      <div class="systems-cat-label">Serwis &amp; regeneracja</div>
-      <div class="systems-tags">
-        <span class="system-tag">Sterowniki CTI 3×34</span>
-        <span class="system-tag tag-note">produkcja ES System</span>
-        <span class="system-tag">Serwis pogwarancyjny</span>
-      </div>
-    </div>
-
   </div>
+
+  <div class="systems-service">
+    <span class="systems-service-icon">🔧</span>
+    <p class="systems-service-text"><strong>Serwis pogwarancyjny wszystkich obsługiwanych systemów</strong> — diagnostyka, naprawa i uruchomienie. W tym regeneracja sterowników CTI&nbsp;3×34 produkcji ES&nbsp;System.</p>
+  </div>
+
 </div>
 
 <!-- PROBLEM -->
