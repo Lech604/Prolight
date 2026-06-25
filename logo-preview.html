@@ -1,104 +1,150 @@
 <!DOCTYPE html>
-  <html lang="pl">
+<html lang="pl">
   <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prolight - Propozycje Logo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prolight - Propozycje Logo</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-body{background:#f0f0ee;font-family:'Barlow',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:0 0 60px}
-.page-title{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#999;margin:48px 0 40px}
-.lp-wrapper{display:flex;width:100%;max-width:1100px;padding:0 40px}
-.lp-card{flex:1;padding:40px}
-.lp-card+.lp-card{border-left:1px solid #ddd}
-.lp-tag{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#bbb;margin-bottom:6px}
-.lp-name{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:600;color:#1a1a1a;letter-spacing:.04em;margin-bottom:8px}
-.lp-desc{font-size:13px;color:#888;line-height:1.6;max-width:320px;margin-bottom:32px}
-.lp-box{border-radius:10px;padding:36px 40px;display:flex;align-items:center;min-height:100px;margin-bottom:12px}
-.lp-box.light{background:#fff}
-.lp-box.dark{background:#0a0c10}
-.lp-bglabel{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#bbb;margin-bottom:8px}
-</style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#f0f0ee;font-family:'Barlow',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:0 0 60px}
+    .page-title{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#999;margin:48px 0 40px}
+    .lp-wrapper{display:flex;flex-wrap:wrap;width:100%;max-width:1100px;padding:0 40px;gap:0}
+    .lp-card{flex:1 1 340px;padding:40px;min-width:280px}
+    .lp-card+.lp-card{border-left:1px solid #ddd}
+    @media(max-width:700px){.lp-card+.lp-card{border-left:none;border-top:1px solid #ddd}}
+    .lp-tag{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#bbb;margin-bottom:6px}
+    .lp-name{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:600;color:#1a1a1a;letter-spacing:.04em;margin-bottom:8px}
+    .lp-desc{font-size:13px;color:#888;line-height:1.6;max-width:320px;margin-bottom:32px}
+    .lp-box{border-radius:10px;padding:20px 24px;display:flex;align-items:center;justify-content:center;min-height:100px;margin-bottom:12px}
+    .lp-box.light{background:#fff}
+    .lp-box.dark{background:#0a0c10}
+    .lp-box img{max-width:100%;max-height:80px;object-fit:contain}
+    .lp-bglabel{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#bbb;margin-bottom:8px}
+    </style>
   </head>
   <body>
-  <p class="page-title">Prolight Solutions - Propozycje znaku graficznego</p>
-<div class="lp-wrapper">
-<div class="lp-card">
-<div class="lp-tag">Kierunek A</div>
-<div class="lp-name">Monogram z promieniem</div>
-<div class="lp-desc">Litera P z trzema promieniami. Bez zarowki, dziala jako favicon i ikona.</div>
-<div class="lp-bglabel">Jasne tlo</div>
-<div class="lp-box light">
-  <svg width="220" height="50" viewBox="0 0 220 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M7 43 L7 7" stroke="#1a1a1a" stroke-width="2.6" stroke-linecap="round"/>
-  <path d="M7 7 L16 7 Q27 7 27 17 Q27 27 16 27 L7 27" stroke="#1a1a1a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <line x1="30" y1="5" x2="37" y2="0" stroke="#f59e0b" stroke-width="2.2" stroke-linecap="round"/>
-  <line x1="33" y1="11" x2="41" y2="9" stroke="#f59e0b" stroke-width="2.2" stroke-linecap="round"/>
-  <line x1="32" y1="17" x2="40" y2="17" stroke="#f59e0b" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
-  <text x="52" y="28" font-family="Barlow Condensed,sans-serif" font-weight="600" font-size="22" letter-spacing="0.5" fill="#111">PROLIGHT</text>
-  <text x="52" y="44" font-family="Barlow Condensed,sans-serif" font-weight="400" font-size="11.5" letter-spacing="4" fill="#aaa">SOLUTIONS</text>
-  </svg>
-  </div>
-  <div class="lp-bglabel">Ciemne tlo</div>
-  <div class="lp-box dark">
-  <svg width="220" height="50" viewBox="0 0 220 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M7 43 L7 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
-  <path d="M7 7 L16 7 Q27 7 27 17 Q27 27 16 27 L7 27" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <line x1="30" y1="5" x2="37" y2="0" stroke="#f59e0b" stroke-width="2.2" stroke-linecap="round"/>
-  <line x1="33" y1="11" x2="41" y2="9" stroke="#f59e0b" stroke-width="2.2" stroke-linecap="round"/>
-  <line x1="32" y1="17" x2="40" y2="17" stroke="#f59e0b" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
-  <text x="52" y="28" font-family="Barlow Condensed,sans-serif" font-weight="600" font-size="22" letter-spacing="0.5" fill="#fff">PROLIGHT</text>
-  <text x="52" y="44" font-family="Barlow Condensed,sans-serif" font-weight="400" font-size="11.5" letter-spacing="4" fill="rgba(255,255,255,0.38)">SOLUTIONS</text>
-  </svg>
-  </div>
-  </div>
-  <div class="lp-card">
-  <div class="lp-tag">Kierunek B</div>
-  <div class="lp-name">Wezel DALI</div>
-  <div class="lp-desc">Okrag z punktami jak oprawy na magistrali DALI. Minimalistyczny, unikalny dla branzy oswietleniowej.</div>
-  <div class="lp-bglabel">Jasne tlo</div>
-  <div class="lp-box light">
-  <svg width="240" height="50" viewBox="0 0 240 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g transform="translate(1,0)">
-  <circle cx="25" cy="25" r="21" stroke="#e0e0e0" stroke-width="1" fill="none"/>
-  <circle cx="25" cy="4" r="2.4" fill="#f59e0b"/>
-  <circle cx="38.8" cy="9" r="1.9" fill="#d5d5d5"/>
-  <circle cx="45.5" cy="22" r="1.6" fill="#d5d5d5"/>
-  <circle cx="41.8" cy="36.5" r="1.6" fill="#d5d5d5"/>
-  <circle cx="31" cy="44.5" r="1.9" fill="#d5d5d5"/>
-  <circle cx="19" cy="44.5" r="1.6" fill="#d5d5d5"/>
-  <circle cx="8.2" cy="36.5" r="1.6" fill="#d5d5d5"/>
-  <circle cx="4.5" cy="22" r="1.9" fill="#d5d5d5"/>
-  <circle cx="11.2" cy="9" r="1.6" fill="#d5d5d5"/>
-  <circle cx="25" cy="25" r="3.2" fill="rgba(245,158,11,0.18)"/>
-  <circle cx="25" cy="25" r="1.6" fill="#f59e0b"/>
-  </g>
-  <text x="64" y="28" font-family="Barlow Condensed,sans-serif" font-weight="600" font-size="22" letter-spacing="0.5" fill="#111">PROLIGHT</text>
-  <text x="64" y="44" font-family="Barlow Condensed,sans-serif" font-weight="400" font-size="11.5" letter-spacing="4" fill="#aaa">SOLUTIONS</text>
-  </svg>
-  </div>
-  <div class="lp-bglabel">Ciemne tlo</div>
-  <div class="lp-box dark">
-  <svg width="240" height="50" viewBox="0 0 240 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g transform="translate(1,0)">
-  <circle cx="25" cy="4" r="2.4" fill="#f59e0b"/>
-  <circle cx="38.8" cy="9" r="1.9" fill="rgba(255,255,255,0.28)"/>
-  <circle cx="45.5" cy="22" r="1.6" fill="rgba(255,255,255,0.28)"/>
-  <circle cx="41.8" cy="36.5" r="1.6" fill="rgba(255,255,255,0.28)"/>
-  <circle cx="31" cy="44.5" r="1.9" fill="rgba(255,255,255,0.28)"/>
-  <circle cx="19" cy="44.5" r="1.6" fill="rgba(255,255,255,0.28)"/>
-  <circle cx="8.2" cy="36.5" r="1.6" fill="rgba(255,255,255,0.28)"/>
-  <circle cx="4.5" cy="22" r="1.9" fill="rgba(255,255,255,0.28)"/>
-  <circle cx="11.2" cy="9" r="1.6" fill="rgba(255,255,255,0.28)"/>
-  <circle cx="25" cy="25" r="3.2" fill="rgba(245,158,11,0.2)"/>
-  <circle cx="25" cy="25" r="1.6" fill="#f59e0b"/>
-  </g>
-  <text x="64" y="28" font-family="Barlow Condensed,sans-serif" font-weight="600" font-size="22" letter-spacing="0.5" fill="#fff">PROLIGHT</text>
-  <text x="64" y="44" font-family="Barlow Condensed,sans-serif" font-weight="400" font-size="11.5" letter-spacing="4" fill="rgba(255,255,255,0.38)">SOLUTIONS</text>
-  </svg>
-  </div>
-  </div>
-  </div>
+    <p class="page-title">Prolight Solutions - Propozycje znaku graficznego</p>p>
+    <div class="lp-wrapper">
+      <div class="lp-card">
+        <div class="lp-tag">Kierunek A</div>div>
+        <div class="lp-name">Monogram z promieniem</div>div>
+        <div class="lp-desc">Litera P z trzema promieniami. Bez zarowki, dziala jako favicon i ikona.</div>div>
+        <div class="lp-bglabel">Jasne tlo</div>div>
+        <div class="lp-box light">
+          <svg width="220" height="50" viewBox="0 0 220 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 43 L7 7" stroke="#1a1a1a" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M7 7 L16 7 Q27 7 27 17 Q27 27 16 27 L7 27" stroke="#1a1a1a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <line x1="30" y1="5" x2="37" y2="0" stroke="#f59e0b" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="33" y1="11" x2="41" y2="9" stroke="#f59e0b" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="32" y1="17" x2="40" y2="17" stroke="#f59e0b" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+            <text x="52" y="28" font-family="Barlow Condensed,sans-serif" font-weight="600" font-size="22" letter-spacing="0.5" fill="#111">PROLIGHT</text>text>
+            <text x="52" y="44" font-family="Barlow Condensed,sans-serif" font-weight="400" font-size="11.5" letter-spacing="4" fill="#aaa">SOLUTIONS</text>text>
+          </svg>svg>
+        </div>div>
+        <div class="lp-bglabel">Ciemne tlo</div>div>
+        <div class="lp-box dark">
+          <svg width="220" height="50" viewBox="0 0 220 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 43 L7 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M7 7 L16 7 Q27 7 27 17 Q27 27 16 27 L7 27" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <line x1="30" y1="5" x2="37" y2="0" stroke="#f59e0b" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="33" y1="11" x2="41" y2="9" stroke="#f59e0b" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="32" y1="17" x2="40" y2="17" stroke="#f59e0b" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+            <text x="52" y="28" font-family="Barlow Condensed,sans-serif" font-weight="600" font-size="22" letter-spacing="0.5" fill="#fff">PROLIGHT</text>text>
+            <text x="52" y="44" font-family="Barlow Condensed,sans-serif" font-weight="400" font-size="11.5" letter-spacing="4" fill="rgba(255,255,255,0.38)">SOLUTIONS</text>text>
+          </svg>svg>
+        </div>div>
+      </div>div>
+      <div class="lp-card">
+        <div class="lp-tag">Kierunek B</div>div>
+        <div class="lp-name">Wezel DALI</div>div>
+        <div class="lp-desc">Okrag z punktami jak oprawy na magistrali DALI. Minimalistyczny, unikalny dla branzy oswietleniowej.</div>div>
+        <div class="lp-bglabel">Jasne tlo</div>div>
+        <div class="lp-box light">
+          <svg width="240" height="50" viewBox="0 0 240 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(1,0)">
+              <circle cx="25" cy="25" r="21" stroke="#e0e0e0" stroke-width="1" fill="none"/>
+              <circle cx="25" cy="4" r="2.4" fill="#f59e0b"/>
+              <circle cx="38.8" cy="9" r="1.9" fill="#d5d5d5"/>
+              <circle cx="45.5" cy="22" r="1.6" fill="#d5d5d5"/>
+              <circle cx="41.8" cy="36.5" r="1.6" fill="#d5d5d5"/>
+              <circle cx="31" cy="44.5" r="1.9" fill="#d5d5d5"/>
+              <circle cx="19" cy="44.5" r="1.6" fill="#d5d5d5"/>
+              <circle cx="8.2" cy="36.5" r="1.6" fill="#d5d5d5"/>
+              <circle cx="4.5" cy="22" r="1.9" fill="#d5d5d5"/>
+              <circle cx="11.2" cy="9" r="1.6" fill="#d5d5d5"/>
+              <circle cx="25" cy="25" r="3.2" fill="rgba(245,158,11,0.18)"/>
+              <circle cx="25" cy="25" r="1.6" fill="#f59e0b"/>
+            </g>g>
+            <text x="64" y="28" font-family="Barlow Condensed,sans-serif" font-weight="600" font-size="22" letter-spacing="0.5" fill="#111">PROLIGHT</text>text>
+            <text x="64" y="44" font-family="Barlow Condensed,sans-serif" font-weight="400" font-size="11.5" letter-spacing="4" fill="#aaa">SOLUTIONS</text>text>
+          </svg>svg>
+        </div>div>
+        <div class="lp-bglabel">Ciemne tlo</div>div>
+        <div class="lp-box dark">
+          <svg width="240" height="50" viewBox="0 0 240 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(1,0)">
+              <circle cx="25" cy="4" r="2.4" fill="#f59e0b"/>
+              <circle cx="38.8" cy="9" r="1.9" fill="rgba(255,255,255,0.28)"/>
+              <circle cx="45.5" cy="22" r="1.6" fill="rgba(255,255,255,0.28)"/>
+              <circle cx="41.8" cy="36.5" r="1.6" fill="rgba(255,255,255,0.28)"/>
+              <circle cx="31" cy="44.5" r="1.9" fill="rgba(255,255,255,0.28)"/>
+              <circle cx="19" cy="44.5" r="1.6" fill="rgba(255,255,255,0.28)"/>
+              <circle cx="8.2" cy="36.5" r="1.6" fill="rgba(255,255,255,0.28)"/>
+              <circle cx="4.5" cy="22" r="1.9" fill="rgba(255,255,255,0.28)"/>
+              <circle cx="11.2" cy="9" r="1.6" fill="rgba(255,255,255,0.28)"/>
+              <circle cx="25" cy="25" r="3.2" fill="rgba(245,158,11,0.2)"/>
+              <circle cx="25" cy="25" r="1.6" fill="#f59e0b"/>
+            </g>g>
+            <text x="64" y="28" font-family="Barlow Condensed,sans-serif" font-weight="600" font-size="22" letter-spacing="0.5" fill="#fff">PROLIGHT</text>text>
+            <text x="64" y="44" font-family="Barlow Condensed,sans-serif" font-weight="400" font-size="11.5" letter-spacing="4" fill="rgba(255,255,255,0.38)">SOLUTIONS</text>text>
+          </svg>svg>
+        </div>div>
+      </div>div>
+    </div>div>
+    <div class="lp-wrapper" style="margin-top:0;border-top:1px solid #ddd">
+      <div class="lp-card">
+        <div class="lp-tag">Kierunek C</div>div>
+        <div class="lp-name">Siec polaczen — szescian</div>div>
+        <div class="lp-desc">Izometryczny szescian zbudowany z wezlow i linii. Ikona dziala samodzielnie bez napisu — czytelna w favicon i aplikacjach.</div>div>
+        <div class="lp-bglabel">Jasne tlo</div>div>
+        <div class="lp-box light">
+          <img src="logo-c-szescian.png" alt="Logo C - Szescian">
+        </div>div>
+        <div class="lp-bglabel">Ciemne tlo</div>div>
+        <div class="lp-box dark">
+          <img src="logo-c-szescian.png" alt="Logo C - Szescian">
+        </div>div>
+      </div>div>
+      <div class="lp-card">
+        <div class="lp-tag">Kierunek D</div>div>
+        <div class="lp-name">Konstelacja asymetryczna</div>div>
+        <div class="lp-desc">Dynamiczny, asymetryczny wezel sieci — przypomina rozgaleziony schemat instalacji DALI. Nowoczesny i unikatowy.</div>div>
+        <div class="lp-bglabel">Jasne tlo</div>div>
+        <div class="lp-box light">
+          <img src="logo-d-konstelacja.png" alt="Logo D - Konstelacja">
+        </div>div>
+        <div class="lp-bglabel">Ciemne tlo</div>div>
+        <div class="lp-box dark">
+          <img src="logo-d-konstelacja.png" alt="Logo D - Konstelacja">
+        </div>div>
+      </div>div>
+      <div class="lp-card">
+        <div class="lp-tag">Kierunek E</div>div>
+        <div class="lp-name">Gwiazda — wezel centralny</div>div>
+        <div class="lp-desc">Symetryczna gwiazda z centralnym swiecacym punktem. Prosta, czysta — dziala jako samodzielna ikona marki podobnie jak logo Glamox.</div>div>
+        <div class="lp-bglabel">Jasne tlo</div>div>
+        <div class="lp-box light">
+          <img src="logo-e-gwiazda.png" alt="Logo E - Gwiazda">
+        </div>div>
+        <div class="lp-bglabel">Ciemne tlo</div>div>
+        <div class="lp-box dark">
+          <img src="logo-e-gwiazda.png" alt="Logo E - Gwiazda">
+        </div>div>
+      </div>div>
+    </div>div>
   </body>
-  </html>
+</html>html>
+  </body>
+  </style></title>
+  </head>
