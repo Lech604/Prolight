@@ -1027,12 +1027,20 @@ footer {
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
-  .offer-grid { grid-template-columns: 1fr 1fr; }
+  .offer-grid { grid-template-columns: 1fr 1fr; 
   .why-inner { grid-template-columns: 1fr; gap: 48px; }
   .why-img-wrap { aspect-ratio: 16/7; }
   .cta-inner { grid-template-columns: 1fr; gap: 48px; }
 }
 
+@media (max-width: 900px) {
+  .systems-strip { padding: 40px 24px; }
+  .systems-grid { grid-template-columns: 1fr; gap: 16px; }
+  .systems-category { padding: 24px; }
+  .systems-category:first-child { margin-right: 0; }
+  .systems-tags { grid-template-columns: 1fr; gap: 12px; }
+}
+  
 @media (max-width: 768px) {
   nav { padding: 0 20px; }
   .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
@@ -1049,7 +1057,7 @@ footer {
   section, .offer-section, .why-section, .process-section, .projects-section, .cta-section { padding: 64px 20px; }
   .problem-section { padding: 64px 20px; }
   .systems-strip, .partners-strip { padding: 24px 20px; }
-  .systems-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .systems-grid { grid-template-columns: 1fr; gap: 16px; }
   .systems-category { padding: 24px 20px; }
   .systems-tags { grid-template-columns: 1fr; }
   footer { padding: 24px 20px; }
