@@ -425,20 +425,10 @@ nav {
 }
 
 .systems-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
   margin-bottom: 40px;
-}
-
-.systems-category {
-  padding: 32px 40px;
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 8px;
-}
-
-.systems-category:first-child {
-  margin-right: 16px;
 }
 
 .systems-cat-label {
@@ -448,15 +438,13 @@ nav {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--amber);
-  margin-bottom: 20px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 14px;
 }
 
 .systems-tags {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
 }
 
 .system-tag {
@@ -465,35 +453,46 @@ nav {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.6);
-  transition: color 0.2s;
+  color: rgba(255,255,255,0.75);
+  background: rgba(245,158,11,0.06);
+  border: 1px solid rgba(245,158,11,0.35);
+  border-radius: 999px;
+  padding: 9px 18px;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
   cursor: default;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
 }
 .system-tag::before {
   content: "";
-  width: 4px;
-  height: 4px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background: var(--amber);
-  opacity: 0.5;
+  opacity: 0.9;
   flex-shrink: 0;
 }
-.system-tag:hover { color: rgba(255,255,255,0.95); }
+.system-tag:hover {
+  color: var(--white);
+  border-color: var(--amber);
+  background: rgba(245,158,11,0.14);
+}
 
 .system-tag.tag-cti {
-  grid-column: 1 / -1;
+  flex-basis: 100%;
   color: rgba(255,255,255,0.35);
   font-size: 10px;
   font-weight: 500;
   text-transform: none;
   letter-spacing: 0.04em;
   font-family: var(--font-body);
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 6px 0 0;
 }
 .system-tag.tag-cti::before { display: none; }
-
 .systems-service {
   border-top: 1px solid rgba(255,255,255,0.08);
   padding-top: 28px;
@@ -1035,10 +1034,7 @@ footer {
 
 @media (max-width: 900px) {
   .systems-strip { padding: 40px 24px; }
-  .systems-grid { grid-template-columns: 1fr; gap: 16px; }
-  .systems-category { padding: 24px; }
-  .systems-category:first-child { margin-right: 0; }
-  .systems-tags { grid-template-columns: 1fr; gap: 12px; }
+  .systems-tags { gap: 8px 10px; }
 }
   
 @media (max-width: 768px) {
@@ -1057,9 +1053,7 @@ footer {
   section, .offer-section, .why-section, .process-section, .projects-section, .cta-section { padding: 64px 20px; }
   .problem-section { padding: 64px 20px; }
   .systems-strip, .partners-strip { padding: 24px 20px; }
-  .systems-grid { grid-template-columns: 1fr; gap: 16px; }
-  .systems-category { padding: 24px 20px; }
-  .systems-tags { grid-template-columns: 1fr; }
+  .systems-tags { gap: 8px; }
   footer { padding: 24px 20px; }
 }
 
@@ -1216,7 +1210,7 @@ footer {
       <div class="problem-label reveal">Znamy Twój problem</div>
       <h2 class="problem-title reveal">Kiedy system<br>przestaje<br><em>działać</em></h2>
       <p class="problem-text reveal d1">
-        Facility manager dużego obiektu nie ma czasu na szukanie firmy która "może spróbuje". Potrzebuje kogoś kto <strong>zna system, przyjedzie szybko i rozwiąże problem.</strong><br><br>
+        Sterownik Helvar przestaje odpowiadać, centrala oświetlenia awaryjnego zgłasza błąd, a przegląd trzeba zamknąć protokołem jeszcze tego samego dnia. W takiej chwili nie liczy się deklaracja "spróbujemy" – liczy się, czy <strong>technik znał ten system, zanim wjechał na obiekt.</strong><br><br>
         Przez ponad 14 lat zajmujemy się systemami sterowania oświetleniem od środka – znamy każdy z nich lepiej niż większość ich dystrybutorów.
       </p>
     </div>
@@ -1232,14 +1226,14 @@ footer {
         <div class="problem-card-icon">§</div>
         <div>
           <h4>Kontrola przeciwpożarowa</h4>
-          <p>Nadzór oświetlenia awaryjnego musi być aktualny i udokumentowany. Zajmujemy się tym kompleksowo.</p>
+          <p>Zgodnie z normą PN-EN 50172 nadzór oświetlenia awaryjnego wymaga cyklicznych testów i aktualnego dziennika testów. Prowadzimy tę dokumentację i przeglądy kompleksowo.</p>
         </div>
       </div>
       <div class="problem-card reveal d3">
         <div class="problem-card-icon">↗</div>
         <div>
           <h4>Rosnące koszty energii</h4>
-          <p>Stary system sterowania zużywa więcej niż powinien. Modernizacja zwraca się w ciągu miesięcy.</p>
+          <p>Stary system sterowania zużywa więcej niż powinien. Modernizacja zwraca się zwykle w 12–18 miesięcy.</p>
         </div>
       </div>
     </div>
@@ -1325,7 +1319,7 @@ footer {
           <div class="why-num">04</div>
           <div>
             <h4>Stała współpraca, nie jednorazowe zlecenie</h4>
-            <p>Ponad 90% naszych klientów to stałe współprace. Traktujemy każdy obiekt jak własny – bo tak jest łatwiej pracować.</p>
+            <p>Ponad 90% naszych klientów to stałe współprace. Większość zleceń to kolejne obiekty od tych samych zarządców, nie nowi klienci z reklamy – traktujemy każdy obiekt jak własny, bo tak jest łatwiej pracować.</p>
           </div>
         </div>
       </div>
@@ -1412,10 +1406,11 @@ footer {
     <div class="cta-left">
       <div class="section-eyebrow reveal">Kontakt</div>
       <h2 class="cta-title reveal">
-        Masz problem<br>z systemem?<br>
-        <em>Zadzwoń.</em>
+        System nie odpowiada?<br>
+        Zadzwoń, opisz symptomy —<br>
+        <em>umówimy diagnozę.</em>
       </h2>
-      <p class="cta-sub reveal d1">Bezpłatna konsultacja, szybka wycena, konkretne działanie. Nie zostawiamy klientów bez odpowiedzi.</p>
+      <p class="cta-sub reveal d1">Podajesz typ systemu i objaw awarii, my mówimy czy to wymaga wyjazdu, czy da się zdiagnozować zdalnie.</p>
     </div>
     <div class="cta-right reveal d1">
       <a href="tel:+48608633434" class="cta-contact-card">
