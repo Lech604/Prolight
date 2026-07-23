@@ -876,6 +876,93 @@ nav {
   line-height: 1.65;
 }
 
+/* ─── NEWS / AKTUALNOŚCI ─── */
+.news-section {
+padding: 96px 40px;
+background: var(--off);
+}
+
+.news-inner { max-width: 1200px; margin: 0 auto; }
+
+.news-header {
+display: flex;
+justify-content: space-between;
+align-items: flex-end;
+gap: 24px;
+flex-wrap: wrap;
+margin-bottom: 40px;
+}
+
+.news-link {
+font-family: var(--font-head);
+font-size: 13px;
+font-weight: 700;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+color: var(--ink);
+text-decoration: none;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+border-bottom: 2px solid var(--amber);
+padding-bottom: 2px;
+transition: color 0.2s;
+}
+.news-link:hover { color: var(--amber); }
+
+.news-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 24px;
+}
+
+.news-card {
+background: var(--white);
+border: 1px solid var(--border-light);
+border-radius: 16px;
+padding: 28px;
+display: flex;
+flex-direction: column;
+gap: 14px;
+transition: transform 0.2s, border-color 0.2s;
+}
+.news-card:hover { transform: translateY(-3px); border-color: var(--amber); }
+
+.news-pill {
+align-self: flex-start;
+font-family: var(--font-head);
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+padding: 6px 14px;
+border-radius: 999px;
+background: var(--amber-dim);
+color: var(--amber);
+border: 1px solid rgba(245,158,11,0.25);
+}
+.news-pill.tag-realizacja { background: rgba(59,130,246,0.1); color: #3b82f6; border-color: rgba(59,130,246,0.25); }
+.news-pill.tag-zgodnosc { background: rgba(239,68,68,0.1); color: #ef4444; border-color: rgba(239,68,68,0.25); }
+.news-pill.tag-serwis { background: rgba(16,185,129,0.1); color: #10b981; border-color: rgba(16,185,129,0.25); }
+
+.news-date { font-size: 13px; color: var(--mid); font-weight: 500; }
+
+.news-card h3 {
+font-family: var(--font-head);
+font-size: 20px;
+font-weight: 800;
+color: var(--ink);
+text-transform: uppercase;
+line-height: 1.15;
+}
+
+.news-card p { font-size: 15px; color: #374151; line-height: 1.65; }
+
+@media (max-width: 900px) {
+.news-grid { grid-template-columns: 1fr; }
+.news-header { align-items: flex-start; flex-direction: column; }
+}
+
 /* ─── CTA ─── */
 .cta-section {
   background: var(--ink);
@@ -1122,7 +1209,7 @@ footer {
   <ul class="nav-links">
     <li><a href="#oferta">Oferta</a></li>
     <li><a href="#o-nas">O nas</a></li>
-    <li><a href="#realizacje">Realizacje</a></li>
+    <li><a href="aktualnosci.html">Aktualności</a></li>
     <li><a href="#kontakt" class="nav-cta">Zapytaj o wycenę</a></li>
   </ul>
 </nav>
@@ -1145,8 +1232,8 @@ footer {
       </p>
       <div class="hero-actions">
         <a href="#kontakt" class="btn-hero">Bezpłatna konsultacja</a>
-        <a href="#realizacje" class="btn-hero-ghost">
-          Zobacz realizacje
+        <a href="#aktualnosci" class="btn-hero-ghost">
+          Zobacz aktualności
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
             <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -1367,7 +1454,27 @@ footer {
   </div>
 </section>
 
+<!-- NEWS -->
+<section class="news-section" id="aktualnosci">
+<div class="news-inner">
+<div class="news-header">
+<div>
+<div class="section-eyebrow reveal">Aktualności</div>
+<h2 class="section-title reveal" style="margin-bottom:0;">Co u nas słychać</h2>
+</div>
+<a href="aktualnosci.html" class="news-link reveal">
+Wszystkie wpisy
+<svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+<path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</a>
+</div>
+<div class="news-grid" id="news-grid"></div>
+</div>
+</section>
+
 <!-- PROJECTS -->
+<!--
 <section class="projects-section" id="realizacje">
   <div class="projects-inner">
     <div class="section-eyebrow reveal">Realizacje</div>
@@ -1409,6 +1516,7 @@ footer {
     </div>
   </div>
 </section>
+-->
 
 <!-- CTA -->
 <section class="cta-section" id="kontakt">
@@ -1505,6 +1613,25 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
       loading.classList.add('show');
     }, 500);
   }, 1500);
+})();
+</script>
+<script src="posts-data.js"></script>
+<script>
+(function() {
+if (typeof PROLIGHT_POSTS === "undefined") return;
+var MIESIACE = ["stycznia","lutego","marca","kwietnia","maja","czerwca","lipca","sierpnia","września","października","listopada","grudnia"];
+function formatujDate(iso) {
+var parts = iso.split("-").map(Number);
+return parts[2] + " " + MIESIACE[parts[1]-1] + " " + parts[0];
+}
+function kartaHTML(post) {
+return "<article class=\"news-card\"><span class=\"news-pill tag-" + post.category + "\">" + post.categoryLabel + "</span><span class=\"news-date\">" + formatujDate(post.date) + "</span><h3>" + post.title + "</h3><p>" + post.excerpt + "</p></article>";
+}
+var grid = document.getElementById("news-grid");
+if (grid) {
+var najnowsze = PROLIGHT_POSTS.slice().sort(function(a,b){ return new Date(b.date) - new Date(a.date); }).slice(0,3);
+grid.innerHTML = najnowsze.map(kartaHTML).join("");
+}
 })();
 </script>
 </body>
