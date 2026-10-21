@@ -66,7 +66,7 @@ const PROLIGHT_POSTS = [
 I - System Vertex: 8 sterowników, 
 II - 900 opraw podstawowych, 
 III - 150 opraw oświetlenia awaryjnego i ewakuacyjnego.
-IV - Więcej o otwarciu salonu na [stronie Toyoty](https://www.toyota.pl/swiat-toyoty/nowosci/toyota-i-lexus-otwieraja-nowe-salony-z-warszawie).`,,
+IV - Więcej o otwarciu salonu na [stronie Toyoty](https://www.toyota.pl/swiat-toyoty/nowosci/toyota-i-lexus-otwieraja-nowe-salony-z-warszawie).`,
       image: "Bemowo.png"
    },
 
