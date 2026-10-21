@@ -80,6 +80,9 @@ border-bottom: 1px solid rgba(255,255,255,0.07);
 .news-date { font-size: 13px; color: var(--mid); font-weight: 500; }
 .news-card h3 { font-family: var(--font-head); font-size: 20px; font-weight: 800; color: var(--ink); text-transform: uppercase; line-height: 1.15; }
 .news-card p { font-size: 15px; color: #374151; line-height: 1.65; }
+.news-card p a { color: #b45309; text-decoration: underline; text-underline-offset: 2px; overflow-wrap: anywhere; }
+.news-card p a:hover { color: var(--amber); }
+.news-card p + p { margin-top: -4px; }
 .news-empty { text-align: center; padding: 60px 20px; color: var(--mid); font-size: 16px; grid-column: 1 / -1; }
 
 footer { background: var(--ink2); border-top: 1px solid rgba(255,255,255,0.06); padding: 32px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
@@ -145,7 +148,7 @@ footer { padding: 24px 20px; }
   </footer>
 
   <!-- Przy zmianie kodu strony zwiększ numer v=, żeby przeglądarki pobrały świeże pliki -->
-  <script src="posts-data.js?v=4"></script>
+  <script src="posts-data.js?v=5"></script>
   <script src="lightbox.js?v=4"></script>
   <script src="do-gory.js?v=5"></script>
   <script>
@@ -164,7 +167,7 @@ ${img}
 <span class="news-pill tag-${post.category}">${typeof prolightCategoryLabel === "function" ? prolightCategoryLabel(post) : post.categoryLabel}</span>
 <span class="news-date">${formatujDate(post.date)}</span>
 <h3>${post.title}</h3>
-<p>${post.excerpt}</p>
+${typeof prolightFormatText === "function" ? prolightFormatText(post.excerpt) : "<p>" + post.excerpt + "</p>"}
 </article>`;
 }
 

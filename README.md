@@ -45,6 +45,24 @@ Wpis pojawi się automatycznie na `aktualnosci.html`, a jeśli należy do 3 najn
 - **excerpt**: treść / krótki opis.
 - **image**: `null`, gdy wpis nie ma zdjęcia, albo nazwa pliku w cudzysłowie, np. `"hala.jpg"`.
 
+### Dłuższa treść: akapity i linki
+
+Jeśli treść ma kilka akapitów albo zawiera cudzysłów `"`, wpisz ją w odwrotnych apostrofach
+`` `...` `` (klawisz pod Esc, obok 1) zamiast w `"..."`:
+
+```js
+excerpt: `Pierwszy akapit wpisu.
+
+Drugi akapit. Więcej na [stronie Toyoty](https://www.toyota.pl).`,
+```
+
+- **nowy akapit** to pusta linia,
+- **link** zapisujesz jako `[tekst linku](https://adres.pl)`; otworzy się w nowej karcie,
+- **sam adres** `https://...` też staje się klikalnym linkiem.
+
+Na stronie głównej widać tylko pierwszy akapit, a na stronie Aktualności całą treść.
+W tekście wpisanym w `` `...` `` nie można użyć samego znaku `` ` ``.
+
 ### Wpis ze zdjęciem
 
 1. Otwórz folder `zdjecia` w repozytorium i kliknij **Add file → Upload files**
