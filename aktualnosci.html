@@ -144,8 +144,9 @@ footer { padding: 24px 20px; }
   </ul>
   </footer>
 
-  <script src="posts-data.js"></script>
-  <script src="lightbox.js"></script>
+  <!-- Przy zmianie kodu strony zwiększ numer v=, żeby przeglądarki pobrały świeże pliki -->
+  <script src="posts-data.js?v=4"></script>
+  <script src="lightbox.js?v=4"></script>
   <script>
   const MIESIACE = ["stycznia","lutego","marca","kwietnia","maja","czerwca","lipca","sierpnia","września","października","listopada","grudnia"];
 
@@ -155,11 +156,11 @@ return `${d} ${MIESIACE[m-1]} ${y}`;
 }
 
 function kartaHTML(post) {
-const img = post.image ? `<img class="news-card-img" src="${prolightImageSrc(post)}" alt="${post.title}" loading="lazy">` : "";
+const img = post.image ? `<img class="news-card-img" src="${typeof prolightImageSrc === "function" ? prolightImageSrc(post) : post.image}" alt="${post.title}" loading="lazy">` : "";
 return `
 <article class="news-card" data-category="${post.category}">
 ${img}
-<span class="news-pill tag-${post.category}">${prolightCategoryLabel(post)}</span>
+<span class="news-pill tag-${post.category}">${typeof prolightCategoryLabel === "function" ? prolightCategoryLabel(post) : post.categoryLabel}</span>
 <span class="news-date">${formatujDate(post.date)}</span>
 <h3>${post.title}</h3>
 <p>${post.excerpt}</p>

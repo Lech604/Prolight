@@ -75,3 +75,12 @@ Nowa kategoria:
 2. Opcjonalnie nadaj jej kolor etykiety: dopisz regułę `.news-pill.tag-szkolenia { ... }`
    w `<style>` w `index.html` i `aktualnosci.html` (wzór: reguła `.news-pill.tag-serwis`).
    Bez tego etykieta będzie pomarańczowa.
+
+## Zmiany w kodzie strony a pamięć przeglądarki
+
+GitHub Pages pozwala przeglądarkom trzymać pliki w pamięci do ok. 10 minut.
+Przy zwykłym dodawaniu wpisów nie trzeba nic robić – nowy wpis pojawi się najpóźniej po tym czasie.
+
+Gdy zmieniasz **kod** (np. funkcje w `posts-data.js` albo `lightbox.js`), zwiększ numer
+w `?v=` przy tych plikach na dole `index.html` i `aktualnosci.html`
+(np. `posts-data.js?v=4` → `posts-data.js?v=5`). Wtedy przeglądarki od razu pobiorą nowe wersje.
