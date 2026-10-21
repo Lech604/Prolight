@@ -25,6 +25,10 @@
 //  image    – null, jeśli bez zdjęcia, albo sama nazwa pliku w cudzysłowie,
 //             np. "glamox-biuro.jpg". Plik wgrywasz do folderu "zdjecia"
 //             (nazwy folderu tu nie wpisujesz – dodaje się sama).
+//             KILKA ZDJĘĆ: wpisz je w nawiasach kwadratowych, po przecinku:
+//             image: ["bemowo-1.jpg", "bemowo-2.jpg", "bemowo-3.jpg"],
+//             Na karcie widać pierwsze (z etykietą „+2”), a po kliknięciu
+//             otwiera się galeria ze strzałkami.
 //
 //  DŁUŻSZA TREŚĆ: AKAPITY I LINKI
 //  Zamiast cudzysłowów "..." użyj odwrotnych apostrofów `...`
@@ -100,44 +104,4 @@ IV - Więcej o otwarciu salonu na [stronie Toyoty](https://www.toyota.pl/swiat-t
   }
 ];
 
-// ---------------------------------------------------------------------
-//  Poniżej nie trzeba nic zmieniać.
-//  Zwraca nazwę kategorii do wyświetlenia (np. "zgodnosc" -> "Zgodność").
-// ---------------------------------------------------------------------
-// Folder ze zdjęciami do wpisów.
-const PROLIGHT_IMAGES_FOLDER = "zdjecia/";
-
-// Zwraca pełną ścieżkę zdjęcia (np. "GLX.jpeg" -> "zdjecia/GLX.jpeg").
-// Jeśli podano już ścieżkę z folderem albo link (http...), zostawia ją bez zmian.
-function prolightImageSrc(post) {
-  if (!post.image) return "";
-  if (post.image.indexOf("/") !== -1) return post.image;
-  return PROLIGHT_IMAGES_FOLDER + post.image;
-}
-
-// Zamienia treść wpisu na HTML: akapity (pusta linia), linki [tekst](adres)
-// i zwykłe adresy https://... Gdy tylkoPierwszy = true, zwraca tylko 1. akapit.
-function prolightFormatText(tekst, tylkoPierwszy) {
-  const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-  const link = (adres, opis) =>
-    '<a href="' + adres + '" target="_blank" rel="noopener">' + opis + "</a>";
-  let akapity = String(tekst || "").trim().split(/\n\s*\n/);
-  if (tylkoPierwszy) akapity = akapity.slice(0, 1);
-  return akapity.map(a => {
-    let h = esc(a.trim());
-    const linki = [];
-    // [tekst](adres)
-    h = h.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+|mailto:[^\s)]+|[^\s)]+\.html[^\s)]*)\)/g,
-      (m, opis, adres) => { linki.push(link(adres, opis)); return "\u0000" + (linki.length - 1) + "\u0000"; });
-    // gołe adresy https://...
-    h = h.replace(/https?:\/\/[^\s<]+[^\s<.,;:!?)]/g, adres => link(adres, adres));
-    h = h.replace(/\u0000(\d+)\u0000/g, (m, i) => linki[i]);
-    return "<p>" + h.replace(/\n/g, "<br>") + "</p>";
-  }).join("");
-}
-
-function prolightCategoryLabel(post) {
-  if (post.categoryLabel) return post.categoryLabel;
-  const cat = PROLIGHT_CATEGORIES.find(c => c.slug === post.category);
-  return cat ? cat.label : post.category;
-}
+// Funkcje pomocnicze (akapity, linki, zdjęcia) są w pliku wpisy.js.

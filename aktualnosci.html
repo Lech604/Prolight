@@ -148,8 +148,9 @@ footer { padding: 24px 20px; }
   </footer>
 
   <!-- Przy zmianie kodu strony zwiększ numer v=, żeby przeglądarki pobrały świeże pliki -->
-  <script src="posts-data.js?v=5"></script>
-  <script src="lightbox.js?v=4"></script>
+  <script src="posts-data.js?v=6"></script>
+  <script src="wpisy.js?v=6"></script>
+  <script src="lightbox.js?v=6"></script>
   <script src="do-gory.js?v=5"></script>
   <script>
   const MIESIACE = ["stycznia","lutego","marca","kwietnia","maja","czerwca","lipca","sierpnia","września","października","listopada","grudnia"];
@@ -160,7 +161,7 @@ return `${d} ${MIESIACE[m-1]} ${y}`;
 }
 
 function kartaHTML(post) {
-const img = post.image ? `<img class="news-card-img" src="${typeof prolightImageSrc === "function" ? prolightImageSrc(post) : post.image}" alt="${post.title}" loading="lazy">` : "";
+const img = typeof prolightCardMedia === "function" ? prolightCardMedia(post) : "";
 return `
 <article class="news-card" data-category="${post.category}">
 ${img}

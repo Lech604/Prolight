@@ -10,8 +10,9 @@ Każda zmiana zapisana w gałęzi `main` po 1–2 minutach pojawia się na stron
 | `index.html` | Strona główna (oferta, o nas, kontakt, 3 najnowsze aktualności) |
 | `aktualnosci.html` | Pełna lista aktualności z filtrami kategorii |
 | `posts-data.js` | **Treść aktualności** – tu dodajesz nowe wpisy |
+| `wpisy.js` | Funkcje dla aktualności: akapity, linki, zdjęcia, kategorie (nie edytujesz przy dodawaniu wpisów) |
 | `do-gory.js` | Przycisk „do góry” w prawym dolnym rogu (działa automatycznie) |
-| `lightbox.js` | Powiększanie zdjęć z aktualności po kliknięciu (działa automatycznie) |
+| `lightbox.js` | Powiększanie zdjęć i galeria w aktualnościach (działa automatycznie) |
 | `logo.png` | Logo używane na stronie |
 | `zdjecia/` | **Zdjęcia do wpisów w Aktualnościach** |
 | `warehouse.png` | Zdjęcie używane na stronie głównej |
@@ -43,7 +44,8 @@ Wpis pojawi się automatycznie na `aktualnosci.html`, a jeśli należy do 3 najn
 - **category**: jedna z wartości: `realizacja`, `serwis`, `zgodnosc`, `nowa-usluga`.
 - **title**: tytuł wpisu.
 - **excerpt**: treść / krótki opis.
-- **image**: `null`, gdy wpis nie ma zdjęcia, albo nazwa pliku w cudzysłowie, np. `"hala.jpg"`.
+- **image**: `null`, gdy wpis nie ma zdjęcia, nazwa pliku w cudzysłowie, np. `"hala.jpg"`,
+  albo kilka plików w nawiasach kwadratowych (patrz „Wpis z kilkoma zdjęciami”).
 
 ### Dłuższa treść: akapity i linki
 
@@ -73,6 +75,17 @@ W tekście wpisanym w `` `...` `` nie można użyć samego znaku `` ` ``.
    Folder `zdjecia/` dopisuje się automatycznie.
 3. Po kliknięciu zdjęcie otwiera się w pełnym rozmiarze (plik `lightbox.js`).
 
+### Wpis z kilkoma zdjęciami
+
+Wgraj wszystkie zdjęcia do folderu `zdjecia`, a we wpisie wpisz je w nawiasach kwadratowych, po przecinku:
+
+```js
+image: ["bemowo-1.jpg", "bemowo-2.jpg", "bemowo-3.jpg"],
+```
+
+Na karcie wpisu widać pierwsze zdjęcie z etykietą „+2”. Po kliknięciu otwiera się galeria:
+strzałki na ekranie, klawisze ← → albo przesunięcie palcem na telefonie.
+
 ### Gdy aktualności zniknęły ze strony
 
 Prawie zawsze winny jest błąd w `posts-data.js`. Sprawdź:
@@ -100,6 +113,6 @@ Nowa kategoria:
 GitHub Pages pozwala przeglądarkom trzymać pliki w pamięci do ok. 10 minut.
 Przy zwykłym dodawaniu wpisów nie trzeba nic robić – nowy wpis pojawi się najpóźniej po tym czasie.
 
-Gdy zmieniasz **kod** (np. funkcje w `posts-data.js` albo `lightbox.js`), zwiększ numer
+Gdy zmieniasz **kod** (np. w `wpisy.js`, `lightbox.js` albo `do-gory.js`), zwiększ numer
 w `?v=` przy tych plikach na dole `index.html` i `aktualnosci.html`
-(np. `posts-data.js?v=4` → `posts-data.js?v=5`). Wtedy przeglądarki od razu pobiorą nowe wersje.
+(np. `lightbox.js?v=6` → `lightbox.js?v=7`). Wtedy przeglądarki od razu pobiorą nowe wersje.
