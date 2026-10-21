@@ -12,6 +12,7 @@ Każda zmiana zapisana w gałęzi `main` po 1–2 minutach pojawia się na stron
 | `posts-data.js` | **Treść aktualności** – tu dodajesz nowe wpisy |
 | `lightbox.js` | Powiększanie zdjęć z aktualności po kliknięciu (działa automatycznie) |
 | `logo.png` | Logo używane na stronie |
+| `zdjecia/` | **Zdjęcia do wpisów w Aktualnościach** |
 | `warehouse.png` | Zdjęcie używane na stronie głównej |
 | `projekt-logo/` | Archiwum projektu logo: podgląd wariantów (`logo-preview.html`) i ich pliki. Nie jest używane przez stronę |
 
@@ -45,10 +46,13 @@ Wpis pojawi się automatycznie na `aktualnosci.html`, a jeśli należy do 3 najn
 
 ### Wpis ze zdjęciem
 
-1. Wgraj zdjęcie do repozytorium: **Add file → Upload files**.
+1. Otwórz folder `zdjecia` w repozytorium i kliknij **Add file → Upload files**
+   (zdjęcie trafi wtedy prosto do tego folderu).
    Najlepiej poziome, przycinane do proporcji 16:9, lekkie (do ok. 300 KB).
    Nazwa bez spacji i polskich znaków, np. `modernizacja-helvar.jpg`.
-2. We wpisie ustaw `image: "modernizacja-helvar.jpg"`.
+2. We wpisie ustaw samą nazwę pliku: `image: "modernizacja-helvar.jpg"`.
+   Folder `zdjecia/` dopisuje się automatycznie.
+3. Po kliknięciu zdjęcie otwiera się w pełnym rozmiarze (plik `lightbox.js`).
 
 ### Gdy aktualności zniknęły ze strony
 

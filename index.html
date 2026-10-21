@@ -1627,7 +1627,7 @@ var parts = iso.split("-").map(Number);
 return parts[2] + " " + MIESIACE[parts[1]-1] + " " + parts[0];
 }
 function kartaHTML(post) {
-var img = post.image ? "<img class=\"news-card-img\" src=\"" + post.image + "\" alt=\"" + post.title + "\" loading=\"lazy\">" : "";
+var img = post.image ? "<img class=\"news-card-img\" src=\"" + prolightImageSrc(post) + "\" alt=\"" + post.title + "\" loading=\"lazy\">" : "";
 return "<article class=\"news-card\">" + img + "<span class=\"news-pill tag-" + post.category + "\">" + prolightCategoryLabel(post) + "</span><span class=\"news-date\">" + formatujDate(post.date) + "</span><h3>" + post.title + "</h3><p>" + post.excerpt + "</p></article>";
 }
 var grid = document.getElementById("news-grid");

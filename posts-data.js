@@ -22,8 +22,9 @@
 //             (małymi literami, bez polskich znaków – jak w liście niżej).
 //  title    – tytuł.
 //  excerpt  – treść / opis.
-//  image    – null, jeśli bez zdjęcia, albo nazwa pliku w cudzysłowie,
-//             np. "warehouse.png" (plik wgrywasz do repozytorium).
+//  image    – null, jeśli bez zdjęcia, albo sama nazwa pliku w cudzysłowie,
+//             np. "glamox-biuro.jpg". Plik wgrywasz do folderu "zdjecia"
+//             (nazwy folderu tu nie wpisujesz – dodaje się sama).
 //
 //  UWAGA – najczęstsze błędy, przez które znikają WSZYSTKIE wpisy:
 //  - brak przecinka po } między wpisami,
@@ -73,6 +74,17 @@ const PROLIGHT_POSTS = [
 //  Poniżej nie trzeba nic zmieniać.
 //  Zwraca nazwę kategorii do wyświetlenia (np. "zgodnosc" -> "Zgodność").
 // ---------------------------------------------------------------------
+// Folder ze zdjęciami do wpisów.
+const PROLIGHT_IMAGES_FOLDER = "zdjecia/";
+
+// Zwraca pełną ścieżkę zdjęcia (np. "GLX.jpeg" -> "zdjecia/GLX.jpeg").
+// Jeśli podano już ścieżkę z folderem albo link (http...), zostawia ją bez zmian.
+function prolightImageSrc(post) {
+  if (!post.image) return "";
+  if (post.image.indexOf("/") !== -1) return post.image;
+  return PROLIGHT_IMAGES_FOLDER + post.image;
+}
+
 function prolightCategoryLabel(post) {
   if (post.categoryLabel) return post.categoryLabel;
   const cat = PROLIGHT_CATEGORIES.find(c => c.slug === post.category);

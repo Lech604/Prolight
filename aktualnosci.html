@@ -155,7 +155,7 @@ return `${d} ${MIESIACE[m-1]} ${y}`;
 }
 
 function kartaHTML(post) {
-const img = post.image ? `<img class="news-card-img" src="${post.image}" alt="${post.title}" loading="lazy">` : "";
+const img = post.image ? `<img class="news-card-img" src="${prolightImageSrc(post)}" alt="${post.title}" loading="lazy">` : "";
 return `
 <article class="news-card" data-category="${post.category}">
 ${img}
