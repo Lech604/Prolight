@@ -1203,6 +1203,23 @@ footer {
   40% { transform: scale(1); opacity: 1; }
 }
 </style>
+<style>
+/* ─── CZYTELNOŚĆ NA TELEFONACH I TABLETACH ─── */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidden; }
+@media (max-width: 768px) {
+  body { font-size: 17px; }
+  .hero-headline { font-size: clamp(44px, 13vw, 72px); overflow-wrap: anywhere; }
+  .hero-tag, .section-eyebrow, .problem-label { font-size: 12px; letter-spacing: 0.12em; }
+  .news-pill, .offer-tag { font-size: 12px; }
+  .hero-stat-label { font-size: 14px; }
+  .why-point p, .offer-card p, .problem-card p, .problem-text, .process-step p,
+  .proj-body p, .systems-service-text, .cta-sub { font-size: 17px; line-height: 1.6; }
+  .hero-desc { font-size: 18px; }
+  .news-card p { font-size: 16px; }
+  .cta-contact-label, .cta-address, .footer-links a, .footer-copy { font-size: 14px; }
+  .nav-links a { font-size: 14px; }
+}
+</style>
 </head>
 <body>
 
@@ -1393,14 +1410,14 @@ footer {
       </div>
     </div>
     <div>
-            <div class="section-eyebrow reveal">Dlaczego Prolight</div>div>
+            <div class="section-eyebrow reveal">Dlaczego Prolight</div>
       <h2 class="section-title reveal">Znamy te systemy<br>od środka</h2>
       <div class="why-points">
         <div class="why-point reveal">
           <div class="why-num">01</div>
           <div>
             <h4>Doświadczenie</h4>
-                      <p>Zanim założyliśmy Prolight Solutions, przez kilkanaście lat pracowaliśmy przy największych projektach oświetleniowych w Polsce. Tę wiedzę wnosimy do każdego zlecenia.</p></p>
+                      <p>Zanim założyliśmy Prolight Solutions, przez kilkanaście lat pracowaliśmy przy największych projektach oświetleniowych w Polsce. Tę wiedzę wnosimy do każdego zlecenia.</p>
           </div>
         </div>
         <div class="why-point reveal d1">

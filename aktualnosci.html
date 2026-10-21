@@ -105,7 +105,19 @@ nav { padding: 0 20px; }
 footer { padding: 24px 20px; }
 }
 </style>
-  </head>
+  <style>
+/* ─── CZYTELNOŚĆ NA TELEFONACH I TABLETACH ─── */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidden; }
+@media (max-width: 768px) {
+  .section-eyebrow { font-size: 12px; letter-spacing: 0.12em; }
+  .news-pill { font-size: 12px; }
+  .filter-btn { font-size: 14px; }
+  .news-card p { font-size: 16px; }
+  .footer-links a, .footer-copy { font-size: 14px; }
+  .nav-links a { font-size: 14px; }
+}
+</style>
+</head>
   <body>
 
   <nav>
