@@ -15,7 +15,8 @@
     ".do-gory.jasne-tlo{background:rgba(255,255,255,0.9);color:#d97706;border-color:rgba(245,158,11,0.5);" +
     "box-shadow:0 2px 10px rgba(10,12,16,0.08)}" +
     ".do-gory.widoczny{opacity:1;visibility:visible;transform:none}" +
-    ".do-gory:hover,.do-gory.jasne-tlo:hover{background:#f59e0b;color:#0a0c10;border-color:#f59e0b}" +
+    // podświetlenie tylko dla myszki – na telefonie/tablecie "przyklejało się" po dotknięciu
+    "@media (hover:hover) and (pointer:fine){.do-gory:hover,.do-gory.jasne-tlo:hover{background:#f59e0b;color:#0a0c10;border-color:#f59e0b}}" +
     ".do-gory:focus-visible{outline:2px solid #f59e0b;outline-offset:3px}" +
     "@media (max-width:768px){.do-gory{right:16px;bottom:16px;width:44px;height:44px}}";
   document.head.appendChild(css);
@@ -31,7 +32,12 @@
   document.body.appendChild(btn);
 
   btn.addEventListener("click", function () {
+    btn.blur();
+    btn.classList.remove("widoczny"); // chowamy od razu, nie czekając na koniec przewijania
     window.scrollTo({ top: 0, behavior: "smooth" });
+    // telefony nie zawsze zgłaszają ostatnie zdarzenie przewijania – sprawdzamy jeszcze raz
+    setTimeout(sprawdz, 700);
+    setTimeout(sprawdz, 1500);
   });
 
   // Sprawdza, czy tło pod przyciskiem jest jasne.
@@ -52,17 +58,23 @@
     return true;
   }
 
-  var czeka = false;
+  var czeka = false, koniec = null;
   function sprawdz() {
     czeka = false;
     var prog = Math.min(400, window.innerHeight * 0.5);
-    btn.classList.toggle("widoczny", window.scrollY > prog);
+    var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+    btn.classList.toggle("widoczny", y > prog);
     btn.classList.toggle("jasne-tlo", jasneTlo());
   }
   function naScroll() {
     if (!czeka) { czeka = true; requestAnimationFrame(sprawdz); }
+    // dodatkowe sprawdzenie po zatrzymaniu przewijania (ważne na iPhone/iPad)
+    clearTimeout(koniec);
+    koniec = setTimeout(sprawdz, 150);
   }
   window.addEventListener("scroll", naScroll, { passive: true });
   window.addEventListener("resize", naScroll);
+  window.addEventListener("scrollend", sprawdz);
+  window.addEventListener("touchend", function () { setTimeout(sprawdz, 300); }, { passive: true });
   sprawdz();
 })();
