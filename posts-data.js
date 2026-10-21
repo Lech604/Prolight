@@ -40,6 +40,14 @@ const PROLIGHT_CATEGORIES = [
 
 const PROLIGHT_POSTS = [
 
+     {
+      date: "2026-10-21",
+      category: "realizacja",
+      title: "Toyota Bemowo - uruchmoenie systemu",
+      excerpt: "Nowo otwarty salone Toyota, uruchomienie systemu sterowania oprawami. System Vertex 8 sterowników, 900 opraw podstawowych, 150 opraw oświetlenia awaryjnego i ewakuacyjnego",
+      image: "Bemowo.png"
+   },
+
    {
       date: "2026-10-01",
       category: "realizacja",
