@@ -288,9 +288,16 @@ nav {
   border-top: 1px solid rgba(255,255,255,0.08);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  /* liczby wyrównane do tej samej linii co nagłówek (treść ma maks. 1200 px) */
-  padding-left: max(0px, calc((100% - 1200px) / 2));
-  padding-right: max(0px, calc((100% - 1200px) / 2));
+  /* pasek ma tę samą szerokość co treść strony (maks. 1200 px) i stoi na środku */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 12px 12px 0 0;
+  border-left: 1px solid rgba(255,255,255,0.08);
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+@media (max-width: 1200px) {
+  .hero-stats-bar { border-radius: 0; border-left: none; border-right: none; }
 }
 
 .hero-stat {
