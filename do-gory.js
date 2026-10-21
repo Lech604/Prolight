@@ -6,7 +6,7 @@
 (function () {
   var css = document.createElement("style");
   css.textContent =
-    ".do-gory{position:fixed;right:24px;bottom:24px;z-index:150;width:48px;height:48px;border-radius:50%;cursor:pointer;" +
+    ".do-gory{position:fixed;right:32px;bottom:96px;z-index:150;width:48px;height:48px;border-radius:50%;cursor:pointer;" +
     "display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transform:translateY(12px);" +
     "transition:opacity .25s,transform .25s,visibility .25s,background-color .3s,border-color .3s,color .3s,box-shadow .3s;" +
     // wariant na ciemne tło
@@ -18,7 +18,12 @@
     // podświetlenie tylko dla myszki – na telefonie/tablecie "przyklejało się" po dotknięciu
     "@media (hover:hover) and (pointer:fine){.do-gory:hover,.do-gory.jasne-tlo:hover{background:#f59e0b;color:#0a0c10;border-color:#f59e0b}}" +
     ".do-gory:focus-visible{outline:2px solid #f59e0b;outline-offset:3px}" +
-    "@media (max-width:768px){.do-gory{right:16px;bottom:16px;width:44px;height:44px}}";
+    "@media (max-width:768px){.do-gory{right:16px;bottom:24px;width:44px;height:44px}}" +
+    // Przycisk celowo NIE siedzi w samym rogu: na Macu prawy dolny róg ekranu
+    // otwiera Szybką notatkę (tzw. aktywny narożnik), na iPadzie robi to gest
+    // z rogu, a na iPhonie przy dolnej krawędzi jest pasek Safari.
+    // Ekrany dotykowe (iPhone, iPad, Android):
+    "@media (pointer:coarse){.do-gory{right:20px;bottom:calc(96px + env(safe-area-inset-bottom, 0px))}}";
   document.head.appendChild(css);
 
   var btn = document.createElement("button");

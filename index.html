@@ -1205,6 +1205,13 @@ footer {
 </style>
 <style>
 /* ─── CZYTELNOŚĆ NA TELEFONACH I TABLETACH ─── */
+.nav-cta { white-space: nowrap; }
+@media (max-width: 380px) {
+  nav { padding: 0 14px; }
+  .nav-links { gap: 14px; }
+  .nav-cta { padding: 8px 10px !important; letter-spacing: 0.03em !important; }
+  .nav-logo img { height: 30px !important; }
+}
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidden; }
 @media (max-width: 768px) {
   body { font-size: 17px; }
@@ -1641,7 +1648,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 <script src="posts-data.js?v=6"></script>
 <script src="wpisy.js?v=6"></script>
 <script src="lightbox.js?v=6"></script>
-<script src="do-gory.js?v=7"></script>
+<script src="do-gory.js?v=8"></script>
 <script>
 (function() {
 if (typeof PROLIGHT_POSTS === "undefined") return;

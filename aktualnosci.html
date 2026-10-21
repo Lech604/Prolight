@@ -107,6 +107,13 @@ footer { padding: 24px 20px; }
 </style>
   <style>
 /* ─── CZYTELNOŚĆ NA TELEFONACH I TABLETACH ─── */
+.nav-cta { white-space: nowrap; }
+@media (max-width: 380px) {
+  nav { padding: 0 14px; }
+  .nav-links { gap: 14px; }
+  .nav-cta { padding: 8px 10px !important; letter-spacing: 0.03em !important; }
+  .nav-logo img { height: 30px !important; }
+}
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidden; }
 @media (max-width: 768px) {
   .section-eyebrow { font-size: 12px; letter-spacing: 0.12em; }
@@ -163,7 +170,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidde
   <script src="posts-data.js?v=6"></script>
   <script src="wpisy.js?v=6"></script>
   <script src="lightbox.js?v=6"></script>
-  <script src="do-gory.js?v=7"></script>
+  <script src="do-gory.js?v=8"></script>
   <script>
   const MIESIACE = ["stycznia","lutego","marca","kwietnia","maja","czerwca","lipca","sierpnia","września","października","listopada","grudnia"];
 
