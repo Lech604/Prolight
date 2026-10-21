@@ -283,9 +283,8 @@ nav {
 /* HERO STATS BAR */
 .hero-stats-bar {
   position: relative; z-index: 2;
-  /* bez tła – liczby stoją bezpośrednio na zdjęciu w tle */
+  /* bez tła i ramek – liczby stoją bezpośrednio na zdjęciu w tle */
   background: transparent;
-  border-top: 1px solid rgba(255,255,255,0.12);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   /* ta sama szerokość co treść strony (maks. 1200 px), na środku */
@@ -296,7 +295,6 @@ nav {
 
 .hero-stat {
   padding: 28px 40px;
-  border-right: 1px solid rgba(255,255,255,0.08);
 }
 .hero-stat:last-child { border-right: none; }
 
