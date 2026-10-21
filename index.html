@@ -945,6 +945,7 @@ border: 1px solid rgba(245,158,11,0.25);
 .news-pill.tag-zgodnosc { background: rgba(239,68,68,0.1); color: #ef4444; border-color: rgba(239,68,68,0.25); }
 .news-pill.tag-serwis { background: rgba(16,185,129,0.1); color: #10b981; border-color: rgba(16,185,129,0.25); }
 
+.news-card-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 10px; margin-bottom: 4px; }
 .news-date { font-size: 13px; color: var(--mid); font-weight: 500; }
 
 .news-card h3 {
@@ -1625,7 +1626,8 @@ var parts = iso.split("-").map(Number);
 return parts[2] + " " + MIESIACE[parts[1]-1] + " " + parts[0];
 }
 function kartaHTML(post) {
-return "<article class=\"news-card\"><span class=\"news-pill tag-" + post.category + "\">" + post.categoryLabel + "</span><span class=\"news-date\">" + formatujDate(post.date) + "</span><h3>" + post.title + "</h3><p>" + post.excerpt + "</p></article>";
+var img = post.image ? "<img class=\"news-card-img\" src=\"" + post.image + "\" alt=\"" + post.title + "\" loading=\"lazy\">" : "";
+return "<article class=\"news-card\">" + img + "<span class=\"news-pill tag-" + post.category + "\">" + prolightCategoryLabel(post) + "</span><span class=\"news-date\">" + formatujDate(post.date) + "</span><h3>" + post.title + "</h3><p>" + post.excerpt + "</p></article>";
 }
 var grid = document.getElementById("news-grid");
 if (grid) {
