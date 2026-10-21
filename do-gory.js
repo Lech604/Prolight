@@ -1,15 +1,21 @@
 // Przycisk "do góry": okrągła strzałka w prawym dolnym rogu.
-// Pojawia się po przewinięciu strony o ok. jeden ekran, po kliknięciu płynnie przewija na górę.
+// Pojawia się po przewinięciu strony, po kliknięciu płynnie przewija na górę.
+// Sam dopasowuje wygląd do tła pod spodem: na ciemnych sekcjach jest ciemny,
+// na jasnych – jasny i delikatny.
 // Działa automatycznie na każdej stronie, która dołącza ten plik.
 (function () {
   var css = document.createElement("style");
   css.textContent =
-    ".do-gory{position:fixed;right:24px;bottom:24px;z-index:150;width:48px;height:48px;border:1px solid rgba(245,158,11,0.45);border-radius:50%;" +
-    "background:rgba(10,12,16,0.85);color:#f59e0b;box-shadow:0 4px 16px rgba(0,0,0,0.25);cursor:pointer;" +
+    ".do-gory{position:fixed;right:24px;bottom:24px;z-index:150;width:48px;height:48px;border-radius:50%;cursor:pointer;" +
     "display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transform:translateY(12px);" +
-    "transition:opacity .25s,transform .25s,visibility .25s,background .2s}" +
+    "transition:opacity .25s,transform .25s,visibility .25s,background-color .3s,border-color .3s,color .3s,box-shadow .3s;" +
+    // wariant na ciemne tło
+    "background:rgba(10,12,16,0.85);color:#f59e0b;border:1px solid rgba(245,158,11,0.45);box-shadow:0 4px 16px rgba(0,0,0,0.25)}" +
+    // wariant na jasne tło
+    ".do-gory.jasne-tlo{background:rgba(255,255,255,0.9);color:#d97706;border-color:rgba(245,158,11,0.5);" +
+    "box-shadow:0 2px 10px rgba(10,12,16,0.08)}" +
     ".do-gory.widoczny{opacity:1;visibility:visible;transform:none}" +
-    ".do-gory:hover{background:#f59e0b;color:#0a0c10}" +
+    ".do-gory:hover,.do-gory.jasne-tlo:hover{background:#f59e0b;color:#0a0c10;border-color:#f59e0b}" +
     ".do-gory:focus-visible{outline:2px solid #f59e0b;outline-offset:3px}" +
     "@media (max-width:768px){.do-gory{right:16px;bottom:16px;width:44px;height:44px}}";
   document.head.appendChild(css);
@@ -28,9 +34,35 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  function sprawdz() {
-    btn.classList.toggle("widoczny", window.scrollY > window.innerHeight * 0.8);
+  // Sprawdza, czy tło pod przyciskiem jest jasne.
+  function jasneTlo() {
+    var r = btn.getBoundingClientRect();
+    var x = r.left + r.width / 2, y = r.top + r.height / 2;
+    btn.style.pointerEvents = "none";
+    var el = document.elementFromPoint(x, y);
+    btn.style.pointerEvents = "";
+    while (el && el !== document.documentElement) {
+      var m = getComputedStyle(el).backgroundColor.match(/[\d.]+/g);
+      if (m && (m.length < 4 || parseFloat(m[3]) > 0.5)) {
+        return (0.299 * m[0] + 0.587 * m[1] + 0.114 * m[2]) > 150;
+      }
+      if (getComputedStyle(el).backgroundImage !== "none") return false; // zdjęcie / gradient – traktuj jak ciemne
+      el = el.parentElement;
+    }
+    return true;
   }
-  window.addEventListener("scroll", sprawdz, { passive: true });
+
+  var czeka = false;
+  function sprawdz() {
+    czeka = false;
+    var prog = Math.min(400, window.innerHeight * 0.5);
+    btn.classList.toggle("widoczny", window.scrollY > prog);
+    btn.classList.toggle("jasne-tlo", jasneTlo());
+  }
+  function naScroll() {
+    if (!czeka) { czeka = true; requestAnimationFrame(sprawdz); }
+  }
+  window.addEventListener("scroll", naScroll, { passive: true });
+  window.addEventListener("resize", naScroll);
   sprawdz();
 })();
