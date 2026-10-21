@@ -283,21 +283,15 @@ nav {
 /* HERO STATS BAR */
 .hero-stats-bar {
   position: relative; z-index: 2;
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255,255,255,0.08);
+  /* bez tła – liczby stoją bezpośrednio na zdjęciu w tle */
+  background: transparent;
+  border-top: 1px solid rgba(255,255,255,0.12);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  /* pasek ma tę samą szerokość co treść strony (maks. 1200 px) i stoi na środku */
+  /* ta sama szerokość co treść strony (maks. 1200 px), na środku */
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  border-radius: 12px 12px 0 0;
-  border-left: 1px solid rgba(255,255,255,0.08);
-  border-right: 1px solid rgba(255,255,255,0.08);
-}
-@media (max-width: 1200px) {
-  .hero-stats-bar { border-radius: 0; border-left: none; border-right: none; }
 }
 
 .hero-stat {
