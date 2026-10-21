@@ -44,7 +44,7 @@ const PROLIGHT_POSTS = [
       category: "realizacja",
       title: "Nowe buro Glamox,
       excerpt: "nowe biuro glamox zrealizowne w 100% przez nasz firmę od montażu po uruchomienie stytsmu sterowania",
-      image: null
+      image: "GLX.jpeg"
    },
   {
     date: "2025-02-18",
