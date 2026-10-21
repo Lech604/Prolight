@@ -10,6 +10,7 @@ Każda zmiana zapisana w gałęzi `main` po 1–2 minutach pojawia się na stron
 | `index.html` | Strona główna (oferta, o nas, kontakt, 3 najnowsze aktualności) |
 | `aktualnosci.html` | Pełna lista aktualności z filtrami kategorii |
 | `posts-data.js` | **Treść aktualności** – tu dodajesz nowe wpisy |
+| `do-gory.js` | Przycisk „do góry” w prawym dolnym rogu (działa automatycznie) |
 | `lightbox.js` | Powiększanie zdjęć z aktualności po kliknięciu (działa automatycznie) |
 | `logo.png` | Logo używane na stronie |
 | `zdjecia/` | **Zdjęcia do wpisów w Aktualnościach** |
