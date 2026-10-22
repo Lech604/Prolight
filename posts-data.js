@@ -80,10 +80,10 @@ const PROLIGHT_POSTS = [
       title: "Toyota Bemowo - uruchmoenie systemu",
       excerpt:`Nowo otwarty salon Toyota, uruchomienie systemu sterowania oprawami.
 
-I - System Vertex: 8 sterowników, 
-II - 900 opraw podstawowych, 
-III - 150 opraw oświetlenia awaryjnego i ewakuacyjnego.
-IV - Więcej o otwarciu salonu na [stronie Toyoty](https://www.toyota.pl/swiat-toyoty/nowosci/toyota-i-lexus-otwieraja-nowe-salony-z-warszawie).`,
+**1.** System Vertex: 8 sterowników, 
+**2.** 900 opraw podstawowych, 
+**3.** 150 opraw oświetlenia awaryjnego i ewakuacyjnego.
+**4.** Więcej o otwarciu salonu na [stronie Toyoty](https://www.toyota.pl/swiat-toyoty/nowosci/toyota-i-lexus-otwieraja-nowe-salony-z-warszawie).`,
       image: ["Bemowo.png", "bemowo2.png", "bemowo3.png"]
    },
 
@@ -98,8 +98,8 @@ IV - Więcej o otwarciu salonu na [stronie Toyoty](https://www.toyota.pl/swiat-t
 
 **Tekst w obcym języku pozwala skoncentrować uwagę na wizualnych aspektach tekstu, a nie jego znaczeniu.**
 W łacinie niektóre z często występujących w językach nowożytnych liter używane były sporadycznie (k, z), bądź nie było ich wcale (w, j), stąd niektóre wariacje tego tekstu mogą zawierać także wyrazy z tymi literami, aby również i one były zademonstrowane.
-__Fragment używany do demonstracji tekstu:__
-(1. ) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+**__Fragment używany do demonstracji tekstu:__**
+(1. ) Lorem ipsum dolor sit amet, consectetur adipiscing ***elit***, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
       image: "GLX.jpeg"
    },
   {
