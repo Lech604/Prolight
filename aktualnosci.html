@@ -106,6 +106,30 @@ footer { padding: 24px 20px; }
 }
 </style>
   <style>
+/* ─── CZYTELNOŚĆ (wszystkie ekrany) ─── */
+/* Tytuły kart i wpisów: zwykłe litery zamiast wąskich wersalików */
+.news-card h3, .offer-card h3, .proj-body h3, .process-step h3, .why-point h4, .problem-card h4 {
+  font-family: var(--font-body); text-transform: none; letter-spacing: normal; font-weight: 700; line-height: 1.3;
+}
+.news-card h3, .offer-card h3, .proj-body h3 { font-size: 21px; }
+.process-step h3, .why-point h4 { font-size: 19px; }
+.problem-card h4 { font-size: 17px; }
+/* Zwykły tekst: większy i ciemniejszy */
+.news-card p, .offer-card p, .problem-card p, .process-step p, .why-point p, .systems-service-text { font-size: 17px; line-height: 1.65; }
+.problem-text, .cta-sub { font-size: 18px; }
+.hero-desc { font-size: 19px; color: rgba(255,255,255,0.8); }
+.proj-body p { font-size: 15px; color: rgba(255,255,255,0.78); }
+.news-card p, .offer-card p, .problem-card p, .process-step p, .problem-text { color: #1f2937; }
+/* Małe napisy: większe, mniej rozstrzelone */
+.news-pill, .offer-tag { font-size: 12px; letter-spacing: 0.06em; }
+.section-eyebrow, .hero-tag, .problem-label, .systems-cat-label { font-size: 13px; letter-spacing: 0.12em; }
+.news-date { font-size: 14px; }
+.hero-stat-label { font-size: 15px; }
+.cta-contact-label { font-size: 13px; }
+.footer-links a, .footer-copy { font-size: 14px; }
+.nav-links a { font-size: 14px; }
+.filter-btn { font-size: 14px; }
+
 /* ─── CZYTELNOŚĆ NA TELEFONACH I TABLETACH ─── */
 .nav-cta { white-space: nowrap; }
 @media (max-width: 380px) {
@@ -115,14 +139,6 @@ footer { padding: 24px 20px; }
   .nav-logo img { height: 30px !important; }
 }
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidden; }
-@media (max-width: 768px) {
-  .section-eyebrow { font-size: 12px; letter-spacing: 0.12em; }
-  .news-pill { font-size: 12px; }
-  .filter-btn { font-size: 14px; }
-  .news-card p { font-size: 16px; }
-  .footer-links a, .footer-copy { font-size: 14px; }
-  .nav-links a { font-size: 14px; }
-}
 </style>
 </head>
   <body>

@@ -1206,6 +1206,30 @@ footer {
 }
 </style>
 <style>
+/* ─── CZYTELNOŚĆ (wszystkie ekrany) ─── */
+/* Tytuły kart i wpisów: zwykłe litery zamiast wąskich wersalików */
+.news-card h3, .offer-card h3, .proj-body h3, .process-step h3, .why-point h4, .problem-card h4 {
+  font-family: var(--font-body); text-transform: none; letter-spacing: normal; font-weight: 700; line-height: 1.3;
+}
+.news-card h3, .offer-card h3, .proj-body h3 { font-size: 21px; }
+.process-step h3, .why-point h4 { font-size: 19px; }
+.problem-card h4 { font-size: 17px; }
+/* Zwykły tekst: większy i ciemniejszy */
+.news-card p, .offer-card p, .problem-card p, .process-step p, .why-point p, .systems-service-text { font-size: 17px; line-height: 1.65; }
+.problem-text, .cta-sub { font-size: 18px; }
+.hero-desc { font-size: 19px; color: rgba(255,255,255,0.8); }
+.proj-body p { font-size: 15px; color: rgba(255,255,255,0.78); }
+.news-card p, .offer-card p, .problem-card p, .process-step p, .problem-text { color: #1f2937; }
+/* Małe napisy: większe, mniej rozstrzelone */
+.news-pill, .offer-tag { font-size: 12px; letter-spacing: 0.06em; }
+.section-eyebrow, .hero-tag, .problem-label, .systems-cat-label { font-size: 13px; letter-spacing: 0.12em; }
+.news-date { font-size: 14px; }
+.hero-stat-label { font-size: 15px; }
+.cta-contact-label { font-size: 13px; }
+.footer-links a, .footer-copy { font-size: 14px; }
+.nav-links a { font-size: 14px; }
+.filter-btn { font-size: 14px; }
+
 /* ─── CZYTELNOŚĆ NA TELEFONACH I TABLETACH ─── */
 .nav-cta { white-space: nowrap; }
 @media (max-width: 380px) {
@@ -1218,15 +1242,8 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidde
 @media (max-width: 768px) {
   body { font-size: 17px; }
   .hero-headline { font-size: clamp(44px, 13vw, 72px); overflow-wrap: anywhere; }
-  .hero-tag, .section-eyebrow, .problem-label { font-size: 12px; letter-spacing: 0.12em; }
-  .news-pill, .offer-tag { font-size: 12px; }
-  .hero-stat-label { font-size: 14px; }
-  .why-point p, .offer-card p, .problem-card p, .problem-text, .process-step p,
-  .proj-body p, .systems-service-text, .cta-sub { font-size: 17px; line-height: 1.6; }
   .hero-desc { font-size: 18px; }
-  .news-card p { font-size: 16px; }
-  .cta-contact-label, .cta-address, .footer-links a, .footer-copy { font-size: 14px; }
-  .nav-links a { font-size: 14px; }
+  .cta-address { font-size: 15px; }
 }
 </style>
 </head>
