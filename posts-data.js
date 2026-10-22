@@ -43,6 +43,11 @@
 //  - nowy akapit  = pusta linia,
 //  - link         = [tekst linku](https://adres.pl)
 //  - sam adres https://... też zamieni się w klikalny link.
+//  - **tekst**    = pogrubienie
+//  - *tekst*      = kursywa
+//  - __tekst__    = podkreślenie
+//  - lista punktowa:  każda linia zaczyna się od "- " (myślnik i spacja)
+//  - lista numerowana: każda linia zaczyna się od "1. ", "2. " itd.
 //
 //    excerpt: `Pierwszy akapit wpisu.
 //

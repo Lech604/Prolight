@@ -66,6 +66,22 @@ Drugi akapit. Więcej na [stronie Toyoty](https://www.toyota.pl).`,
 - **nowy akapit** to pusta linia,
 - **link** zapisujesz jako `[tekst linku](https://adres.pl)`; otworzy się w nowej karcie,
 - **sam adres** `https://...` też staje się klikalnym linkiem.
+- **pogrubienie**: `**tekst**`, *kursywa*: `*tekst*`, podkreślenie: `__tekst__`,
+- **lista punktowa**: każda linia zaczyna się od `- ` (myślnik i spacja),
+- **lista numerowana**: każda linia zaczyna się od `1. `, `2. ` itd.
+
+Przykład:
+
+```js
+excerpt: `Zakończyliśmy **uruchomienie systemu** w salonie Toyota Bemowo.
+
+Zakres prac:
+- 8 sterowników Vertex
+- 900 opraw podstawowych
+- 150 opraw oświetlenia awaryjnego
+
+Więcej na [stronie Toyoty](https://www.toyota.pl).`,
+```
 
 Na kartach (strona główna i Aktualności) widać tylko **pierwszy akapit** i link „Czytaj dalej”.
 Cała treść, wszystkie zdjęcia i galeria są na osobnej stronie wpisu, więc treść może być dowolnie długa.

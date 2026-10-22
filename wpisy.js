@@ -41,24 +41,63 @@ function prolightCardMedia(post) {
     wiecej + "</div>";
 }
 
-// Zamienia treść wpisu na HTML: akapity (pusta linia), linki [tekst](adres)
-// i zwykłe adresy https://... Gdy tylkoPierwszy = true, zwraca tylko 1. akapit.
+// Zamienia treść wpisu na HTML. Obsługuje:
+//   pusta linia            -> nowy akapit
+//   [tekst](https://...)   -> link (otwiera się w nowej karcie), sam adres https://... też
+//   **tekst**              -> pogrubienie
+//   *tekst*                -> kursywa
+//   __tekst__              -> podkreślenie
+//   linie zaczynające się od "- "  -> lista punktowa
+//   linie zaczynające się od "1. " -> lista numerowana
+// Gdy tylkoPierwszy = true, zwraca tylko 1. akapit (na karty).
 function prolightFormatText(tekst, tylkoPierwszy) {
   const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   const link = (adres, opis) =>
     '<a href="' + adres + '" target="_blank" rel="noopener">' + opis + "</a>";
-  let akapity = String(tekst || "").trim().split(/\n\s*\n/);
-  if (tylkoPierwszy) akapity = akapity.slice(0, 1);
-  return akapity.map(a => {
-    let h = esc(a.trim());
+
+  // formatowanie w obrębie jednej linii
+  function wLinii(t) {
+    let h = esc(t);
     const linki = [];
+    const schowaj = html => { linki.push(html); return "\u0000" + (linki.length - 1) + "\u0000"; };
     // [tekst](adres)
     h = h.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+|mailto:[^\s)]+|[^\s)]+\.html[^\s)]*)\)/g,
-      (m, opis, adres) => { linki.push(link(adres, opis)); return "\u0000" + (linki.length - 1) + "\u0000"; });
+      (m, opis, adres) => schowaj(link(adres, opis)));
     // gołe adresy https://...
-    h = h.replace(/https?:\/\/[^\s<]+[^\s<.,;:!?)]/g, adres => link(adres, adres));
-    h = h.replace(/\u0000(\d+)\u0000/g, (m, i) => linki[i]);
-    return "<p>" + h.replace(/\n/g, "<br>") + "</p>";
+    h = h.replace(/https?:\/\/[^\s<]+[^\s<.,;:!?)]/g, adres => schowaj(link(adres, adres)));
+    // pogrubienie, podkreślenie, kursywa
+    h = h.replace(/\*\*(?=\S)(.+?)\*\*/g, "<strong>$1</strong>");
+    h = h.replace(/__(?=\S)(.+?)__/g, "<u>$1</u>");
+    h = h.replace(/(^|[^*\w])\*(?=\S)([^*]+?)\*(?!\w)/g, "$1<em>$2</em>");
+    // przywróć linki (mogą zawierać pogrubiony tekst)
+    return h.replace(/\u0000(\d+)\u0000/g, (m, i) => linki[i]);
+  }
+
+  const PUNKT = /^\s*[-•]\s+/;
+  const NUMER = /^\s*\d+[.)]\s+/;
+
+  let akapity = String(tekst || "").trim().split(/\n\s*\n/);
+  if (tylkoPierwszy) akapity = akapity.slice(0, 1);
+
+  return akapity.map(blok => {
+    const linie = blok.split("\n").map(l => l.replace(/\s+$/, "")).filter(l => l.trim() !== "");
+    let html = "", zwykle = [], lista = null;
+    const zamknijTekst = () => { if (zwykle.length) { html += "<p>" + zwykle.map(wLinii).join("<br>") + "</p>"; zwykle = []; } };
+    const zamknijListe = () => { if (lista) { html += "<" + lista.typ + ">" + lista.el.map(l => "<li>" + wLinii(l) + "</li>").join("") + "</" + lista.typ + ">"; lista = null; } };
+    linie.forEach(l => {
+      const typ = PUNKT.test(l) ? "ul" : NUMER.test(l) ? "ol" : null;
+      if (typ) {
+        zamknijTekst();
+        if (lista && lista.typ !== typ) zamknijListe();
+        if (!lista) lista = { typ, el: [] };
+        lista.el.push(l.replace(typ === "ul" ? PUNKT : NUMER, ""));
+      } else {
+        zamknijListe();
+        zwykle.push(l.trim());
+      }
+    });
+    zamknijTekst(); zamknijListe();
+    return html;
   }).join("");
 }
 
@@ -142,6 +181,13 @@ function prolightCardHTML(post) {
     ".news-card a.news-card-media .news-card-img{cursor:pointer;transition:opacity .2s}" +
     ".news-card a.news-card-media:hover .news-card-img{opacity:.9}" +
     ".news-more{margin-top:auto;align-self:flex-start;font-weight:700;font-size:15px;color:#b45309;text-decoration:none}" +
-    ".news-more:hover{text-decoration:underline;text-underline-offset:3px}";
+    ".news-more:hover{text-decoration:underline;text-underline-offset:3px}" +
+    // listy w treści wpisu
+    ".news-card ul,.news-card ol,.post-body ul,.post-body ol{padding-left:1.4em;color:#1f2937;line-height:1.65}" +
+    ".news-card ul,.news-card ol{font-size:17px}" +
+    ".post-body ul,.post-body ol{font-size:18px;margin-bottom:20px}" +
+    ".news-card li+li,.post-body li+li{margin-top:6px}" +
+    ".news-card li::marker,.post-body li::marker{color:#d97706;font-weight:700}" +
+    ".news-card strong,.post-body strong{font-weight:700;color:#0a0c10}";
   document.head.appendChild(css);
 })();
