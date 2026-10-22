@@ -183,9 +183,9 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidde
   </footer>
 
   <!-- Przy zmianie kodu strony zwiększ numer v=, żeby przeglądarki pobrały świeże pliki -->
-  <script src="posts-data.js?v=6"></script>
-  <script src="wpisy.js?v=6"></script>
-  <script src="lightbox.js?v=6"></script>
+  <script src="posts-data.js?v=7"></script>
+  <script src="wpisy.js?v=7"></script>
+  <script src="lightbox.js?v=7"></script>
   <script src="do-gory.js?v=8"></script>
   <script>
   const MIESIACE = ["stycznia","lutego","marca","kwietnia","maja","czerwca","lipca","sierpnia","września","października","listopada","grudnia"];
@@ -196,15 +196,7 @@ return `${d} ${MIESIACE[m-1]} ${y}`;
 }
 
 function kartaHTML(post) {
-const img = typeof prolightCardMedia === "function" ? prolightCardMedia(post) : "";
-return `
-<article class="news-card" data-category="${post.category}">
-${img}
-<span class="news-pill tag-${post.category}">${typeof prolightCategoryLabel === "function" ? prolightCategoryLabel(post) : post.categoryLabel}</span>
-<span class="news-date">${formatujDate(post.date)}</span>
-<h3>${post.title}</h3>
-${typeof prolightFormatText === "function" ? prolightFormatText(post.excerpt) : "<p>" + post.excerpt + "</p>"}
-</article>`;
+return prolightCardHTML(post);
 }
 
 function renderuj(filtr) {

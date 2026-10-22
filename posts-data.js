@@ -8,6 +8,7 @@
 //  3. Uzupełnij pola i zapisz (Commit changes).
 //
 //    {
+//      id: "krotki-adres-wpisu",
 //      date: "2025-03-01",
 //      category: "serwis",
 //      title: "Tytuł wpisu",
@@ -16,6 +17,11 @@
 //    },
 //
 //  POLA:
+//  id       – krótki adres wpisu: małe litery, bez polskich znaków, myślniki
+//             zamiast spacji, np. "toyota-bemowo". Strona wpisu będzie pod
+//             adresem wpis.html?id=toyota-bemowo. Każdy wpis musi mieć inne id.
+//             Jeśli go nie wpiszesz, utworzy się sam z tytułu (ale wtedy zmiana
+//             tytułu zmieni też adres wpisu).
 //  date     – data w formacie RRRR-MM-DD. Kolejność na stronie ustala się
 //             sama wg daty (najnowsze pierwsze).
 //  category – jedna z: realizacja, serwis, zgodnosc, nowa-usluga
@@ -42,8 +48,9 @@
 //
 //  Drugi akapit. Więcej na [stronie Toyoty](https://www.toyota.pl).`,
 //
-//  Na stronie głównej pokazuje się tylko pierwszy akapit,
-//  na stronie Aktualności – cała treść.
+//  Na kartach (strona główna i Aktualności) widać tylko PIERWSZY akapit
+//  i link „Czytaj dalej”. Cała treść, wszystkie zdjęcia i galeria są na
+//  osobnej stronie wpisu – dlatego treść może być dowolnie długa.
 //
 //  UWAGA – najczęstsze błędy, przez które znikają WSZYSTKIE wpisy:
 //  - brak przecinka po } między wpisami,
@@ -62,6 +69,7 @@ const PROLIGHT_CATEGORIES = [
 const PROLIGHT_POSTS = [
 
      {
+      id: "toyota-bemowo",
       date: "2026-10-21",
       category: "realizacja",
       title: "Toyota Bemowo - uruchmoenie systemu",
@@ -75,6 +83,7 @@ IV - Więcej o otwarciu salonu na [stronie Toyoty](https://www.toyota.pl/swiat-t
    },
 
    {
+      id: "biuro-glamox",
       date: "2026-10-01",
       category: "realizacja",
       title: "Nowe biuro Glamox",
@@ -82,6 +91,7 @@ IV - Więcej o otwarciu salonu na [stronie Toyoty](https://www.toyota.pl/swiat-t
       image: "GLX.jpeg"
    },
   {
+    id: "regeneracja-cti-3x64",
     date: "2025-02-18",
     category: "nowa-usluga",
     title: "Regeneracja sterowników CTI 3×64",
@@ -89,6 +99,7 @@ IV - Więcej o otwarciu salonu na [stronie Toyoty](https://www.toyota.pl/swiat-t
     image: null
   },
   {
+    id: "sezon-kontroli-ppoz",
     date: "2025-02-05",
     category: "zgodnosc",
     title: "Sezon kontroli ppoż. tuż za rogiem",
@@ -96,6 +107,7 @@ IV - Więcej o otwarciu salonu na [stronie Toyoty](https://www.toyota.pl/swiat-t
     image: null
   },
   {
+    id: "modernizacja-helvar",
     date: "2025-01-20",
     category: "serwis",
     title: "Zakończyliśmy modernizację systemu Helvar",

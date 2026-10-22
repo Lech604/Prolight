@@ -68,3 +68,80 @@ function prolightCategoryLabel(post) {
   const cat = PROLIGHT_CATEGORIES.find(c => c.slug === post.category);
   return cat ? cat.label : post.category;
 }
+
+// =====================================================================
+//  Osobna strona wpisu (wpis.html?id=...)
+// =====================================================================
+
+// Zamienia tekst na krótki adres, np. "Toyota Bemowo – start" -> "toyota-bemowo-start".
+function prolightSlug(tekst) {
+  const pl = { "ą": "a", "ć": "c", "ę": "e", "ł": "l", "ń": "n", "ó": "o", "ś": "s", "ź": "z", "ż": "z" };
+  return String(tekst || "").toLowerCase()
+    .replace(/[ąćęłńóśźż]/g, z => pl[z])
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
+
+// Adres wpisu: pole "id", a gdy go brak – utworzony z tytułu.
+function prolightPostId(post) {
+  return prolightSlug(post.id || post.title);
+}
+
+function prolightPostUrl(post) {
+  return "wpis.html?id=" + encodeURIComponent(prolightPostId(post));
+}
+
+function prolightFindPost(id) {
+  id = prolightSlug(id);
+  return PROLIGHT_POSTS.find(p => prolightPostId(p) === id)
+      || PROLIGHT_POSTS.find(p => prolightSlug(p.title) === id) // stary adres z tytułu
+      || null;
+}
+
+// Wpisy od najnowszego.
+function prolightSortedPosts() {
+  return PROLIGHT_POSTS.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
+}
+
+const PROLIGHT_MIESIACE = ["stycznia","lutego","marca","kwietnia","maja","czerwca","lipca","sierpnia","września","października","listopada","grudnia"];
+function prolightFormatDate(iso) {
+  const [y, m, d] = String(iso).split("-").map(Number);
+  return d + " " + PROLIGHT_MIESIACE[m - 1] + " " + y;
+}
+
+// Karta wpisu (strona główna i Aktualności): zdjęcie, kategoria, data, tytuł,
+// pierwszy akapit i "Czytaj dalej". Zdjęcie i tytuł prowadzą do strony wpisu.
+function prolightCardHTML(post) {
+  const url = prolightPostUrl(post);
+  const zdjecia = prolightImages(post);
+  const esc = s => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+  const media = zdjecia.length
+    ? '<a class="news-card-media" href="' + url + '" aria-hidden="true" tabindex="-1">' +
+        '<img class="news-card-img" src="' + esc(zdjecia[0]) + '" alt="' + esc(post.title) + '" loading="lazy">' +
+        (zdjecia.length > 1 ? '<span class="news-card-more">+' + (zdjecia.length - 1) + "</span>" : "") +
+      "</a>"
+    : "";
+  return '<article class="news-card" data-category="' + esc(post.category) + '">' +
+    media +
+    '<span class="news-pill tag-' + esc(post.category) + '">' + prolightCategoryLabel(post) + "</span>" +
+    '<span class="news-date">' + prolightFormatDate(post.date) + "</span>" +
+    '<h3><a class="news-card-link" href="' + url + '">' + post.title + "</a></h3>" +
+    prolightFormatText(post.excerpt, true) +
+    '<a class="news-more" href="' + url + '">Czytaj dalej <span aria-hidden="true">→</span></a>' +
+    "</article>";
+}
+
+// Style kart z linkami (dołączane automatycznie).
+(function () {
+  const css = document.createElement("style");
+  css.textContent =
+    ".news-card{position:relative}" +
+    ".news-card-link{color:inherit;text-decoration:none}" +
+    ".news-card-link:hover{color:#b45309}" +
+    ".news-card-media{display:block;position:relative}" +
+    ".news-card a.news-card-media .news-card-img{cursor:pointer;transition:opacity .2s}" +
+    ".news-card a.news-card-media:hover .news-card-img{opacity:.9}" +
+    ".news-more{margin-top:auto;align-self:flex-start;font-weight:700;font-size:15px;color:#b45309;text-decoration:none}" +
+    ".news-more:hover{text-decoration:underline;text-underline-offset:3px}";
+  document.head.appendChild(css);
+})();

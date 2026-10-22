@@ -45,11 +45,11 @@
     img.src = zdjecia[nr];
     licznik.textContent = (nr + 1) + " / " + zdjecia.length;
   }
-  function otworz(lista, alt) {
+  function otworz(lista, alt, start) {
     zdjecia = lista;
     img.alt = alt || "";
     box.classList.toggle("jedno", lista.length < 2);
-    pokaz(0);
+    pokaz(start || 0);
     box.classList.add("open");
     document.body.style.overflow = "hidden";
   }
@@ -61,13 +61,14 @@
 
   document.addEventListener("click", function (e) {
     var t = e.target;
-    if (t.classList && t.classList.contains("news-card-img")) {
+    // zdjęcie będące linkiem (karta wpisu) prowadzi do strony wpisu – bez powiększania
+    if (t.classList && t.classList.contains("news-card-img") && !t.closest("a")) {
       var lista = [t.getAttribute("src")];
       try {
         var g = JSON.parse(t.getAttribute("data-gallery") || "null");
         if (Array.isArray(g) && g.length) lista = g;
       } catch (err) {}
-      otworz(lista, t.alt);
+      otworz(lista, t.alt, parseInt(t.getAttribute("data-start") || "0", 10) || 0);
       return;
     }
     if (!box.classList.contains("open") || !box.contains(t)) return;

@@ -8,6 +8,7 @@ Każda zmiana zapisana w gałęzi `main` po 1–2 minutach pojawia się na stron
 | Plik | Do czego służy |
 |---|---|
 | `index.html` | Strona główna (oferta, o nas, kontakt, 3 najnowsze aktualności) |
+| `wpis.html` | Strona pojedynczego wpisu (jeden szablon dla wszystkich wpisów, np. `wpis.html?id=toyota-bemowo`) |
 | `aktualnosci.html` | Pełna lista aktualności z filtrami kategorii |
 | `posts-data.js` | **Treść aktualności** – tu dodajesz nowe wpisy |
 | `wpisy.js` | Funkcje dla aktualności: akapity, linki, zdjęcia, kategorie (nie edytujesz przy dodawaniu wpisów) |
@@ -25,6 +26,7 @@ Każda zmiana zapisana w gałęzi `main` po 1–2 minutach pojawia się na stron
 
    ```js
    {
+     id: "krotki-adres-wpisu",
      date: "2025-03-01",
      category: "serwis",
      title: "Tytuł wpisu",
@@ -40,6 +42,9 @@ Wpis pojawi się automatycznie na `aktualnosci.html`, a jeśli należy do 3 najn
 
 ### Pola wpisu
 
+- **id**: krótki adres wpisu, np. `"toyota-bemowo"` (małe litery, bez polskich znaków, myślniki zamiast spacji).
+  Każdy wpis musi mieć inne `id`. Strona wpisu będzie pod adresem `wpis.html?id=toyota-bemowo`.
+  Bez `id` adres utworzy się z tytułu, ale wtedy zmiana tytułu zmieni też link do wpisu.
 - **date**: data w formacie `RRRR-MM-DD`, np. `"2025-03-01"`.
 - **category**: jedna z wartości: `realizacja`, `serwis`, `zgodnosc`, `nowa-usluga`.
 - **title**: tytuł wpisu.
@@ -62,7 +67,9 @@ Drugi akapit. Więcej na [stronie Toyoty](https://www.toyota.pl).`,
 - **link** zapisujesz jako `[tekst linku](https://adres.pl)`; otworzy się w nowej karcie,
 - **sam adres** `https://...` też staje się klikalnym linkiem.
 
-Na stronie głównej widać tylko pierwszy akapit, a na stronie Aktualności całą treść.
+Na kartach (strona główna i Aktualności) widać tylko **pierwszy akapit** i link „Czytaj dalej”.
+Cała treść, wszystkie zdjęcia i galeria są na osobnej stronie wpisu, więc treść może być dowolnie długa.
+Pierwszy akapit warto więc pisać jako krótkie streszczenie wpisu.
 W tekście wpisanym w `` `...` `` nie można użyć samego znaku `` ` ``.
 
 ### Wpis ze zdjęciem
