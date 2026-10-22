@@ -77,7 +77,7 @@ const PROLIGHT_POSTS = [
       id: "toyota-bemowo",
       date: "2026-10-21",
       category: "realizacja",
-      title: "Toyota Bemowo - uruchmoenie systemu",
+      title: "Toyota Bemowo - uruchomienie systemu",
       excerpt:`Nowo otwarty salon Toyota, uruchomienie systemu sterowania oprawami.
 
 **1.** System Vertex: 8 sterowników, 
