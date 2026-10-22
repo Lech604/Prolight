@@ -18,7 +18,9 @@
 // =====================================================================
 
 const PROLIGHT_KONTAKTY = [
-  { typ: "telefon", imie: "",      wartosc: "+48 608 633 434" },
-  { typ: "telefon", imie: "Karol", wartosc: "+48 698 028 684" },
+  { typ: "telefon", imie: "Karol",  wartosc: "+48 608 633 434" },
+  { typ: "telefon", imie: "Michał", wartosc: "+48 698 028 684" },
+  { typ: "telefon", imie: "Leszek", wartosc: "+48 513 144 502" },
+  { typ: "telefon", imie: "Michał", wartosc: "+48 601 685 025" },
   { typ: "email",   imie: "",      wartosc: "biuro@prolightsolutions.pl" },
 ];
