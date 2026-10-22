@@ -11,6 +11,7 @@ Każda zmiana zapisana w gałęzi `main` po 1–2 minutach pojawia się na stron
 | `wpis.html` | Strona pojedynczego wpisu (jeden szablon dla wszystkich wpisów, np. `wpis.html?id=toyota-bemowo`) |
 | `aktualnosci.html` | Pełna lista aktualności z filtrami kategorii |
 | `posts-data.js` | **Treść aktualności** – tu dodajesz nowe wpisy |
+| `kontakty.js` | **Telefony i e-maile** w sekcji Kontakt na stronie głównej |
 | `wpisy.js` | Funkcje dla aktualności: akapity, linki, zdjęcia, kategorie (nie edytujesz przy dodawaniu wpisów) |
 | `do-gory.js` | Przycisk „do góry” w prawym dolnym rogu (działa automatycznie) |
 | `lightbox.js` | Powiększanie zdjęć i galeria w aktualnościach (działa automatycznie) |
@@ -118,6 +119,23 @@ Prawie zawsze winny jest błąd w `posts-data.js`. Sprawdź:
 - czy każdy tekst jest zamknięty cudzysłowem.
 
 Jeśli nie widzisz błędu, w zakładce **History** pliku możesz porównać zmiany albo przywrócić poprzednią wersję.
+
+## Kontakty (telefony i e-maile)
+
+Kafelki w sekcji „Kontakt” na stronie głównej tworzą się z pliku `kontakty.js`.
+Jeden kontakt to jedna linia:
+
+```js
+{ typ: "telefon", imie: "Karol", wartosc: "+48 698 028 684" },
+{ typ: "email",   imie: "",      wartosc: "biuro@prolightsolutions.pl" },
+```
+
+- **typ**: `"telefon"` albo `"email"`,
+- **imie**: podpis nad numerem (imię, „Serwis”, „Biuro”…); `""`, jeśli bez podpisu,
+- **wartosc**: numer (ze spacjami, z `+48`) albo adres e-mail. Link do dzwonienia lub pisania tworzy się sam.
+
+Kolejność na stronie jest taka jak na liście. Telefony układają się po dwa obok siebie,
+a e-maile na całą szerokość. Każda linia kończy się przecinkiem.
 
 ## Kategorie
 

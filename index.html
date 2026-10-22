@@ -1226,6 +1226,9 @@ footer {
 .news-date { font-size: 14px; }
 .hero-stat-label { font-size: 15px; }
 .cta-contact-label { font-size: 13px; }
+.cta-contacts { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.cta-contacts .cta-contact-card.szeroki { grid-column: 1 / -1; }
+.cta-contact-val { overflow-wrap: anywhere; }
 .cta-contact-name { font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.65); margin-bottom: 2px;text-transform: uppercase; letter-spacing: 0.06em; }
 .footer-links a, .footer-copy { font-size: 14px; }
 .nav-links a { font-size: 14px; }
@@ -1580,6 +1583,8 @@ Wszystkie wpisy
       <p class="cta-sub reveal d1">Podajesz typ systemu i objaw awarii, my mówimy czy to wymaga wyjazdu, czy da się zdiagnozować zdalnie.</p>
     </div>
     <div class="cta-right reveal d1">
+      <!-- Kafelki kontaktowe tworzą się z pliku kontakty.js (poniżej wersja zapasowa, gdyby plik się nie wczytał) -->
+      <div class="cta-contacts" id="kontakty">
       <a href="tel:+48608633434" class="cta-contact-card">
         <div class="cta-contact-icon">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1615,6 +1620,7 @@ Wszystkie wpisy
           <div class="cta-contact-val">biuro@prolightsolutions.pl</div>
         </div>
       </a>
+      </div>
       <a href="mailto:biuro@prolightsolutions.pl" class="btn-cta">Napisz do nas</a>
       <p class="cta-address">Prolight Solutions Sp. z o.o. · Węgrzce Wielkie 1326, 32-002 Węgrzce Wielkie</p>
     </div>
@@ -1670,6 +1676,30 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 <script src="wpisy.js?v=8"></script>
 <script src="lightbox.js?v=7"></script>
 <script src="do-gory.js?v=8"></script>
+<script src="kontakty.js?v=1"></script>
+<script>
+// Kafelki kontaktowe z pliku kontakty.js
+(function () {
+  var box = document.getElementById("kontakty");
+  if (!box || typeof PROLIGHT_KONTAKTY === "undefined" || !PROLIGHT_KONTAKTY.length) return;
+  var ikony = {
+    telefon: '<path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>',
+    email: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>'
+  };
+  var esc = function (t) { return String(t || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;"); };
+  box.innerHTML = PROLIGHT_KONTAKTY.map(function (k) {
+    var email = String(k.typ).toLowerCase().indexOf("mail") !== -1;
+    var w = String(k.wartosc || "").trim();
+    var href = email ? "mailto:" + w : "tel:" + w.replace(/[^\d+]/g, "");
+    return '<a href="' + esc(href) + '" class="cta-contact-card' + (email ? " szeroki" : "") + '">' +
+      '<div class="cta-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' +
+      (email ? ikony.email : ikony.telefon) + '</svg></div>' +
+      '<div><div class="cta-contact-label">' + (email ? "E-mail" : "Telefon") + '</div>' +
+      (k.imie ? '<div class="cta-contact-name">' + esc(k.imie) + '</div>' : "") +
+      '<div class="cta-contact-val">' + esc(w) + '</div></div></a>';
+  }).join("");
+})();
+</script>
 <script>
 (function() {
 if (typeof PROLIGHT_POSTS === "undefined") return;
