@@ -47,7 +47,7 @@ function prolightCardMedia(post) {
 //   **tekst**              -> pogrubienie
 //   *tekst*                -> kursywa
 //   __tekst__              -> podkreślenie
-//   linie zaczynające się od "- "  -> lista punktowa
+//   linie zaczynające się od "- ", "* " lub "• " -> lista punktowa
 //   linie zaczynające się od "1. " -> lista numerowana
 // Gdy tylkoPierwszy = true, zwraca tylko 1. akapit (na karty).
 function prolightFormatText(tekst, tylkoPierwszy) {
@@ -73,7 +73,7 @@ function prolightFormatText(tekst, tylkoPierwszy) {
     return h.replace(/\u0000(\d+)\u0000/g, (m, i) => linki[i]);
   }
 
-  const PUNKT = /^\s*[-•]\s+/;
+  const PUNKT = /^\s*[-•*]\s+/;   // "- ", "• " albo "* " (ze spacją)
   const NUMER = /^\s*\d+[.)]\s+/;
 
   let akapity = String(tekst || "").trim().split(/\n\s*\n/);

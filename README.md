@@ -68,7 +68,7 @@ Drugi akapit. Więcej na [stronie Toyoty](https://www.toyota.pl).`,
 - **link** zapisujesz jako `[tekst linku](https://adres.pl)`; otworzy się w nowej karcie,
 - **sam adres** `https://...` też staje się klikalnym linkiem.
 - **pogrubienie**: `**tekst**`, *kursywa*: `*tekst*`, podkreślenie: `__tekst__`,
-- **lista punktowa**: każda linia zaczyna się od `- ` (myślnik i spacja),
+- **lista punktowa**: każda linia zaczyna się od `- `, `* ` albo `• ` (znak i spacja),
 - **lista numerowana**: każda linia zaczyna się od `1. `, `2. ` itd.
 
 Przykład:
