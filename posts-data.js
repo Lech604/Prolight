@@ -81,11 +81,11 @@ const PROLIGHT_POSTS = [
       excerpt:`**Toyota Bemowo: 688 urządzeń pod kontrolą jednego systemu**
 
 **System w liczbach**
-*7 sterowników Vertex
-*21 linii DALI, wszystkie aktywne
-*429 opraw oświetlenia ogólnego
-*179 opraw oświetlenia awaryjnego
-*80 urządzeń sterujących
+* 7 sterowników Vertex
+* 21 linii DALI, wszystkie aktywne
+* 429 opraw oświetlenia ogólnego
+* 179 opraw oświetlenia awaryjnego
+* 80 urządzeń sterujących
 **Łącznie 688 urządzeń** skonfigurowanych i uruchomionych w jednym, spójnie zarządzanym systemie.
 Skonfigurowaliśmy i uruchomiliśmy system sterowania oświetleniem w nowym, 
 trzykondygnacyjnym kompleksie dealerskim Toyoty na warszawskim Bemowie. 
@@ -103,11 +103,13 @@ Więcej o otwarciu salonu na [stronie Toyoty](https://www.toyota.pl/swiat-toyoty
       category: "realizacja",
       title: "Nowe biuro Glamox",
       excerpt: `**Nowe biuro Glamox: 447 urządzeń, każda oprawa ustawiona indywidualnie**
+
+      
       **System w liczbach**
-*6 sterowników Vertex
-*18 linii DALI, wszystkie aktywne
-*324 oprawy oświetlenia ogólnego*
-*123 urządzenia sterujące
+* 6 sterowników Vertex
+* 18 linii DALI, wszystkie aktywne
+* 324 oprawy oświetlenia ogólnego*
+* 123 urządzenia sterujące
 **Łącznie 447 urządzeń**, zamontowanych, skonfigurowanych i uruchomionych przez nasz zespół
 W nowym biurze i showroomie Glamox w Krakowie zamontowaliśmy oprawy oraz wszystkie urządzenia systemu DALI, a następnie skonfigurowaliśmy i uruchomiliśmy sterowanie. Biuro ma pokazywać klientom Glamox, jak oświetlenie Human Centric Lighting wpływa na komfort i wydajność pracy. Dlatego sterowanie musiało być dopracowane do ostatniej oprawy.
 **Obiekt** To nowoczesne biuro z ergonomicznymi stanowiskami pracy, strefami współpracy i spotkań oraz przestrzeniami wspólnymi. Pracuje tu oświetlenie z czołowych serii Glamox: oprawy z Nordic Collection, oprawy z funkcją pochłaniania dźwięku FX SILENCE i nagradzana Red Dot Award seria Luxo Align.
