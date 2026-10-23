@@ -78,11 +78,14 @@ const PROLIGHT_POSTS = [
       date: "2026-10-21",
       category: "realizacja",
       title: "Toyota Bemowo - uruchomienie systemu",
-      excerpt:`Nowo otwarty salon Toyota, uruchomienie systemu sterowania oprawami.
+      excerpt:`**Toyota Bemowo: 688 urządzeń pod kontrolą jednego systemu.**
 
-**1.** System Vertex: 8 sterowników, 
-**2.** 900 opraw podstawowych, 
-**3.** 150 opraw oświetlenia awaryjnego i ewakuacyjnego.
+**System w liczbach**
+7 sterowników Vertex
+21 linii DALI, wszystkie aktywne
+429 opraw oświetlenia ogólnego
+179 opraw oświetlenia awaryjnego
+80 urządzeń sterujących
 **4.** Więcej o otwarciu salonu na [stronie Toyoty](https://www.toyota.pl/swiat-toyoty/nowosci/toyota-i-lexus-otwieraja-nowe-salony-z-warszawie).`,
       image: ["Bemowo.png", "bemowo2.png", "bemowo3.png"]
    },
