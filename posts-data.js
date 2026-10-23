@@ -116,7 +116,7 @@ W nowym biurze i showroomie Glamox w Krakowie zamontowaliśmy oprawy oraz wszyst
 **Wyzwanie: sterowanie szyte na miarę** Nie zastosowaliśmy tu jednego scenariusza dla całego piętra. Praktycznie każda oprawa ma indywidualnie ustawione sterowanie, dopasowane do miejsca, w którym pracuje, i do osób, które z niego korzystają. To dużo bardziej złożona konfiguracja niż standardowe biuro. Właśnie dzięki temu każdy użytkownik dostaje światło dobrane do swojego stanowiska i pory dnia.
 
 
-Wiecej na stronie [Glamox](https://www.glamox.com/pl/pbs/realizacje-i-wiadomosci/glamox-otwiera-biuro-w-krakowie-i-rozbudowuje-laboratorium-w-dobczycach/)`,
+Wiecej o nowym biurze na stronie [Glamox](https://www.glamox.com/pl/pbs/realizacje-i-wiadomosci/glamox-otwiera-biuro-w-krakowie-i-rozbudowuje-laboratorium-w-dobczycach/)`,
      image: "GLX.jpeg"
    },
   {
