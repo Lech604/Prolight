@@ -78,12 +78,22 @@ const PROLIGHT_POSTS = [
       date: "2026-10-21",
       category: "realizacja",
       title: "Toyota Bemowo - uruchomienie systemu",
-      excerpt:`Nowo otwarty salon Toyota, uruchomienie systemu sterowania oprawami.
+      excerpt:`**Toyota Bemowo: 688 urządzeń pod kontrolą jednego systemu**
 
-**1.** System Vertex: 8 sterowników, 
-**2.** 900 opraw podstawowych, 
-**3.** 150 opraw oświetlenia awaryjnego i ewakuacyjnego.
-**4.** Więcej o otwarciu salonu na [stronie Toyoty](https://www.toyota.pl/swiat-toyoty/nowosci/toyota-i-lexus-otwieraja-nowe-salony-z-warszawie).`,
+**System w liczbach**
+*7 sterowników Vertex
+*21 linii DALI, wszystkie aktywne
+*429 opraw oświetlenia ogólnego
+*179 opraw oświetlenia awaryjnego
+*80 urządzeń sterujących
+**Łącznie 688 urządzeń** skonfigurowanych i uruchomionych w jednym, spójnie zarządzanym systemie.
+Skonfigurowaliśmy i uruchomiliśmy system sterowania oświetleniem w nowym, 
+trzykondygnacyjnym kompleksie dealerskim Toyoty na warszawskim Bemowie. 
+To ponad 6300 m² powierzchni o bardzo różnych potrzebach: od salonów ekspozycyjnych, przez halę serwisową, po strefę obsługi klienta.
+**Obiekt** Salon Toyoty zajmuje ok. 560 m². Na ekspozycji stanie łącznie 50 samochodów. 
+Klienci czekający na samochód mają do dyspozycji strefę komfortu o powierzchni ponad 200 m². 
+W całym budynku jest 180 stanowisk pracy.
+Więcej o otwarciu salonu na [stronie Toyoty](https://www.toyota.pl/swiat-toyoty/nowosci/toyota-i-lexus-otwieraja-nowe-salony-z-warszawie).`,
       image: ["Bemowo.png", "bemowo2.png", "bemowo3.png"]
    },
 
@@ -92,14 +102,18 @@ const PROLIGHT_POSTS = [
       date: "2026-10-01",
       category: "realizacja",
       title: "Nowe biuro Glamox",
-      excerpt: `Nowe biuro Glamox
+      excerpt: `**Nowe biuro Glamox: 447 urządzeń, każda oprawa ustawiona indywidualnie**
+      **System w liczbach**
+*6 sterowników Vertex
+*18 linii DALI, wszystkie aktywne
+*324 oprawy oświetlenia ogólnego*
+*123 urządzenia sterujące
+**Łącznie 447 urządzeń**, zamontowanych, skonfigurowanych i uruchomionych przez nasz zespół
+W nowym biurze i showroomie Glamox w Krakowie zamontowaliśmy oprawy oraz wszystkie urządzenia systemu DALI, a następnie skonfigurowaliśmy i uruchomiliśmy sterowanie. Biuro ma pokazywać klientom Glamox, jak oświetlenie Human Centric Lighting wpływa na komfort i wydajność pracy. Dlatego sterowanie musiało być dopracowane do ostatniej oprawy.
+**Obiekt** To nowoczesne biuro z ergonomicznymi stanowiskami pracy, strefami współpracy i spotkań oraz przestrzeniami wspólnymi. Pracuje tu oświetlenie z czołowych serii Glamox: oprawy z Nordic Collection, oprawy z funkcją pochłaniania dźwięku FX SILENCE i nagradzana Red Dot Award seria Luxo Align.
+**Wyzwanie: sterowanie szyte na miarę** Nie zastosowaliśmy tu jednego scenariusza dla całego piętra. Praktycznie każda oprawa ma indywidualnie ustawione sterowanie, dopasowane do miejsca, w którym pracuje, i do osób, które z niego korzystają. To dużo bardziej złożona konfiguracja niż standardowe biuro. Właśnie dzięki temu każdy użytkownik dostaje światło dobrane do swojego stanowiska i pory dnia.
 
-**Lorem ipsum** – *tekst składający się z łacińskich i quasi-łacińskich wyrazów*, mający korzenie w klasycznej łacinie, wzorowany na fragmencie traktatu Cycerona „O granicach dobra i zła” (De finibus bonorum et malorum) napisanego w 45 roku p.n.e. Tekst jest stosowany do demonstracji krojów pisma (czcionek, fontów), kompozycji kolumny itp., będąc standardowym tekstem zastępczym w branży od 1966 roku, kiedy to projektanci z firmy Letraset oraz James Mosley, bibliotekarz z londyńskiej biblioteki poligraficznej St Bride Printing Library, gruntownie przekształcili tłumaczenie dzieła Cycerona z 1914 roku, aby stworzyć tekst do arkuszy krojów pism[1].
 
-**Tekst w obcym języku pozwala skoncentrować uwagę na wizualnych aspektach tekstu, a nie jego znaczeniu.**
-W łacinie niektóre z często występujących w językach nowożytnych liter używane były sporadycznie (k, z), bądź nie było ich wcale (w, j), stąd niektóre wariacje tego tekstu mogą zawierać także wyrazy z tymi literami, aby również i one były zademonstrowane.
-**__Fragment używany do demonstracji tekstu:__**
-(1. ) Lorem ipsum dolor sit amet, consectetur adipiscing ***elit***, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 Wiecej na stronie [Glamox](https://www.glamox.com/pl/pbs/realizacje-i-wiadomosci/glamox-otwiera-biuro-w-krakowie-i-rozbudowuje-laboratorium-w-dobczycach/)`,
      image: "GLX.jpeg"
    },
