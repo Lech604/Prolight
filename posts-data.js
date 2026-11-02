@@ -107,7 +107,7 @@ Więcej o otwarciu salonu na [stronie Toyoty](https://www.toyota.pl/swiat-toyoty
 
    {
       id: "biuro-glamox",
-      date: "2026-10-01",
+      date: "2026-04-01",
       category: "realizacja",
       title: "Nowe biuro Glamox",
       excerpt: `**Nowe biuro Glamox: 447 urządzeń, każda oprawa ustawiona indywidualnie**
