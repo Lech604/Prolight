@@ -3,12 +3,32 @@
 Statyczna strona firmy Prolight Solutions, hostowana na GitHub Pages.
 Każda zmiana zapisana w gałęzi `main` po 1–2 minutach pojawia się na stronie.
 
+## Automatyczne strony wpisów (SEO)
+
+Po każdym zapisie `posts-data.js` lub `kontakty.js` GitHub sam (zakładka **Actions**, „Generuj strony”):
+- tworzy osobną stronę każdego wpisu w `aktualnosci/<id>/` z tytułem, opisem i zdjęciem dla Google i Facebooka,
+- wpisuje karty wpisów do `aktualnosci.html` i 3 najnowsze do `index.html`,
+- wpisuje kontakty i dane firmy (dla Google) do `index.html`,
+- aktualizuje `sitemap.xml`.
+
+Trwa to ok. minuty i dodaje osobny commit „Automatyczna aktualizacja stron wpisów”.
+Jeśli w `posts-data.js` jest błąd (np. brak przecinka, zła data, brak pliku zdjęcia), przy przebiegu
+pojawi się czerwony krzyżyk z opisem błędu, a strona zostaje w poprzedniej wersji.
+Nie edytuj ręcznie fragmentów między znacznikami `<!-- GEN:... -->` – są nadpisywane.
+
 ## Struktura plików
 
 | Plik | Do czego służy |
 |---|---|
 | `index.html` | Strona główna (oferta, o nas, kontakt, 3 najnowsze aktualności) |
-| `wpis.html` | Strona pojedynczego wpisu (jeden szablon dla wszystkich wpisów, np. `wpis.html?id=toyota-bemowo`) |
+| `aktualnosci/<id>/` | **Strony wpisów – tworzą się same** (np. `aktualnosci/toyota-bemowo/`). Nie edytuj ich ręcznie |
+| `szablon-wpisu.html` | Wygląd strony pojedynczego wpisu (z niego powstają strony w `aktualnosci/`) |
+| `wpis.html` | Stary adres wpisów (`wpis.html?id=...`) – przekierowuje na nowy |
+| `narzedzia/generuj-strony.js` | Generator stron wpisów, kontaktów i `sitemap.xml` (uruchamia go GitHub) |
+| `.github/workflows/generuj-strony.yml` | Automat GitHub, który uruchamia generator po każdej zmianie |
+| `sitemap.xml`, `robots.txt` | Mapa strony i zasady dla wyszukiwarek (`sitemap.xml` tworzy się sama) |
+| `og-image.jpg` | Obrazek pokazywany przy udostępnianiu strony (Facebook, LinkedIn) |
+| `favicon.ico`, `favicon-*.png`, `apple-touch-icon.png` | Ikony strony w karcie przeglądarki i na telefonie |
 | `aktualnosci.html` | Pełna lista aktualności z filtrami kategorii |
 | `posts-data.js` | **Treść aktualności** – tu dodajesz nowe wpisy |
 | `kontakty.js` | **Telefony i e-maile** w sekcji Kontakt na stronie głównej |
@@ -44,12 +64,15 @@ Wpis pojawi się automatycznie na `aktualnosci.html`, a jeśli należy do 3 najn
 ### Pola wpisu
 
 - **id**: krótki adres wpisu, np. `"toyota-bemowo"` (małe litery, bez polskich znaków, myślniki zamiast spacji).
-  Każdy wpis musi mieć inne `id`. Strona wpisu będzie pod adresem `wpis.html?id=toyota-bemowo`.
+  Każdy wpis musi mieć inne `id`. Strona wpisu będzie pod adresem `aktualnosci/toyota-bemowo/`.
+  Po opublikowaniu nie zmieniaj `id` – zmieni się adres wpisu, który Google już zna.
   Bez `id` adres utworzy się z tytułu, ale wtedy zmiana tytułu zmieni też link do wpisu.
 - **date**: data w formacie `RRRR-MM-DD`, np. `"2025-03-01"`.
 - **category**: jedna z wartości: `realizacja`, `serwis`, `zgodnosc`, `nowa-usluga`.
 - **title**: tytuł wpisu.
 - **excerpt**: treść / krótki opis.
+- **opis** (nieobowiązkowe): 1–2 zdania do ok. 155 znaków, które Google pokaże w wynikach wyszukiwania.
+  Bez tego pola opis utworzy się z początku treści.
 - **image**: `null`, gdy wpis nie ma zdjęcia, nazwa pliku w cudzysłowie, np. `"hala.jpg"`,
   albo kilka plików w nawiasach kwadratowych (patrz „Wpis z kilkoma zdjęciami”).
 

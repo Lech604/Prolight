@@ -109,7 +109,9 @@ function prolightCategoryLabel(post) {
 }
 
 // =====================================================================
-//  Osobna strona wpisu (wpis.html?id=...)
+//  Osobna strona wpisu: aktualnosci/<id>/
+//  Strony wpisów tworzy automatycznie GitHub (narzedzia/generuj-strony.js)
+//  po każdej zmianie w posts-data.js.
 // =====================================================================
 
 // Zamienia tekst na krótki adres, np. "Toyota Bemowo – start" -> "toyota-bemowo-start".
@@ -127,7 +129,23 @@ function prolightPostId(post) {
 }
 
 function prolightPostUrl(post) {
-  return "wpis.html?id=" + encodeURIComponent(prolightPostId(post));
+  return "aktualnosci/" + prolightPostId(post) + "/";
+}
+
+// Opis wpisu dla Google (do ok. 155 znaków): pole "opis", a gdy go brak –
+// początek treści bez formatowania.
+function prolightPlainText(tekst) {
+  return String(tekst || "")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/\*\*|__|\*(?=\S)|(?<=\S)\*/g, "")
+    .replace(/^\s*([-•*]|\d+[.)])\s+/gm, "")
+    .replace(/\s+/g, " ").trim();
+}
+function prolightDescription(post) {
+  let t = prolightPlainText(post.opis || post.excerpt);
+  if (t.length <= 158) return t;
+  t = t.slice(0, 155);
+  return t.slice(0, t.lastIndexOf(" ")).replace(/[\s,.;:–-]+$/, "") + "…";
 }
 
 function prolightFindPost(id) {
@@ -168,6 +186,26 @@ function prolightCardHTML(post) {
     prolightFormatText(post.excerpt, true) +
     '<a class="news-more" href="' + url + '">Czytaj dalej <span aria-hidden="true">→</span></a>' +
     "</article>";
+}
+
+// Kafelki kontaktowe (strona główna) z listy PROLIGHT_KONTAKTY w kontakty.js.
+function prolightKontaktyHTML(lista) {
+  const ikony = {
+    telefon: '<path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>',
+    email: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>'
+  };
+  const esc = t => String(t || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+  return (lista || []).map(k => {
+    const email = String(k.typ).toLowerCase().indexOf("mail") !== -1;
+    const w = String(k.wartosc || "").trim();
+    const href = email ? "mailto:" + w : "tel:" + w.replace(/[^\d+]/g, "");
+    return '<a href="' + esc(href) + '" class="cta-contact-card' + (email ? " szeroki" : "") + '">' +
+      '<div class="cta-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' +
+      (email ? ikony.email : ikony.telefon) + '</svg></div>' +
+      '<div><div class="cta-contact-label">' + (email ? "E-mail" : "Telefon") + '</div>' +
+      (k.imie ? '<div class="cta-contact-name">' + esc(k.imie) + '</div>' : "") +
+      '<div class="cta-contact-val">' + esc(w) + '</div></div></a>';
+  }).join("");
 }
 
 // Style kart z linkami (dołączane automatycznie).
