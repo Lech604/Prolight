@@ -13,13 +13,15 @@
 //      category: "serwis",
 //      title: "Tytuł wpisu",
 //      excerpt: "Krótki opis wpisu, 1–3 zdania.",
+//      opis: "",
 //      image: null
 //    },
 //
 //  POLA:
 //  id       – krótki adres wpisu: małe litery, bez polskich znaków, myślniki
 //             zamiast spacji, np. "toyota-bemowo". Strona wpisu będzie pod
-//             adresem wpis.html?id=toyota-bemowo. Każdy wpis musi mieć inne id.
+//             adresem aktualnosci/toyota-bemowo/. Każdy wpis musi mieć inne id.
+//             Po opublikowaniu NIE zmieniaj id – zmieni się adres wpisu w Google.
 //             Jeśli go nie wpiszesz, utworzy się sam z tytułu (ale wtedy zmiana
 //             tytułu zmieni też adres wpisu).
 //  date     – data w formacie RRRR-MM-DD. Kolejność na stronie ustala się
@@ -28,9 +30,14 @@
 //             (małymi literami, bez polskich znaków – jak w liście niżej).
 //  title    – tytuł.
 //  excerpt  – treść wpisu. Może mieć akapity i linki – patrz niżej.
+//  opis     – (nieobowiązkowe) 1–2 zdania, do ok. 155 znaków, które Google
+//             pokaże pod tytułem w wynikach wyszukiwania. Jeśli pole jest
+//             puste lub go nie ma, opis utworzy się z początku treści.
 //  image    – null, jeśli bez zdjęcia, albo sama nazwa pliku w cudzysłowie,
 //             np. "glamox-biuro.jpg". Plik wgrywasz do folderu "zdjecia"
 //             (nazwy folderu tu nie wpisujesz – dodaje się sama).
+//             Zdjęcia zapisuj jako .jpg (nie .png) o szerokości do ok. 1920 px –
+//             strona ładuje się wtedy kilka razy szybciej.
 //             KILKA ZDJĘĆ: wpisz je w nawiasach kwadratowych, po przecinku:
 //             image: ["bemowo-1.jpg", "bemowo-2.jpg", "bemowo-3.jpg"],
 //             Na karcie widać pierwsze (z etykietą „+2”), a po kliknięciu
@@ -94,7 +101,8 @@ To ponad 6300 m² powierzchni o bardzo różnych potrzebach: od salonów ekspozy
 Klienci czekający na samochód mają do dyspozycji strefę komfortu o powierzchni ponad 200 m². 
 W całym budynku jest 180 stanowisk pracy.
 Więcej o otwarciu salonu na [stronie Toyoty](https://www.toyota.pl/swiat-toyoty/nowosci/toyota-i-lexus-otwieraja-nowe-salony-z-warszawie).`,
-      image: ["Bemowo.png", "bemowo2.png", "bemowo3.png"]
+      opis: "Uruchomienie systemu sterowania oświetleniem w salonie Toyoty na Bemowie: 7 sterowników Vertex, 21 linii DALI i 688 urządzeń na 6300 m².",
+      image: ["bemowo-1.jpg", "bemowo-2.jpg", "bemowo-3.png"]
    },
 
    {
@@ -117,6 +125,7 @@ W nowym biurze i showroomie Glamox w Krakowie zamontowaliśmy oprawy oraz wszyst
 
 
 Wiecej o nowym biurze na stronie [Glamox](https://www.glamox.com/pl/pbs/realizacje-i-wiadomosci/glamox-otwiera-biuro-w-krakowie-i-rozbudowuje-laboratorium-w-dobczycach/)`,
+     opis: "Montaż, konfiguracja i uruchomienie systemu DALI w nowym biurze Glamox w Krakowie: 6 sterowników Vertex, 447 urządzeń, indywidualne sterowanie każdej oprawy.",
      image: "GLX.jpeg"
    },
   {

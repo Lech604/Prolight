@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /projekt-logo/
+Disallow: /narzedzia/
+Disallow: /szablon-wpisu.html
+
+Sitemap: https://prolightsolutions.pl/sitemap.xml

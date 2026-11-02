@@ -1,0 +1,50 @@
+# Po każdej zmianie wpisów, kontaktów, zdjęć lub szablonu GitHub sam
+# przebudowuje strony wpisów, listę aktualności, stronę główną i sitemap.xml
+# (skrypt narzedzia/generuj-strony.js) i zapisuje wynik w tej samej gałęzi.
+# Gdy w posts-data.js jest błąd, w zakładce Actions pojawi się czerwony krzyżyk
+# z opisem, co poprawić – strona zostaje wtedy w poprzedniej, działającej wersji.
+name: Generuj strony
+
+on:
+  push:
+    branches: [main, dev]
+    paths:
+      - posts-data.js
+      - kontakty.js
+      - wpisy.js
+      - szablon-wpisu.html
+      - index.html
+      - aktualnosci.html
+      - zdjecia/**
+      - narzedzia/**
+      - .github/workflows/generuj-strony.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: generuj-strony-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  generuj:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Generuj strony
+        run: node narzedzia/generuj-strony.js
+      - name: Zapisz zmiany
+        run: |
+          git add -A aktualnosci aktualnosci.html index.html sitemap.xml
+          if git diff --cached --quiet; then
+            echo "Brak zmian."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Automatyczna aktualizacja stron wpisów"
+          git push
