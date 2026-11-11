@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DALI lighting control commissioning and service | Prolight Solutions</title>
+  <meta name="description" content="Commissioning, service and upgrades of DALI lighting control and emergency lighting – Helvar, Vertex, WAGO. 14+ years of experience, projects across Europe.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Prolight Solutions">
+  <link rel="canonical" href="https://prolightsolutions.pl/en/">
+  <link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/">
+  <link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/">
+  <link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/">
+  <!-- Icons -->
+  <link rel="icon" href="../favicon.ico" sizes="48x48">
+  <link rel="icon" href="../favicon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0c10">
+  <!-- Open Graph (link previews on Facebook, LinkedIn etc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Prolight Solutions">
+  <meta property="og:url" content="https://prolightsolutions.pl/en/">
+  <meta property="og:title" content="DALI lighting control commissioning and service | Prolight Solutions">
+  <meta property="og:description" content="Specialists in lighting control and emergency lighting monitoring. Helvar, Vertex, WAGO and DALI systems – projects across Europe.">
+  <meta property="og:image" content="https://prolightsolutions.pl/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Prolight Solutions – lighting control systems">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="pl_PL">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DALI lighting control commissioning and service | Prolight Solutions">
+  <meta name="twitter:description" content="Specialists in lighting control and emergency lighting monitoring. Helvar, Vertex, WAGO and DALI systems.">
+  <meta name="twitter:image" content="https://prolightsolutions.pl/og-image.jpg">
+  <!-- Company details for Google (generated automatically from kontakty.js) -->
+  <!-- GEN:firma -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://prolightsolutions.pl/#firma",
+  "name": "Prolight Solutions",
+  "legalName": "Prolight Solutions Sp. z o.o.",
+  "description": "Commissioning, service and upgrades of DALI lighting control and emergency lighting systems: Helvar, Vertex, WAGO. Projects across Europe.",
+  "url": "https://prolightsolutions.pl/en/",
+  "logo": "https://prolightsolutions.pl/favicon-512.png",
+  "image": "https://prolightsolutions.pl/og-image.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Węgrzce Wielkie 1326",
+    "postalCode": "32-002",
+    "addressLocality": "Węgrzce Wielkie",
+    "addressRegion": "małopolskie",
+    "addressCountry": "PL"
+  },
+  "areaServed": [
+    {
+      "@type": "Place",
+      "name": "Europe"
+    }
+  ],
+  "knowsAbout": [
+    "lighting control systems",
+    "DALI",
+    "Helvar",
+    "Vertex",
+    "WAGO",
+    "emergency lighting",
+    "EN 50172"
+  ],
+  "telephone": "+48 608 633 434",
+  "email": "biuro@prolightsolutions.pl",
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "availableLanguage": [
+        "pl",
+        "en"
+      ],
+      "telephone": "+48 608 633 434",
+      "name": "Karol"
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "availableLanguage": [
+        "pl",
+        "en"
+      ],
+      "telephone": "+48 698 028 684",
+      "name": "Michał"
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "availableLanguage": [
+        "pl",
+        "en"
+      ],
+      "telephone": "+48 601 685 025",
+      "name": "Michał"
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "availableLanguage": [
+        "pl",
+        "en"
+      ],
+      "telephone": "+48 513 144 502",
+      "name": "Leszek"
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "availableLanguage": [
+        "pl",
+        "en"
+      ],
+      "email": "biuro@prolightsolutions.pl"
+    }
+  ]
+}
+  </script>
+  <!-- /GEN:firma -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=Barlow+Condensed:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #0a0c10;
+  --ink2: #13161e;
+  --ink3: #1c2030;
+  --white: #ffffff;
+  --off: #f5f5f3;
+  --amber: #f59e0b;
+  --amber2: #fbbf24;
+  --amber-dim: rgba(245,158,11,0.1);
+  --mid: #6b7280;
+  --muted: #9ca3af;
+  --border-light: #e5e7eb;
+  --border-dark: rgba(255,255,255,0.1);
+  --font-head: 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* SCROLL REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s cubic-bezier(.22,1,.36,1), transform 0.65s cubic-bezier(.22,1,.36,1);
+}
+.reveal.visible { opacity: 1; transform: none; }
+.d1 { transition-delay: 0.08s; }
+.d2 { transition-delay: 0.16s; }
+.d3 { transition-delay: 0.24s; }
+.d4 { transition-delay: 0.32s; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px;
+  background: rgba(10,12,16,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+
+.nav-logo-mark {
+  width: 32px; height: 32px;
+  background: var(--amber);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.nav-logo-mark svg { display: block; }
+
+.nav-logo-text {
+  font-family: var(--font-head);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1;
+}
+
+.nav-logo-text span {
+  display: block;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.4);
+  margin-top: 2px;
+}
+
+.nav-links {
+  display: flex; align-items: center; gap: 32px; list-style: none;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--white); }
+
+.nav-cta {
+  background: var(--amber) !important;
+  color: var(--ink) !important;
+  padding: 9px 18px !important;
+  border-radius: 6px;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--amber2) !important; }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  background: var(--ink);
+  display: grid;
+  grid-template-rows: 1fr auto;
+  padding-top: 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background-image:
+    url('https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=1800&q=85');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.18;
+  transform: scale(1.03);
+  transition: transform 12s ease;
+}
+
+.hero:hover .hero-bg { transform: scale(1); }
+
+.hero-noise {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, rgba(10,12,16,0.6) 0%, rgba(10,12,16,0.2) 50%, rgba(10,12,16,0.85) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 80px 40px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 24px;
+  animation: fadeIn 0.6s ease 0.2s both;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+h1.hero-tag { font-size: 14px; line-height: 1.3; }
+
+.hero-tag::before {
+  content: '';
+  display: block;
+  width: 20px; height: 2px;
+  background: var(--amber);
+}
+
+.hero-headline {
+  font-family: var(--font-head);
+  font-size: clamp(60px, 9vw, 130px);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  animation: slideUp 0.9s cubic-bezier(.22,1,.36,1) 0.3s both;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-headline em {
+  font-style: italic;
+  color: var(--amber);
+}
+
+.hero-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  animation: slideUp 0.9s cubic-bezier(.22,1,.36,1) 0.45s both;
+}
+
+.hero-desc {
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.65);
+  max-width: 520px;
+  line-height: 1.75;
+}
+
+.hero-desc strong {
+  color: rgba(255,255,255,0.85);
+  font-weight: 500;
+}
+
+.hero-actions {
+  display: flex; flex-direction: column; align-items: flex-end; gap: 16px;
+  flex-shrink: 0;
+}
+
+.btn-hero {
+  background: var(--amber);
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  border-radius: 6px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-hero:hover { background: var(--amber2); transform: translateY(-2px); }
+
+.btn-hero-ghost {
+  color: rgba(255,255,255,0.45);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  display: flex; align-items: center; gap: 8px;
+  transition: color 0.2s;
+}
+.btn-hero-ghost:hover { color: rgba(255,255,255,0.9); }
+
+/* HERO STATS BAR */
+.hero-stats-bar {
+  position: relative; z-index: 2;
+  /* bez tła i ramek – liczby stoją bezpośrednio na zdjęciu w tle */
+  background: transparent;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* ta sama szerokość co treść strony (maks. 1200 px), na środku */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-stat {
+  padding: 28px 40px;
+}
+.hero-stat:last-child { border-right: none; }
+
+.hero-stat-val {
+  font-family: var(--font-head);
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+.hero-stat-val span { color: var(--amber); }
+.hero-stat-label { font-size: 13px; color: rgba(255,255,255,0.75); font-weight: 500; letter-spacing: 0.02em; }
+
+/* ─── PROBLEM SECTION ─── */
+.problem-section {
+  background: var(--off);
+  padding: 80px 40px;
+}
+
+.problem-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.problem-label {
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 20px;
+}
+
+.problem-title {
+  font-family: var(--font-head);
+  font-size: clamp(32px, 3.5vw, 52px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+
+.problem-title em {
+  font-style: italic;
+  color: var(--amber);
+}
+
+.problem-text {
+  font-size: 17px;
+  color: #374151;
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+.problem-text strong { color: var(--ink); font-weight: 600; }
+
+.problem-cards {
+  display: flex; flex-direction: column; gap: 12px;
+}
+
+.problem-card {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  transition: border-color 0.2s, transform 0.2s;
+  cursor: default;
+}
+
+.problem-card:hover {
+  border-color: var(--amber);
+  transform: translateX(4px);
+}
+
+.problem-card-icon {
+  width: 40px; height: 40px;
+  background: var(--amber-dim);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--font-head);
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--amber);
+}
+
+.problem-card h4 {
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.problem-card p {
+  font-size: 15px;
+  color: #374151;
+  line-height: 1.7;
+}
+
+/* ─── SYSTEMS STRIP ─── */
+.systems-strip {
+  background: var(--ink2);
+  padding: 64px 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.systems-strip-title {
+  font-family: var(--font-head);
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 44px;
+}
+
+.systems-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.systems-cat-label {
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 16px;
+}
+
+.systems-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 14px;
+}
+
+.system-tag {
+  font-family: var(--font-head);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  background: rgba(245,158,11,0.06);
+  border: 1px solid rgba(245,158,11,0.35);
+  border-radius: 999px;
+  padding: 10px 20px;
+  transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
+  cursor: default;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+.system-tag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+  opacity: 0.9;
+  flex-shrink: 0;
+}
+.system-tag:hover {
+  color: var(--white);
+  border-color: var(--amber);
+  background: rgba(245,158,11,0.14);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(245,158,11,0.15);
+}
+
+.system-tag.tag-cti {
+  flex-basis: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255,255,255,0.65);
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  font-family: var(--font-body);
+  background: rgba(245,158,11,0.05);
+  border: 1px solid rgba(245,158,11,0.18);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-top: 6px;
+}
+.system-tag.tag-cti::before { display: none; }
+.systems-service {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.systems-service-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  opacity: 0.55;
+  margin-top: 1px;
+}
+
+.systems-service-text {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.65;
+}
+
+.systems-service-text strong {
+  color: rgba(255,255,255,0.65);
+  font-weight: 600;
+}
+/* ─── OFFER ─── */
+.offer-section {
+  padding: 96px 40px;
+  background: var(--white);
+}
+
+.offer-inner { max-width: 1200px; margin: 0 auto; }
+
+.section-eyebrow {
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-eyebrow::before {
+  content: '';
+  width: 20px; height: 2px;
+  background: var(--amber);
+  display: block;
+}
+
+.section-title {
+  font-family: var(--font-head);
+  font-size: clamp(40px, 5vw, 68px);
+  font-weight: 900;
+  color: var(--ink);
+  line-height: 0.93;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-bottom: 56px;
+}
+
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.offer-card {
+  padding: 40px 32px;
+  border-right: 1px solid var(--border-light);
+  background: var(--white);
+  transition: background 0.25s;
+  cursor: default;
+  position: relative;
+}
+
+.offer-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--amber);
+  transform: scaleX(0);
+  transition: transform 0.25s cubic-bezier(.22,1,.36,1);
+  transform-origin: left;
+}
+
+.offer-card:hover::after { transform: scaleX(1); }
+.offer-card:hover { background: var(--off); }
+a.offer-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; cursor: pointer; }
+a.offer-card:focus-visible { outline: 3px solid var(--amber); outline-offset: -3px; }
+a.offer-card:focus-visible::after { transform: scaleX(1); }
+.offer-card .offer-tag { align-self: flex-start; }
+.offer-more { margin-top: auto; padding-top: 22px; font-weight: 700; font-size: 15px; color: #b45309; display: inline-flex; gap: 6px; align-items: center; }
+.offer-more span { transition: transform 0.2s; }
+a.offer-card:hover .offer-more span { transform: translateX(4px); }
+.offer-num {
+    font-family: var(--font-head);
+    font-size: 48px;
+    font-weight: 900;
+    color: rgba(0,0,0,0.18);
+    line-height: 1;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+}
+}
+
+.offer-card h3 {
+  font-family: var(--font-head);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.12;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+}
+
+.offer-card p {
+  font-size: 16px;
+  color: #374151;
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+.offer-tag {
+  display: inline-block;
+  margin-top: 18px;
+  font-family: var(--font-head);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber);
+  background: var(--amber-dim);
+  border: 1px solid rgba(245,158,11,0.2);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* ─── WHY ─── */
+.why-section {
+  background: var(--ink);
+  padding: 96px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.why-section::before {
+  content: '';
+  position: absolute;
+  right: -200px; top: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(245,158,11,0.07) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.why-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.why-section .section-eyebrow { color: rgba(245,158,11,0.7); }
+.why-section .section-eyebrow::before { background: rgba(245,158,11,0.7); }
+.why-section .section-title { color: var(--white); }
+
+.why-points { display: flex; flex-direction: column; gap: 0; margin-top: 8px; }
+
+.why-point {
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 16px;
+}
+.why-point:last-child { border-bottom: none; padding-bottom: 0; }
+
+.why-num {
+  font-family: var(--font-head);
+    font-size: 13px;
+  font-weight: 800;
+  color: var(--amber);
+  letter-spacing: 0.08em;
+  padding-top: 2px;
+}
+
+.why-point h4 {
+  font-family: var(--font-head);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+
+.why-point p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.75;
+}
+
+.why-visual {
+  position: relative;
+}
+
+.why-img-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  position: relative;
+}
+
+.why-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+  transition: opacity 0.4s, transform 0.6s;
+  display: block;
+}
+
+.why-img-wrap:hover img { opacity: 0.85; transform: scale(1.03); }
+
+.why-badge {
+  position: absolute;
+  bottom: -1px; left: -1px; right: -1px;
+  background: linear-gradient(to top, rgba(10,12,16,0.95) 0%, transparent 100%);
+  padding: 48px 28px 28px;
+  border-radius: 0 0 16px 16px;
+}
+
+.why-badge-val {
+  font-family: var(--font-head);
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.why-badge-val span { color: var(--amber); }
+
+.why-badge-label {
+  font-size: 15px;
+  color: rgba(255,255,255,0.82);
+  font-weight: 400;
+}
+
+/* ─── PROCESS ─── */
+.process-section {
+  padding: 96px 40px;
+  background: var(--off);
+}
+.process-inner { max-width: 1200px; margin: 0 auto; }
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border-light);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.process-step {
+  background: var(--white);
+  padding: 36px 28px;
+  transition: background 0.2s;
+}
+.process-step:hover { background: var(--off); }
+.process-step-num {
+    font-family: var(--font-head);
+    font-size: 56px;
+    font-weight: 900;
+    color: rgba(0,0,0,0.18);
+    line-height: 1;
+    margin-bottom: 16px;
+}
+}
+
+.process-step h3 {
+  font-family: var(--font-head);
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 10px;
+}
+
+.process-step p {
+  font-size: 15px;
+  color: #374151;
+  line-height: 1.75;
+}
+
+/* ─── PROJECTS ─── */
+.projects-section {
+  padding: 96px 40px;
+  background: var(--white);
+}
+.projects-inner { max-width: 1200px; margin: 0 auto; }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 16px;
+}
+
+.proj {
+  background: var(--off);
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s;
+}
+.proj:hover { transform: translateY(-3px); }
+
+.proj-img {
+  width: 100%; height: 100%;
+  position: absolute; inset: 0;
+}
+
+.proj-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.proj:hover .proj-img img { transform: scale(1.04); }
+
+.proj-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,12,16,0.85) 0%, rgba(10,12,16,0.1) 55%, transparent 100%);
+}
+
+.proj-body {
+  position: relative; z-index: 2;
+  padding: 28px;
+  height: 100%;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+
+.proj.tall { grid-row: span 2; min-height: 520px; }
+.proj.short { min-height: 220px; }
+
+.proj-type {
+  font-family: var(--font-head);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+
+.proj-body h3 {
+  font-family: var(--font-head);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+.proj-body p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.65;
+}
+
+/* ─── NEWS / AKTUALNOŚCI ─── */
+.news-section {
+padding: 96px 40px;
+background: var(--off);
+}
+
+.news-inner { max-width: 1200px; margin: 0 auto; }
+
+.news-header {
+display: flex;
+justify-content: space-between;
+align-items: flex-end;
+gap: 24px;
+flex-wrap: wrap;
+margin-bottom: 40px;
+}
+
+.news-link {
+font-family: var(--font-head);
+font-size: 13px;
+font-weight: 700;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+color: var(--ink);
+text-decoration: none;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+border-bottom: 2px solid var(--amber);
+padding-bottom: 2px;
+transition: color 0.2s;
+}
+.news-link:hover { color: var(--amber); }
+
+.news-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 24px;
+}
+
+.news-card {
+background: var(--white);
+border: 1px solid var(--border-light);
+border-radius: 16px;
+padding: 28px;
+display: flex;
+flex-direction: column;
+gap: 14px;
+transition: transform 0.2s, border-color 0.2s;
+}
+.news-card:hover { transform: translateY(-3px); border-color: var(--amber); }
+
+.news-pill {
+align-self: flex-start;
+font-family: var(--font-head);
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+padding: 6px 14px;
+border-radius: 999px;
+background: var(--amber-dim);
+color: var(--amber);
+border: 1px solid rgba(245,158,11,0.25);
+}
+.news-pill.tag-realizacja { background: rgba(59,130,246,0.1); color: #3b82f6; border-color: rgba(59,130,246,0.25); }
+.news-pill.tag-zgodnosc { background: rgba(239,68,68,0.1); color: #ef4444; border-color: rgba(239,68,68,0.25); }
+.news-pill.tag-serwis { background: rgba(16,185,129,0.1); color: #10b981; border-color: rgba(16,185,129,0.25); }
+
+.news-card-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 10px; margin-bottom: 4px; }
+.news-date { font-size: 13px; color: var(--mid); font-weight: 500; }
+
+.news-card h3 {
+font-family: var(--font-head);
+font-size: 20px;
+font-weight: 800;
+color: var(--ink);
+text-transform: uppercase;
+line-height: 1.15;
+}
+
+.news-card p { font-size: 15px; color: #374151; line-height: 1.65; }
+.news-card p a { color: #b45309; text-decoration: underline; text-underline-offset: 2px; overflow-wrap: anywhere; }
+.news-card p a:hover { color: var(--amber); }
+.news-card p + p { margin-top: -4px; }
+
+@media (max-width: 900px) {
+.news-grid { grid-template-columns: 1fr; }
+.news-header { align-items: flex-start; flex-direction: column; }
+}
+
+/* ─── CTA ─── */
+.cta-section {
+  background: var(--ink);
+  padding: 100px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  left: 50%; top: -300px;
+  transform: translateX(-50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(245,158,11,0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.cta-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.cta-left .section-eyebrow { color: rgba(245,158,11,0.7); }
+.cta-left .section-eyebrow::before { background: rgba(245,158,11,0.7); }
+
+.cta-title {
+  font-family: var(--font-head);
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.cta-title em { font-style: italic; color: var(--amber); }
+
+.cta-sub {
+  font-size: 17px;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.75;
+  max-width: 480px;
+}
+
+.cta-right {
+  display: flex; flex-direction: column; gap: 16px;
+}
+
+.cta-contact-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex; align-items: center; gap: 16px;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.cta-contact-card:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.15);
+}
+
+.cta-contact-icon {
+  width: 40px; height: 40px;
+  background: var(--amber-dim);
+  border: 1px solid rgba(245,158,11,0.2);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  color: var(--amber);
+}
+
+.cta-contact-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.65);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.cta-contact-val {
+  font-family: var(--font-head);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.02em;
+}
+
+.btn-cta {
+  background: var(--amber);
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 18px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.2s, transform 0.15s;
+  margin-top: 8px;
+}
+.btn-cta:hover { background: var(--amber2); transform: translateY(-2px); }
+
+.cta-address {
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  margin-top: 8px;
+  letter-spacing: 0.04em;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--ink2);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 32px 40px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+}
+
+.footer-logo {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-logo:hover { color: rgba(255,255,255,0.7); }
+
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
+
+.footer-links {
+  display: flex; gap: 24px; list-style: none;
+}
+.footer-links a {
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: rgba(255,255,255,0.6); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .offer-grid { grid-template-columns: 1fr 1fr; }
+  .why-inner { grid-template-columns: 1fr; gap: 48px; }
+  .why-img-wrap { aspect-ratio: 16/7; }
+  .cta-inner { grid-template-columns: 1fr; gap: 48px; }
+}
+
+@media (max-width: 900px) {
+  .systems-strip { padding: 40px 24px; }
+  .systems-strip-title { font-size: 26px; margin-bottom: 32px; }
+  .systems-tags { gap: 8px 10px; }
+}
+  
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links li:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3)) { display: none; }
+  .hero-content { padding: 60px 20px 40px; }
+  .hero-stats-bar { grid-template-columns: 1fr 1fr; }
+  .hero-stat { padding: 20px; }
+  .problem-inner { grid-template-columns: 1fr; gap: 40px; }
+  .offer-grid { grid-template-columns: 1fr; border-radius: 12px; }
+  .offer-card { border-right: none; border-bottom: 1px solid var(--border-light); }
+  .offer-card:last-child { border-bottom: none; }
+  .process-grid { grid-template-columns: 1fr 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .proj.tall { grid-row: span 1; min-height: 300px; }
+  section, .offer-section, .why-section, .process-section, .projects-section, .cta-section { padding: 64px 20px; }
+  .problem-section { padding: 64px 20px; }
+  .systems-strip, .partners-strip { padding: 24px 20px; }
+  .systems-strip-title { font-size: 22px; margin-bottom: 24px; }
+  .systems-tags { gap: 8px; }
+  .system-tag.tag-cti { font-size: 12px; padding: 12px 14px; }
+  footer { padding: 24px 20px; }
+}
+
+@media (max-width: 480px) {
+  .hero-stats-bar { grid-template-columns: 1fr 1fr; }
+  .process-grid { grid-template-columns: 1fr; }
+  .systems-grid { grid-template-columns: 1fr; gap: 12px; }
+}
+
+/* ─── HERO ANIMATION ─── */
+#hero-word {
+  display: inline-block;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+#hero-word.hide {
+  opacity: 0;
+  transform: translateY(8px);
+}
+#hero-loading {
+  display: inline-flex;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  vertical-align: middle;
+  line-height: 1;
+}
+#hero-loading.show {
+  opacity: 1;
+}
+.hero-dots {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+}
+.hero-dots span {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--amber);
+  animation: heroDot 1.4s ease-in-out infinite;
+}
+.hero-dots span:nth-child(2) { animation-delay: 0.22s; }
+.hero-dots span:nth-child(3) { animation-delay: 0.44s; }
+@keyframes heroDot {
+  0%, 80%, 100% { transform: scale(0.55); opacity: 0.25; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+/* ─── PRZEŁĄCZNIK JĘZYKA ─── */
+.nav-links a.nav-lang { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; border: 1px solid rgba(255,255,255,0.28); border-radius: 999px; padding: 5px 11px; line-height: 1; }
+.nav-links a.nav-lang:hover { border-color: var(--amber); color: var(--white); }
+@media (max-width: 480px) { .nav-links li:not(:last-child):not(.nav-lang-item) { display: none; } .nav-links { gap: 10px; } }
+</style>
+<style>
+/* ─── CZYTELNOŚĆ (wszystkie ekrany) ─── */
+/* Tytuły kart i wpisów: zwykłe litery zamiast wąskich wersalików */
+.news-card h3, .offer-card h3, .proj-body h3, .process-step h3, .why-point h4, .problem-card h4 {
+  font-family: var(--font-body); text-transform: none; letter-spacing: normal; font-weight: 700; line-height: 1.3;
+}
+.news-card h3, .offer-card h3, .proj-body h3 { font-size: 21px; }
+.process-step h3, .why-point h4 { font-size: 19px; }
+.problem-card h4 { font-size: 17px; }
+/* Zwykły tekst: większy i ciemniejszy */
+.news-card p, .offer-card p, .problem-card p, .process-step p, .why-point p, .systems-service-text { font-size: 17px; line-height: 1.65; }
+.problem-text, .cta-sub { font-size: 18px; }
+.hero-desc { font-size: 19px; color: rgba(255,255,255,0.8); }
+.proj-body p { font-size: 15px; color: rgba(255,255,255,0.78); }
+.news-card p, .offer-card p, .problem-card p, .process-step p, .problem-text { color: #1f2937; }
+/* Małe napisy: większe, mniej rozstrzelone */
+.news-pill, .offer-tag { font-size: 12px; letter-spacing: 0.06em; }
+.section-eyebrow, .hero-tag, .problem-label, .systems-cat-label { font-size: 13px; letter-spacing: 0.12em; }
+.news-date { font-size: 14px; }
+.hero-stat-label { font-size: 15px; }
+.cta-contact-label { font-size: 13px; }
+.cta-contacts { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.cta-contacts .cta-contact-card.szeroki { grid-column: 1 / -1; }
+.cta-contact-val { overflow-wrap: anywhere; }
+.cta-contact-name { font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.65); margin-bottom: 2px;text-transform: uppercase; letter-spacing: 0.06em; }
+.footer-links a, .footer-copy { font-size: 14px; }
+.nav-links a { font-size: 14px; }
+.filter-btn { font-size: 14px; }
+
+/* ─── CZYTELNOŚĆ NA TELEFONACH I TABLETACH ─── */
+.nav-cta { white-space: nowrap; }
+@media (max-width: 380px) {
+  nav { padding: 0 14px; }
+  .nav-links { gap: 14px; }
+  .nav-cta { padding: 8px 10px !important; letter-spacing: 0.03em !important; }
+  .nav-logo img { height: 30px !important; }
+}
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidden; }
+@media (max-width: 768px) {
+  body { font-size: 17px; }
+  .hero-headline { font-size: clamp(44px, 13vw, 72px); overflow-wrap: anywhere; }
+  .hero-desc { font-size: 18px; }
+  .cta-address { font-size: 15px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo" aria-label="Prolight Solutions – back to top">
+        <img src="../logo.png" alt="Prolight Solutions" width="74" height="36" style="height: 36px; width: auto; filter: brightness(0) invert(1);">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#oferta">Services</a></li>
+    <li><a href="#o-nas">About</a></li>
+    <li><a href="news.html">News</a></li>
+    <li class="nav-lang-item"><a class="nav-lang" href="../" hreflang="pl" lang="pl" aria-label="Wersja polska">PL</a></li>
+    <li><a href="#kontakt" class="nav-cta">Request a quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-content">
+    <h1 class="hero-tag">Commissioning and service of DALI lighting control systems</h1>
+    <p class="hero-headline">
+      Are you using the full potential of your <em>DALI system?</em>
+    </p>
+    <div class="hero-bottom">
+      <p class="hero-desc">
+        We commission and service DALI lighting control systems – Helvar, Vertex, WAGO – and emergency lighting, for buildings across Europe.<br><br>
+        <strong>On-site and remote diagnostics. Long-term support. Testing and documentation in line with EN 50172.</strong>
+      </p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn-hero">Free consultation</a>
+        <a href="#aktualnosci" class="btn-hero-ghost">
+          See our news
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-stats-bar">
+    <div class="hero-stat">
+      <div class="hero-stat-val">14<span>+</span></div>
+      <div class="hero-stat-label">Years in the industry</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">100<span>+</span></div>
+      <div class="hero-stat-label">Projects</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">12<span>+</span></div>
+      <div class="hero-stat-label">Systems supported</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">90<span>%</span></div>
+      <div class="hero-stat-label">Returning clients</div>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEMS STRIP -->
+<div class="systems-strip">
+  <div class="systems-strip-title">Supported systems</div>
+  <div class="systems-grid">
+
+    <div class="systems-category">
+      <div class="systems-cat-label">DALI &amp; DMX</div>
+      <div class="systems-tags">
+        <span class="system-tag">Helvar</span>
+        <span class="system-tag">Vertex</span>
+        <span class="system-tag">E2D</span>
+        <span class="system-tag">WAGO</span>
+        <span class="system-tag">OSRAM / LEDVANCE</span>
+        <span class="system-tag">SIGMA / MADRIX</span>
+      </div>
+    </div>
+
+    <div class="systems-category">
+      <div class="systems-cat-label">Emergency &amp; escape lighting</div>
+      <div class="systems-tags">
+        <span class="system-tag">TM Technology</span>
+        <span class="system-tag">Hybryd</span>
+        <span class="system-tag">Glamox</span>
+        <span class="system-tag">ES System</span>
+        <span class="system-tag">GFS</span>
+        <span class="system-tag">Central battery systems</span>
+        <span class="system-tag tag-cti">⚙️ CTI 3×64 controllers &mdash; refurbishment and service</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="systems-service">
+    <span class="systems-service-icon">🔧</span>
+    <p class="systems-service-text"><strong>Post-warranty service for all supported systems</strong> — diagnostics, repair and commissioning. We also specialise in refurbishing CTI&nbsp;3×64 controllers made by ES&nbsp;System.</p>
+  </div>
+
+</div>
+
+<!-- PROBLEM -->
+<section class="problem-section">
+  <div class="problem-inner">
+    <div>
+      <div class="problem-label reveal">We know the problem</div>
+      <h2 class="problem-title reveal">When the system<br>stops<br><em>working</em></h2>
+      <p class="problem-text reveal d1">
+        A Helvar controller stops responding, the emergency lighting panel reports a fault, and the inspection has to be closed the same day. At that moment a promise to “give it a try” is worth nothing – what matters is whether <strong>the engineer knows the system before arriving on site.</strong><br><br>
+          For more than 14 years we have worked with lighting control systems from the inside – we know each of them better than most of their distributors.
+      </p>
+    </div>
+    <div class="problem-cards">
+      <div class="problem-card reveal d1">
+        <div class="problem-card-icon">!</div>
+        <div>
+          <h4>System failure in the building</h4>
+          <p>The system has stopped responding and an inspection is coming up. Call us – we start with remote diagnostics and arrange a site visit when needed.</p>
+        </div>
+      </div>
+      <div class="problem-card reveal d2">
+        <div class="problem-card-icon">§</div>
+        <div>
+          <h4>Fire safety inspection</h4>
+          <p>Under EN 50172, emergency lighting needs regular testing and an up-to-date test log book. We take care of testing and documentation end to end, in line with local requirements.</p>
+        </div>
+      </div>
+      <div class="problem-card reveal d3">
+        <div class="problem-card-icon">↗</div>
+        <div>
+          <h4>Rising energy costs</h4>
+          <p>An outdated control system uses more energy than it should. An upgrade typically pays for itself within 12–18 months.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="offer-section" id="oferta">
+  <div class="offer-inner">
+    <div class="section-eyebrow reveal">Services</div>
+    <h2 class="section-title reveal">What we do</h2>
+    <div class="offer-grid"><!-- GEN:uslugi -->
+      <a class="offer-card reveal" href="../en/services/lighting-control-commissioning/">
+        <div class="offer-num">01</div>
+        <h3>Lighting control commissioning</h3>
+        <p>Configuration and commissioning of lighting control systems. Efficient, energy-saving operation from day one.</p>
+        <span class="offer-tag">Helvar · Vertex · WAGO</span>
+        <span class="offer-more">More <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="offer-card reveal d1" href="../en/services/emergency-lighting-monitoring/">
+        <div class="offer-num">02</div>
+        <h3>Emergency lighting monitoring</h3>
+        <p>Configuration and commissioning of emergency luminaire monitoring systems. Standards compliance and documentation ready for inspection.</p>
+        <span class="offer-tag">Glamox · GFS · TM Tech</span>
+        <span class="offer-more">More <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="offer-card reveal d2" href="../en/services/lighting-control-service-maintenance/">
+        <div class="offer-num">03</div>
+        <h3>Service and maintenance</h3>
+        <p>Diagnostics, maintenance and repairs, remotely or on site. We keep your system running throughout its service life.</p>
+        <span class="offer-tag">All systems</span>
+        <span class="offer-more">More <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="offer-card reveal d3" href="../en/services/lighting-control-upgrades/">
+        <div class="offer-num">04</div>
+        <h3>Lighting system upgrades</h3>
+        <p>We upgrade outdated lighting control systems and lighting installations. Better energy efficiency, lower costs.</p>
+        <span class="offer-tag">Audit + design + delivery</span>
+        <span class="offer-more">More <span aria-hidden="true">→</span></span>
+      </a>
+    <!-- /GEN:uslugi -->
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why-section" id="o-nas">
+  <div class="why-inner">
+    <div class="why-visual reveal">
+      <div class="why-img-wrap">
+        <img
+          src="../warehouse.png"
+          alt="Industrial hall interior with an LED lighting system"
+          width="1024" height="512"
+          loading="lazy"
+        >
+        <div class="why-badge">
+          <div class="why-badge-val">90<span>%</span></div>
+          <div class="why-badge-label">of clients come back to us for their next projects</div>
+        </div>
+      </div>
+    </div>
+    <div>
+            <div class="section-eyebrow reveal">Why Prolight</div>
+      <h2 class="section-title reveal">We know these systems<br>from the inside</h2>
+      <div class="why-points">
+        <div class="why-point reveal">
+          <div class="why-num">01</div>
+          <div>
+            <h4>Experience</h4>
+                      <p>Before founding Prolight Solutions, we spent well over a decade working on some of the largest lighting projects in Poland. We bring that knowledge to every job.</p>
+          </div>
+        </div>
+        <div class="why-point reveal d1">
+          <div class="why-num">02</div>
+          <div>
+            <h4>Broad system expertise</h4>
+            <p>Helvar, Vertex, WAGO, Glamox, GFS, TM Technology, Hybryd – we know all the leading lighting control and emergency lighting systems on the market.</p>
+          </div>
+        </div>
+        <div class="why-point reveal d2">
+          <div class="why-num">03</div>
+          <div>
+            <h4>Buildings of every size</h4>
+            <p>Production halls, office buildings, hotels, shopping centres, amusement parks – we have experience with every type of building.</p>
+          </div>
+        </div>
+        <div class="why-point reveal d3">
+          <div class="why-num">04</div>
+          <div>
+            <h4>Long-term partnership, not a one-off job</h4>
+            <p>More than 90% of our clients work with us on a long-term basis. Most of our work is the next building for the same facility managers rather than new clients from advertising – we treat every building as if it were our own, because that is simply the better way to work.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="process-inner">
+    <div class="section-eyebrow reveal">How we work</div>
+    <h2 class="section-title reveal" style="margin-bottom: 40px;">A simple process</h2>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="process-step-num">01</div>
+        <h3>Audit and consultation</h3>
+        <p>We review the building and its existing systems – on site or based on your documentation. A free, no-obligation consultation.</p>
+      </div>
+      <div class="process-step reveal d1">
+        <div class="process-step-num">02</div>
+        <h3>Quote and design</h3>
+        <p>A detailed quote and plan of work. Clear terms, no hidden costs.</p>
+      </div>
+      <div class="process-step reveal d2">
+        <div class="process-step-num">03</div>
+        <h3>Delivery</h3>
+        <p>We work to an agreed schedule and keep disruption to the building to a minimum.</p>
+      </div>
+      <div class="process-step reveal d3">
+        <div class="process-step-num">04</div>
+        <h3>Service and support</h3>
+        <p>We stay available after handover – remote support and site visits arranged to suit your building.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="news-section" id="aktualnosci">
+<div class="news-inner">
+<div class="news-header">
+<div>
+<div class="section-eyebrow reveal">News</div>
+<h2 class="section-title reveal" style="margin-bottom:0;">What we have been up to</h2>
+</div>
+<a href="news.html" class="news-link reveal">
+All news
+<svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+<path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</a>
+</div>
+<div class="news-grid" id="news-grid"><!-- GEN:najnowsze --><article class="news-card" data-category="realizacja"><a class="news-card-media" href="../en/news/toyota-bemowo/" aria-hidden="true" tabindex="-1"><img class="news-card-img" src="../zdjecia/bemowo-1.jpg" alt="Toyota Bemowo – lighting control commissioning" loading="lazy"><span class="news-card-more">+2</span></a><span class="news-pill tag-realizacja">Project</span><span class="news-date">21 October 2026</span><h3><a class="news-card-link" href="../en/news/toyota-bemowo/">Toyota Bemowo – lighting control commissioning</a></h3><p><strong>Toyota Bemowo: 688 devices under one control system</strong></p><a class="news-more" href="../en/news/toyota-bemowo/">Read more <span aria-hidden="true">→</span></a></article><article class="news-card" data-category="realizacja"><a class="news-card-media" href="../en/news/biuro-glamox/" aria-hidden="true" tabindex="-1"><img class="news-card-img" src="../zdjecia/GLX.jpeg" alt="New Glamox office in Kraków" loading="lazy"></a><span class="news-pill tag-realizacja">Project</span><span class="news-date">1 October 2026</span><h3><a class="news-card-link" href="../en/news/biuro-glamox/">New Glamox office in Kraków</a></h3><p><strong>New Glamox office: 447 devices, every luminaire individually configured</strong></p><a class="news-more" href="../en/news/biuro-glamox/">Read more <span aria-hidden="true">→</span></a></article><article class="news-card" data-category="nowa-usluga"><span class="news-pill tag-nowa-usluga">New service</span><span class="news-date">18 February 2025</span><h3><a class="news-card-link" href="../en/news/regeneracja-cti-3x64/">Refurbishment of CTI 3×64 controllers</a></h3><p>We have extended our service offering to full refurbishment of CTI 3×64 controllers made by ES System: diagnostics, repair and restoration to full working order, without replacing them with new hardware.</p><a class="news-more" href="../en/news/regeneracja-cti-3x64/">Read more <span aria-hidden="true">→</span></a></article><!-- /GEN:najnowsze --></div>
+</div>
+</section>
+
+
+<!-- CTA -->
+<section class="cta-section" id="kontakt">
+  <div class="cta-inner">
+    <div class="cta-left">
+      <div class="section-eyebrow reveal">Contact</div>
+      <h2 class="cta-title reveal">
+        System not responding?<br>
+      Call us —<br>
+      <em>we'll arrange a diagnosis.</em>
+      </h2>
+      <p class="cta-sub reveal d1">Tell us the type of system and the symptoms, and we will tell you whether it needs a site visit or can be diagnosed remotely. We work on projects across Europe, agreed individually. We speak Polish and English.</p>
+    </div>
+    <div class="cta-right reveal d1">
+      <!-- Contact tiles are generated from kontakty.js -->
+      <div class="cta-contacts" id="kontakty"><!-- GEN:kontakty --><a href="tel:+48608633434" class="cta-contact-card"><div class="cta-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><div><div class="cta-contact-label">Phone</div><div class="cta-contact-name">Karol</div><div class="cta-contact-val">+48 608 633 434</div></div></a><a href="tel:+48698028684" class="cta-contact-card"><div class="cta-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><div><div class="cta-contact-label">Phone</div><div class="cta-contact-name">Michał</div><div class="cta-contact-val">+48 698 028 684</div></div></a><a href="tel:+48601685025" class="cta-contact-card"><div class="cta-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><div><div class="cta-contact-label">Phone</div><div class="cta-contact-name">Michał</div><div class="cta-contact-val">+48 601 685 025</div></div></a><a href="tel:+48513144502" class="cta-contact-card"><div class="cta-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><div><div class="cta-contact-label">Phone</div><div class="cta-contact-name">Leszek</div><div class="cta-contact-val">+48 513 144 502</div></div></a><a href="mailto:biuro@prolightsolutions.pl" class="cta-contact-card szeroki"><div class="cta-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="cta-contact-label">E-mail</div><div class="cta-contact-val">biuro@prolightsolutions.pl</div></div></a><!-- /GEN:kontakty -->
+      </div>
+      <a href="mailto:biuro@prolightsolutions.pl" class="btn-cta">Email us</a>
+      <p class="cta-address">Prolight Solutions Sp. z o.o. · Węgrzce Wielkie 1326, 32-002 Węgrzce Wielkie, Poland</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+      <a href="#" class="footer-logo">Prolight Solutions</a>
+  <span class="footer-copy">© <!-- GEN:rok -->2026<!-- /GEN:rok --> Prolight Solutions Sp. z o.o.</span>
+  <ul class="footer-links">
+    <li><a href="news.html">News</a></li>
+    <li><a href="#oferta">Services</a></li>
+    <li><a href="#kontakt">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  nav.style.borderBottomColor = window.scrollY > 10
+    ? 'rgba(255,255,255,0.12)'
+    : 'rgba(255,255,255,0.07)';
+});
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Hero word – hide once, keep the dots
+(function() {
+  var word = document.getElementById('hero-word');
+  var loading = document.getElementById('hero-loading');
+  if (!word || !loading) return;
+
+  loading.innerHTML = '<span class="hero-dots"><span></span><span></span><span></span></span>';
+
+  setTimeout(function() {
+    word.classList.add('hide');
+    setTimeout(function() {
+      word.style.display = 'none';
+      loading.classList.add('show');
+    }, 500);
+  }, 1500);
+})();
+</script>
+<!-- Przy zmianie kodu strony zwiększ numer v=, żeby przeglądarki pobrały świeże pliki -->
+<!-- Strona w folderze en/: pliki i linki w głównym folderze są o poziom wyżej -->
+<script>var PROLIGHT_ROOT = "../";</script>
+<script src="../posts-data.js?v=9"></script>
+<script src="../wpisy.js?v=12"></script>
+<script src="../lightbox.js?v=8"></script>
+<script src="../do-gory.js?v=9"></script>
+<script src="../kontakty.js?v=1"></script>
+<script>
+// Contact tiles from kontakty.js
+(function () {
+  var box = document.getElementById("kontakty");
+  if (!box || typeof PROLIGHT_KONTAKTY === "undefined" || !PROLIGHT_KONTAKTY.length) return;
+  box.innerHTML = prolightKontaktyHTML(PROLIGHT_KONTAKTY);
+})();
+</script>
+<script>
+(function() {
+if (typeof PROLIGHT_POSTS === "undefined") return;
+var MIESIACE = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+function formatujDate(iso) {
+var parts = iso.split("-").map(Number);
+return parts[2] + " " + MIESIACE[parts[1]-1] + " " + parts[0];
+}
+function kartaHTML(post) {
+return prolightCardHTML(post);
+}
+var grid = document.getElementById("news-grid");
+if (grid) {
+var najnowsze = prolightSortedPosts().slice(0,3);
+grid.innerHTML = najnowsze.map(kartaHTML).join("");
+}
+})();
+</script>
+</body>
+</html>
+ 
+ 
