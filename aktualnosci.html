@@ -7,6 +7,9 @@
 <meta name="description" content="Aktualności Prolight Solutions: zrealizowane wdrożenia, przypomnienia o przeglądach zgodności oraz nowości w ofercie serwisowej systemów sterowania oświetleniem.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://prolightsolutions.pl/aktualnosci.html">
+  <link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/aktualnosci.html">
+  <link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/news.html">
+  <link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/aktualnosci.html">
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" href="favicon-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -109,13 +112,18 @@ footer { background: var(--ink2); border-top: 1px solid rgba(255,255,255,0.06); 
 }
 @media (max-width: 768px) {
 nav { padding: 0 20px; }
-.nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
+.nav-links li:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3)) { display: none; }
 .page-header { padding: 120px 20px 48px; }
 .filters-bar { padding: 16px 20px; position: static; }
 .news-section { padding: 40px 20px 64px; }
 .news-grid { grid-template-columns: 1fr; }
 footer { padding: 24px 20px; }
 }
+
+/* ─── PRZEŁĄCZNIK JĘZYKA ─── */
+.nav-links a.nav-lang { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; border: 1px solid rgba(255,255,255,0.28); border-radius: 999px; padding: 5px 11px; line-height: 1; }
+.nav-links a.nav-lang:hover { border-color: var(--amber); color: var(--white); }
+@media (max-width: 480px) { .nav-links li:not(:last-child):not(.nav-lang-item) { display: none; } .nav-links { gap: 10px; } }
 </style>
   <style>
 /* ─── CZYTELNOŚĆ (wszystkie ekrany) ─── */
@@ -163,6 +171,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidde
   <li><a href="index.html#oferta">Oferta</a></li>
   <li><a href="index.html#o-nas">O nas</a></li>
   <li><a href="aktualnosci.html" class="active">Aktualności</a></li>
+  <li class="nav-lang-item"><a class="nav-lang" href="en/news.html" hreflang="en" lang="en" aria-label="English version">EN</a></li>
   <li><a href="index.html#kontakt" class="nav-cta">Zapytaj o wycenę</a></li>
   </ul>
   </nav>
@@ -195,10 +204,10 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidde
   </footer>
 
   <!-- Przy zmianie kodu strony zwiększ numer v=, żeby przeglądarki pobrały świeże pliki -->
-  <script src="posts-data.js?v=8"></script>
-  <script src="wpisy.js?v=11"></script>
-  <script src="lightbox.js?v=7"></script>
-  <script src="do-gory.js?v=8"></script>
+  <script src="posts-data.js?v=9"></script>
+  <script src="wpisy.js?v=12"></script>
+  <script src="lightbox.js?v=8"></script>
+  <script src="do-gory.js?v=9"></script>
   <script>
   const MIESIACE = ["stycznia","lutego","marca","kwietnia","maja","czerwca","lipca","sierpnia","września","października","listopada","grudnia"];
 
@@ -213,9 +222,7 @@ return prolightCardHTML(post);
 
 function renderuj(filtr) {
 const grid = document.getElementById("news-grid");
-const posty = PROLIGHT_POSTS
-.slice()
-.sort((a,b) => new Date(b.date) - new Date(a.date))
+const posty = prolightSortedPosts()
 .filter(p => filtr === "wszystkie" || p.category === filtr);
 
 grid.innerHTML = posty.length
@@ -227,7 +234,7 @@ function renderujFiltry() {
 const pasek = document.getElementById("filters");
 const wszystkie = [{ slug: "wszystkie", label: "Wszystkie" }, ...PROLIGHT_CATEGORIES];
 pasek.innerHTML = wszystkie.map((c, i) =>
-`<button class="filter-btn${i===0 ? ' active' : ''}" data-filter="${c.slug}">${c.label}</button>`
+`<button class="filter-btn${i===0 ? ' active' : ''}" data-filter="${c.slug}">${prolightCategoryLabel({ category: c.slug, categoryLabel: c.slug === "wszystkie" ? c.label : "" })}</button>`
 ).join("");
 
 pasek.querySelectorAll(".filter-btn").forEach(btn => {

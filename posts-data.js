@@ -15,6 +15,9 @@
 //      title: "Tytuł wpisu",
 //      excerpt: "Krótki opis wpisu, 1–3 zdania.",
 //      opis: "",
+//      title_en: "",
+//      excerpt_en: "",
+//      opis_en: "",
 //      image: null
 //    },
 //
@@ -37,6 +40,10 @@
 //  opis     – (nieobowiązkowe) 1–2 zdania, do ok. 155 znaków, które Google
 //             pokaże pod tytułem w wynikach wyszukiwania. Jeśli pole jest
 //             puste lub go nie ma, opis utworzy się z początku treści.
+//  title_en, excerpt_en, opis_en – (nieobowiązkowe) wersja angielska wpisu.
+//             Wpis pojawi się w angielskiej części strony (en/news/<id>/)
+//             tylko wtedy, gdy ma title_en i excerpt_en. Bez nich jest tylko
+//             po polsku.
 //  image    – null, jeśli bez zdjęcia, albo sama nazwa pliku w cudzysłowie,
 //             np. "glamox-biuro.jpg". Plik wgrywasz do folderu "zdjecia"
 //             (nazwy folderu tu nie wpisujesz – dodaje się sama).
@@ -76,10 +83,10 @@
 // =====================================================================
 
 const PROLIGHT_CATEGORIES = [
-  { slug: "realizacja",  label: "Realizacja" },
-  { slug: "serwis",      label: "Serwis" },
-  { slug: "zgodnosc",    label: "Zgodność" },
-  { slug: "nowa-usluga", label: "Nowa usługa" }
+  { slug: "realizacja",  label: "Realizacja",  label_en: "Project" },
+  { slug: "serwis",      label: "Serwis",      label_en: "Service" },
+  { slug: "zgodnosc",    label: "Zgodność",    label_en: "Compliance" },
+  { slug: "nowa-usluga", label: "Nowa usługa", label_en: "New service" }
 ];
 
 const PROLIGHT_POSTS = [
@@ -107,6 +114,23 @@ Klienci czekający na samochód mają do dyspozycji strefę komfortu o powierzch
 W całym budynku jest 180 stanowisk pracy.
 Więcej o otwarciu salonu na [stronie Toyoty](https://www.toyota.pl/swiat-toyoty/nowosci/toyota-i-lexus-otwieraja-nowe-salony-z-warszawie).`,
       opis: "Uruchomienie systemu sterowania oświetleniem w salonie Toyoty na Bemowie: 7 sterowników Vertex, 21 linii DALI i 688 urządzeń na 6300 m².",
+      title_en: "Toyota Bemowo – lighting control commissioning",
+      excerpt_en: `**Toyota Bemowo: 688 devices under one control system**
+
+**The system in numbers**
+* 7 Vertex controllers
+* 21 DALI lines, all active
+* 429 general lighting luminaires
+* 179 emergency lighting luminaires
+* 80 control devices
+**688 devices in total**, configured and commissioned as one consistently managed system.
+We configured and commissioned the lighting control system in Toyota's new three-storey dealership complex in the Bemowo district of Warsaw.
+The building covers more than 6,300 m² with very different needs: from vehicle showrooms and the service workshop to the customer area.
+**The building** The Toyota showroom alone covers about 560 m² and displays up to 50 cars.
+Customers waiting for their car have a lounge of more than 200 m².
+The building has 180 workstations.
+More about the opening on [Toyota's website](https://www.toyota.pl/swiat-toyoty/nowosci/toyota-i-lexus-otwieraja-nowe-salony-z-warszawie) (in Polish).`,
+      opis_en: "Commissioning of the lighting control system at Toyota Bemowo, Warsaw: 7 Vertex controllers, 21 DALI lines and 688 devices across 6,300 m².",
       image: ["bemowo-1.jpg", "bemowo-2.jpg", "bemowo-3.png"]
    },
 
@@ -132,6 +156,23 @@ W nowym biurze i showroomie Glamox w Krakowie zamontowaliśmy oprawy oraz wszyst
 
 Wiecej o nowym biurze na stronie [Glamox](https://www.glamox.com/pl/pbs/realizacje-i-wiadomosci/glamox-otwiera-biuro-w-krakowie-i-rozbudowuje-laboratorium-w-dobczycach/)`,
      opis: "Montaż, konfiguracja i uruchomienie systemu DALI w nowym biurze Glamox w Krakowie: 6 sterowników Vertex, 447 urządzeń, indywidualne sterowanie każdej oprawy.",
+     title_en: "New Glamox office in Kraków",
+     excerpt_en: `**New Glamox office: 447 devices, every luminaire individually configured**
+
+
+**The system in numbers**
+* 6 Vertex controllers
+* 18 DALI lines, all active
+* 324 general lighting luminaires
+* 123 control devices
+**447 devices in total**, installed, configured and commissioned by our team
+In Glamox's new office and showroom in Kraków we installed the luminaires and all DALI system devices, then configured and commissioned the controls. The office shows Glamox customers how Human Centric Lighting affects comfort and productivity, so the controls had to be fine-tuned down to the last luminaire.
+**The building** A modern office with ergonomic workstations, collaboration and meeting zones and shared spaces. It uses luminaires from Glamox's leading ranges: the Nordic Collection, FX SILENCE sound-absorbing luminaires and the Red Dot Award-winning Luxo Align series.
+**The challenge: tailor-made control** Instead of one scenario for the whole floor, practically every luminaire has its own control settings, matched to where it is and who works under it. This is a far more complex configuration than a standard office – and it means every user gets light suited to their workstation and the time of day.
+
+
+More about the new office on the [Glamox website](https://www.glamox.com/pl/pbs/realizacje-i-wiadomosci/glamox-otwiera-biuro-w-krakowie-i-rozbudowuje-laboratorium-w-dobczycach/) (in Polish).`,
+     opis_en: "DALI system installed and commissioned in Glamox's new Kraków office: 6 Vertex controllers, 447 devices, individual control of every luminaire.",
      image: "GLX.jpeg"
    },
   {
@@ -141,6 +182,8 @@ Wiecej o nowym biurze na stronie [Glamox](https://www.glamox.com/pl/pbs/realizac
     usluga: "serwis",
     title: "Regeneracja sterowników CTI 3×64",
     excerpt: "Rozszerzamy ofertę serwisową o pełną regenerację sterowników CTI 3×64 produkcji ES System. Diagnostyka, naprawa i przywrócenie pełnej sprawności bez wymiany na nowy sprzęt.",
+    title_en: "Refurbishment of CTI 3×64 controllers",
+    excerpt_en: "We have extended our service offering to full refurbishment of CTI 3×64 controllers made by ES System: diagnostics, repair and restoration to full working order, without replacing them with new hardware.",
     image: null
   },
   {
@@ -150,6 +193,8 @@ Wiecej o nowym biurze na stronie [Glamox](https://www.glamox.com/pl/pbs/realizac
     usluga: "awaryjne",
     title: "Sezon kontroli ppoż. tuż za rogiem",
     excerpt: "Przypominamy o obowiązku prowadzenia dziennika testów oświetlenia awaryjnego zgodnie z normą PN-EN 50172. Pomagamy uzupełnić dokumentację przed kontrolą.",
+    title_en: "Fire safety inspection season is coming",
+    excerpt_en: "A reminder that emergency lighting tests must be recorded in a log book in line with EN 50172. We can help you bring the documentation up to date before an inspection.",
     image: null
   },
   {
@@ -159,6 +204,8 @@ Wiecej o nowym biurze na stronie [Glamox](https://www.glamox.com/pl/pbs/realizac
     usluga: "modernizacja",
     title: "Zakończyliśmy modernizację systemu Helvar",
     excerpt: "W hali produkcyjnej zmodernizowaliśmy system sterowania oświetleniem Helvar, redukując zużycie energii o 22%. Inwestycja zwróci się w mniej niż półtora roku.",
+    title_en: "Helvar system upgrade completed",
+    excerpt_en: "We upgraded the Helvar lighting control system in a production hall, cutting energy consumption by 22%. The investment will pay for itself in less than eighteen months.",
     image: null
   }
 ];

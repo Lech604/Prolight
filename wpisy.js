@@ -6,6 +6,41 @@
 // Folder ze zdjęciami do wpisów.
 const PROLIGHT_IMAGES_FOLDER = "zdjecia/";
 
+// ---------------------------------------------------------------------
+//  Wersje językowe
+//  Język strony bierze się z <html lang="..."> ("pl" albo "en").
+//  Strony w folderze en/ ustawiają PROLIGHT_ROOT = "../", żeby linki
+//  i zdjęcia prowadziły do głównego folderu strony.
+// ---------------------------------------------------------------------
+function prolightLang() {
+  if (typeof PROLIGHT_LANG !== "undefined" && PROLIGHT_LANG) return PROLIGHT_LANG;
+  const html = typeof document !== "undefined" && document.documentElement;
+  return html && html.lang === "en" ? "en" : "pl";
+}
+function prolightRoot() {
+  return typeof PROLIGHT_ROOT !== "undefined" && PROLIGHT_ROOT ? PROLIGHT_ROOT : "";
+}
+// Pole wpisu w języku strony: w wersji angielskiej "title_en" zamiast "title" itd.
+function prolightPole(post, pole) {
+  return prolightLang() === "en" ? post[pole + "_en"] : post[pole];
+}
+// Czy wpis ma wersję angielską (tytuł i treść).
+function prolightMaAngielski(post) {
+  return Boolean(post.title_en && String(post.title_en).trim() && post.excerpt_en && String(post.excerpt_en).trim());
+}
+// Adres zdjęcia/pliku z uwzględnieniem folderu strony (en/ -> "../zdjecia/...").
+function prolightZasob(sciezka) {
+  return /^https?:/.test(sciezka) ? sciezka : prolightRoot() + sciezka;
+}
+// Teksty interfejsu w kartach wpisów i kontaktach.
+const PROLIGHT_TEKSTY = {
+  pl: { czytaj: "Czytaj dalej", telefon: "Telefon", email: "E-mail" },
+  en: { czytaj: "Read more", telefon: "Phone", email: "E-mail" }
+};
+function prolightTekst(klucz) {
+  return PROLIGHT_TEKSTY[prolightLang()][klucz];
+}
+
 // Pełna ścieżka do jednego pliku (np. "GLX.jpeg" -> "zdjecia/GLX.jpeg").
 // Jeśli podano już ścieżkę z folderem albo link (http...), zostawia ją bez zmian.
 function prolightImagePath(nazwa) {
@@ -37,7 +72,7 @@ function prolightCardMedia(post) {
     ? '<span class="news-card-more" aria-hidden="true">+' + (zdjecia.length - 1) + "</span>"
     : "";
   return '<div class="news-card-media">' +
-    '<img class="news-card-img" src="' + esc(zdjecia[0]) + '" alt="' + esc(post.title) + '" loading="lazy" data-gallery="' + galeria + '">' +
+    '<img class="news-card-img" src="' + esc(prolightZasob(zdjecia[0])) + '" alt="' + esc(prolightPole(post, "title")) + '" loading="lazy" data-gallery="' + galeria + '">' +
     wiecej + "</div>";
 }
 
@@ -106,7 +141,8 @@ function prolightFormatText(tekst, tylkoPierwszy) {
 function prolightCategoryLabel(post) {
   if (post.categoryLabel) return post.categoryLabel;
   const cat = PROLIGHT_CATEGORIES.find(c => c.slug === post.category);
-  return cat ? cat.label : post.category;
+  if (!cat) return post.category;
+  return prolightLang() === "en" && cat.label_en ? cat.label_en : cat.label;
 }
 
 // =====================================================================
@@ -129,8 +165,10 @@ function prolightPostId(post) {
   return prolightSlug(post.id || post.title);
 }
 
-function prolightPostUrl(post) {
-  return "aktualnosci/" + prolightPostId(post) + "/";
+// Adres strony wpisu: aktualnosci/<id>/ albo en/news/<id>/ w wersji angielskiej.
+function prolightPostUrl(post, jezyk) {
+  jezyk = jezyk || prolightLang();
+  return prolightRoot() + (jezyk === "en" ? "en/news/" : "aktualnosci/") + prolightPostId(post) + "/";
 }
 
 // Opis wpisu dla Google (do ok. 155 znaków): pole "opis", a gdy go brak –
@@ -143,7 +181,7 @@ function prolightPlainText(tekst) {
     .replace(/\s+/g, " ").trim();
 }
 function prolightDescription(post) {
-  let t = prolightPlainText(post.opis || post.excerpt);
+  let t = prolightPlainText(prolightPole(post, "opis") || prolightPole(post, "excerpt"));
   if (t.length <= 158) return t;
   t = t.slice(0, 155);
   return t.slice(0, t.lastIndexOf(" ")).replace(/[\s,.;:–-]+$/, "") + "…";
@@ -156,15 +194,18 @@ function prolightFindPost(id) {
       || null;
 }
 
-// Wpisy od najnowszego.
+// Wpisy od najnowszego. W wersji angielskiej tylko wpisy z tłumaczeniem.
 function prolightSortedPosts() {
-  return PROLIGHT_POSTS.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
+  return PROLIGHT_POSTS
+    .filter(p => prolightLang() !== "en" || prolightMaAngielski(p))
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
 const PROLIGHT_MIESIACE = ["stycznia","lutego","marca","kwietnia","maja","czerwca","lipca","sierpnia","września","października","listopada","grudnia"];
+const PROLIGHT_MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 function prolightFormatDate(iso) {
   const [y, m, d] = String(iso).split("-").map(Number);
-  return d + " " + PROLIGHT_MIESIACE[m - 1] + " " + y;
+  return d + " " + (prolightLang() === "en" ? PROLIGHT_MONTHS : PROLIGHT_MIESIACE)[m - 1] + " " + y;
 }
 
 // Karta wpisu (strona główna i Aktualności): zdjęcie, kategoria, data, tytuł,
@@ -172,10 +213,11 @@ function prolightFormatDate(iso) {
 function prolightCardHTML(post) {
   const url = prolightPostUrl(post);
   const zdjecia = prolightImages(post);
+  const tytul = prolightPole(post, "title");
   const esc = s => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
   const media = zdjecia.length
     ? '<a class="news-card-media" href="' + url + '" aria-hidden="true" tabindex="-1">' +
-        '<img class="news-card-img" src="' + esc(zdjecia[0]) + '" alt="' + esc(post.title) + '" loading="lazy">' +
+        '<img class="news-card-img" src="' + esc(prolightZasob(zdjecia[0])) + '" alt="' + esc(tytul) + '" loading="lazy">' +
         (zdjecia.length > 1 ? '<span class="news-card-more">+' + (zdjecia.length - 1) + "</span>" : "") +
       "</a>"
     : "";
@@ -183,9 +225,9 @@ function prolightCardHTML(post) {
     media +
     '<span class="news-pill tag-' + esc(post.category) + '">' + prolightCategoryLabel(post) + "</span>" +
     '<span class="news-date">' + prolightFormatDate(post.date) + "</span>" +
-    '<h3><a class="news-card-link" href="' + url + '">' + post.title + "</a></h3>" +
-    prolightFormatText(post.excerpt, true) +
-    '<a class="news-more" href="' + url + '">Czytaj dalej <span aria-hidden="true">→</span></a>' +
+    '<h3><a class="news-card-link" href="' + url + '">' + tytul + "</a></h3>" +
+    prolightFormatText(prolightPole(post, "excerpt"), true) +
+    '<a class="news-more" href="' + url + '">' + prolightTekst("czytaj") + ' <span aria-hidden="true">→</span></a>' +
     "</article>";
 }
 
@@ -203,7 +245,7 @@ function prolightKontaktyHTML(lista) {
     return '<a href="' + esc(href) + '" class="cta-contact-card' + (email ? " szeroki" : "") + '">' +
       '<div class="cta-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' +
       (email ? ikony.email : ikony.telefon) + '</svg></div>' +
-      '<div><div class="cta-contact-label">' + (email ? "E-mail" : "Telefon") + '</div>' +
+      '<div><div class="cta-contact-label">' + prolightTekst(email ? "email" : "telefon") + '</div>' +
       (k.imie ? '<div class="cta-contact-name">' + esc(k.imie) + '</div>' : "") +
       '<div class="cta-contact-val">' + esc(w) + '</div></div></a>';
   }).join("");

@@ -1,3 +1,5 @@
+// Język strony (wersja angielska ma <html lang="en">)
+var PROLIGHT_LIGHTBOX_EN = document.documentElement.lang === "en";
 // Powiększanie zdjęć z aktualności: kliknięcie zdjęcia otwiera je na pełnym ekranie.
 // Gdy wpis ma kilka zdjęć, działa jak galeria: strzałki na ekranie, klawisze ← →
 // albo przesunięcie palcem na telefonie.
@@ -30,10 +32,10 @@
   box.setAttribute("role", "dialog");
   box.setAttribute("aria-modal", "true");
   box.innerHTML =
-    '<button class="lightbox-close" aria-label="Zamknij">&times;</button>' +
-    '<button class="lightbox-prev" aria-label="Poprzednie zdjęcie">&#8249;</button>' +
+    '<button class="lightbox-close" aria-label="' + (PROLIGHT_LIGHTBOX_EN ? 'Close' : 'Zamknij') + '">&times;</button>' +
+    '<button class="lightbox-prev" aria-label="' + (PROLIGHT_LIGHTBOX_EN ? 'Previous photo' : 'Poprzednie zdjęcie') + '">&#8249;</button>' +
     '<img alt="">' +
-    '<button class="lightbox-next" aria-label="Następne zdjęcie">&#8250;</button>' +
+    '<button class="lightbox-next" aria-label="' + (PROLIGHT_LIGHTBOX_EN ? 'Next photo' : 'Następne zdjęcie') + '">&#8250;</button>' +
     '<div class="lightbox-licznik"></div>';
   document.body.appendChild(box);
   var img = box.querySelector("img");

@@ -3,6 +3,19 @@
 Statyczna strona firmy Prolight Solutions, hostowana na GitHub Pages.
 Każda zmiana zapisana w gałęzi `main` po 1–2 minutach pojawia się na stronie.
 
+## Wersja angielska
+
+Angielska część strony jest w folderze `en/`: strona główna `en/index.html`, lista wpisów `en/news.html`,
+wpisy `en/news/<id>/` i usługi `en/services/<adres_en>/`. Przełącznik **PL | EN** w menu prowadzi do odpowiednika
+bieżącej strony.
+
+- **Wpisy:** w `posts-data.js` dopisz do wpisu `title_en`, `excerpt_en` i (nieobowiązkowo) `opis_en`.
+  Wpis bez `title_en` i `excerpt_en` jest tylko po polsku i nie pojawia się w wersji angielskiej.
+- **Usługi:** w `uslugi-data.js` pola z końcówką `_en` (`nazwa_en`, `krotko_en`, `wstep_en`, `sekcje_en`, `faq_en` itd.).
+- **Strona główna i lista aktualności:** teksty angielskie edytujesz bezpośrednio w `en/index.html` i `en/news.html`.
+  To kopie stron polskich – zmiana wyglądu (np. CSS) w `index.html` wymaga tej samej zmiany w `en/index.html`.
+- Strony w `en/news/` i `en/services/` tworzą się same – nie edytuj ich ręcznie.
+
 ## Usługi (sekcja „Co robimy”)
 
 Teksty kafelków i stron usług są w `uslugi-data.js` (opis pól na górze pliku).
@@ -31,6 +44,8 @@ Nie edytuj ręcznie fragmentów między znacznikami `<!-- GEN:... -->` – są n
 |---|---|
 | `index.html` | Strona główna (oferta, o nas, kontakt, 3 najnowsze aktualności) |
 | `aktualnosci/<id>/` | **Strony wpisów – tworzą się same** (np. `aktualnosci/toyota-bemowo/`). Nie edytuj ich ręcznie |
+| `en/index.html`, `en/news.html` | **Angielska strona główna i lista wpisów** (teksty edytujesz tutaj) |
+| `en/news/`, `en/services/` | Angielskie strony wpisów i usług – tworzą się same |
 | `uslugi-data.js` | **Teksty usług** – kafelki „Co robimy” i strony usług |
 | `uslugi/<adres>/` | **Strony usług – tworzą się same** z `uslugi-data.js`. Nie edytuj ich ręcznie |
 | `szablon-uslugi.html` | Wygląd strony usługi |

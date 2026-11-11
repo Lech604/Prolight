@@ -29,8 +29,9 @@
   var btn = document.createElement("button");
   btn.className = "do-gory";
   btn.type = "button";
-  btn.setAttribute("aria-label", "Przewiń do góry");
-  btn.title = "Do góry";
+  var en = document.documentElement.lang === "en";
+  btn.setAttribute("aria-label", en ? "Back to top" : "Przewiń do góry");
+  btn.title = en ? "Back to top" : "Do góry";
   btn.innerHTML =
     '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" ' +
     'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';

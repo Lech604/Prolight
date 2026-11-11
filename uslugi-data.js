@@ -26,6 +26,11 @@
 //  faq       – pytania i odpowiedzi na dole strony:
 //              { pytanie: "...", odpowiedz: `...` }. Można usunąć całe pole.
 //
+//  Wersja angielska: te same pola z końcówką _en (adres_en, nazwa_en,
+//  krotko_en, tag_en, tytulSeo_en, opis_en, wstep_en, sekcje_en, faq_en).
+//  Strona usługi po angielsku powstaje pod en/services/<adres_en>/.
+//  Usługa bez nazwa_en jest tylko po polsku.
+//
 //  Wpisy z Aktualności pojawiają się na stronie usługi same – wystarczy
 //  w posts-data.js dopisać do wpisu: usluga: "awaryjne"
 //  (albo kilka: usluga: ["uruchomienie", "awaryjne"]).
@@ -88,6 +93,65 @@ W biurze Glamox praktycznie każda oprawa ma indywidualnie ustawione sterowanie,
       {
         pytanie: "Czy oświetlenie awaryjne może działać w tym samym systemie?",
         odpowiedz: "Tak. W salonie Toyota Bemowo 179 opraw awaryjnych pracuje w jednym systemie z oświetleniem ogólnym. Więcej o tym na stronie [nadzoru oświetlenia awaryjnego](uslugi/nadzor-oswietlenia-awaryjnego/index.html)."
+      }
+    ],
+    // ----- wersja angielska -----
+    adres_en: "lighting-control-commissioning",
+    nazwa_en: "Lighting control commissioning",
+    krotko_en: "Configuration and commissioning of lighting control systems. Efficient, energy-saving operation from day one.",
+    tag_en: "Helvar · Vertex · WAGO",
+    tytulSeo_en: "DALI lighting control commissioning | Prolight Solutions",
+    opis_en: "Commissioning of DALI lighting control systems – Helvar, Vertex (E2D), WAGO – for buildings across Europe: addressing, scenes, sensors and testing.",
+    wstep_en: "We configure and commission lighting control systems in offices, showrooms, industrial halls and public buildings. From DALI line addressing to lighting scenes that match how the building is actually used – so the system is energy-efficient and easy to operate from day one.",
+    sekcje_en: [
+      {
+        naglowek: "What commissioning includes",
+        tekst: `- checking the DALI lines and connected devices before configuration,
+- addressing and grouping luminaires, sensors, push-buttons and panels,
+- programming the controllers: zones, scenes, schedules, presence and daylight sensors,
+- integrating emergency luminaires into the same system where required,
+- testing the complete system and handing it over to the building operator,
+- configuration documentation that makes later service and changes easier.
+
+Where needed, we also install the luminaires and system devices – as in the Glamox office in Kraków, where we installed and commissioned 447 devices.`
+      },
+      {
+        naglowek: "Why DALI",
+        tekst: `DALI is the international standard for lighting control (IEC 62386). Every luminaire and device has its own address, so it can be controlled individually, and the system receives status information back – for example about a failed light source.
+
+This means lighting can be tuned to every zone of the building, and settings can be changed later without rewiring. Manufacturers of lighting control systems state that, compared with lighting that runs continuously, energy savings of up to 70% are possible.`
+      },
+      {
+        naglowek: "Control tailored to the building",
+        tekst: `We don't use one scenario for a whole building. At the Toyota dealership in Warsaw, the car showroom, the service workshop and the customer area all work differently – across 6,300 m² we commissioned 7 Vertex controllers, 21 DALI lines and 688 devices.
+
+In the Glamox office in Kraków, practically every luminaire has individually set control, matched to the workstation and the people using it.`
+      },
+      {
+        naglowek: "Systems we commission",
+        tekst: `- **Helvar**
+- **Vertex / E2D (Glamox)**
+- **WAGO**
+- **OSRAM / LEDVANCE**
+- **DALI and DMX**, including decorative and stage lighting (**SIGMA / MADRIX**)`
+      },
+      {
+        naglowek: "Projects outside Poland",
+        tekst: `We are based in Poland and take on projects across Europe. Every project abroad is agreed individually – scope, schedule and site visits are planned with you before the work starts. Our team works in Polish and English.`
+      }
+    ],
+    faq_en: [
+      {
+        pytanie: "Do you commission installations carried out by another contractor?",
+        odpowiedz: "Yes. We start by checking the DALI lines and devices, and report any installation faults to the contractor before we move on to configuration."
+      },
+      {
+        pytanie: "How long does commissioning take?",
+        odpowiedz: "It depends on the size of the building and the number of devices. After reviewing the project you receive a quote with a schedule, and we plan the work to disrupt the building as little as possible."
+      },
+      {
+        pytanie: "Can emergency lighting run in the same system?",
+        odpowiedz: "Yes. At Toyota Bemowo, 179 emergency luminaires run in one system together with general lighting. See [emergency lighting monitoring](en/services/emergency-lighting-monitoring/index.html) for more."
       }
     ]
   },
@@ -154,6 +218,63 @@ Wyniki testów, usterki, naprawy i zmiany w instalacji zapisuje się w **dzienni
         pytanie: "Czy przejmiecie system, który serwisował ktoś inny?",
         odpowiedz: "Tak. Zaczynamy od przeglądu stanu instalacji i dokumentacji, a potem przejmujemy testy, dziennik i serwis."
       }
+    ],
+    // ----- wersja angielska -----
+    adres_en: "emergency-lighting-monitoring",
+    nazwa_en: "Emergency lighting monitoring",
+    krotko_en: "Configuration and commissioning of emergency luminaire monitoring systems. Standards compliance and documentation ready for inspection.",
+    tag_en: "Glamox · GFS · TM Tech",
+    tytulSeo_en: "Emergency lighting monitoring and testing (EN 50172) | Prolight",
+    opis_en: "Monitoring systems for emergency and escape lighting: commissioning, testing in line with EN 50172, log books and documentation for inspections.",
+    wstep_en: "We commission monitoring systems for emergency and escape luminaires and carry out their testing and inspections. Emergency lighting has to work when the power fails – and during a fire safety inspection you have to prove it with up-to-date records.",
+    sekcje_en: [
+      {
+        naglowek: "What the standard requires",
+        tekst: `The European standard **EN 50172** describes how emergency lighting should be tested:
+- **daily** – a visual check that centrally supplied systems are ready,
+- **monthly** – a short simulated power failure to check that every luminaire lights up,
+- **annually** – a test for the full rated emergency duration of the luminaires.
+
+Test results, faults, repairs and changes to the installation are recorded in a **log book**, either by hand or automatically by a monitoring system.
+
+National fire safety regulations add their own requirements – such as inspection intervals and who may carry out the checks – and these differ from country to country. We set up testing to match the requirements that apply to your building.`
+      },
+      {
+        naglowek: "What we do",
+        tekst: `- configure and commission emergency luminaire monitoring systems – addressable self-test systems and central battery systems,
+- integrate emergency lighting monitoring with the DALI lighting control system, where the building has one,
+- set up schedules for automatic monthly and annual tests,
+- carry out periodic inspections and tests,
+- keep the test log book and prepare reports for inspections,
+- replace faulty luminaires, batteries and modules.`
+      },
+      {
+        naglowek: "Why use a monitoring system",
+        tekst: `In a building with hundreds of luminaires, checking each one by hand every month takes a lot of time and it is easy to miss one. A monitoring system runs the tests itself, records the results and immediately shows which luminaire needs attention. The log book is always up to date, with no manual paperwork.`
+      },
+      {
+        naglowek: "Systems we support",
+        tekst: `- **Glamox**
+- **GFS**
+- **TM Technology**
+- **Hybryd**
+- **ES System**, including refurbishment of CTI 3×64 controllers
+- **central battery** systems`
+      }
+    ],
+    faq_en: [
+      {
+        pytanie: "How often does emergency lighting need to be tested?",
+        odpowiedz: "Under EN 50172: a short functional test every month and a full-duration test once a year, plus a daily visual check for centrally supplied systems. National regulations may add further requirements, so we agree the exact schedule for each building."
+      },
+      {
+        pytanie: "Can the test log book be kept electronically?",
+        odpowiedz: "Yes. The standard allows the log book to be kept by hand or as a printout from automatic test equipment. A monitoring system records the test results itself."
+      },
+      {
+        pytanie: "Can you take over a system that was serviced by someone else?",
+        odpowiedz: "Yes. We start by reviewing the installation and its documentation, then take over testing, the log book and service."
+      }
     ]
   },
 
@@ -212,6 +333,62 @@ Wyniki testów, usterki, naprawy i zmiany w instalacji zapisuje się w **dzienni
         pytanie: "Czy serwisujecie systemy, których nie instalowaliście?",
         odpowiedz: "Tak. Prowadzimy serwis pogwarancyjny wszystkich obsługiwanych systemów, niezależnie od tego, kto je zainstalował."
       }
+    ],
+    // ----- wersja angielska -----
+    adres_en: "lighting-control-service-maintenance",
+    nazwa_en: "Service and maintenance",
+    krotko_en: "Diagnostics, maintenance and repairs, remotely or on site. We keep your system running throughout its service life.",
+    tag_en: "All systems",
+    tytulSeo_en: "Lighting control service and maintenance | Prolight Solutions",
+    opis_en: "Post-warranty service for lighting control and emergency lighting systems – Helvar, Vertex, WAGO, DALI: remote diagnostics, repairs and maintenance.",
+    wstep_en: "We diagnose, repair and maintain lighting control and emergency lighting systems – throughout their service life, after the warranty has ended, and also when the system was installed by someone else.",
+    sekcje_en: [
+      {
+        naglowek: "When to call us",
+        tekst: `- a controller has stopped responding, or some luminaires don't react to push-buttons and sensors,
+- the emergency lighting control panel reports a fault,
+- an inspection is coming up and the tests need to be documented,
+- after a change of room layout, the lighting no longer fits the space,
+- no one in the building knows any more how the system is configured.`
+      },
+      {
+        naglowek: "Scope of service",
+        tekst: `- remote or on-site diagnostics – after a first conversation we tell you whether the fault needs a site visit,
+- repair and replacement of faulty controllers, modules, sensors and luminaires,
+- configuration changes: new zones, scenes and schedules,
+- periodic inspections and maintenance,
+- post-warranty service for all the systems we support.
+
+For buildings outside Poland, response times and site visits are agreed individually.`
+      },
+      {
+        naglowek: "Refurbishment of CTI 3×64 controllers",
+        tekst: `We specialise in refurbishing CTI 3×64 controllers made by ES System. We diagnose and repair them and restore them to full working order, without replacing them with new hardware.`
+      },
+      {
+        naglowek: "Long-term care, not one-off repairs",
+        tekst: `More than 90% of our clients work with us on a long-term basis. When we know the building and its system, we diagnose faults faster and plan inspections in advance, before something stops working.`
+      },
+      {
+        naglowek: "Systems we service",
+        tekst: `**Lighting control:** Helvar, Vertex / E2D, WAGO, OSRAM / LEDVANCE, DALI and DMX, SIGMA / MADRIX.
+
+**Emergency and escape lighting:** Glamox, GFS, TM Technology, Hybryd, ES System, central battery systems.`
+      }
+    ],
+    faq_en: [
+      {
+        pytanie: "What should I prepare before reporting a fault?",
+        odpowiedz: "Just the type of system and a description of the symptoms: what stopped working, since when, and in which part of the building. From that we can tell whether a site visit is needed or the fault can be diagnosed remotely."
+      },
+      {
+        pytanie: "Do you service buildings outside Poland?",
+        odpowiedz: "Yes. We start with remote diagnostics wherever the system allows it, and agree on-site visits individually for each project."
+      },
+      {
+        pytanie: "Do you service systems you didn't install?",
+        odpowiedz: "Yes. We provide post-warranty service for all the systems we support, regardless of who installed them."
+      }
     ]
   },
 
@@ -262,6 +439,53 @@ Wyniki testów, usterki, naprawy i zmiany w instalacji zapisuje się w **dzienni
       {
         pytanie: "Po jakim czasie modernizacja się zwraca?",
         odpowiedz: "Zwykle w 12–18 miesięcy. Dokładny szacunek przygotowujemy po audycie, na podstawie stanu instalacji i sposobu korzystania z obiektu."
+      }
+    ],
+    // ----- wersja angielska -----
+    adres_en: "lighting-control-upgrades",
+    nazwa_en: "Lighting system upgrades",
+    krotko_en: "We upgrade outdated lighting control systems and lighting installations. Better energy efficiency, lower costs.",
+    tag_en: "Audit + design + delivery",
+    tytulSeo_en: "Lighting control system upgrades | Prolight Solutions",
+    opis_en: "Upgrades of outdated lighting control systems and lighting installations: audit, design and delivery. Lower energy consumption and operating costs.",
+    wstep_en: "We upgrade outdated lighting control systems and lighting installations. Modern controls use less energy and are easier to operate and service – and an upgrade typically pays for itself within 12–18 months.",
+    sekcje_en: [
+      {
+        naglowek: "When an upgrade makes sense",
+        tekst: `- energy bills keep rising, and lights stay on where and when no one is there,
+- spare parts for the old system are no longer available, or no one will service it,
+- the room layout or the way the building is used has changed,
+- you can't check the state of the installation or change settings without a service visit,
+- emergency lighting is tested by hand and the log book is hard to keep up to date.`
+      },
+      {
+        naglowek: "How an upgrade works",
+        tekst: `1. **Audit** – we review the building and its existing systems and identify what can stay and what needs replacing. The first consultation is free.
+2. **Design and quote** – a detailed plan and clear terms, with no hidden costs.
+3. **Delivery** – to schedule and, if needed, in stages, so the building can keep operating.
+4. **Service** – after handover we stay available for support.`
+      },
+      {
+        naglowek: "What you gain",
+        tekst: `- **lower energy consumption** through presence detection, daylight harvesting, dimming and schedules,
+- **zone and scene control** that matches how the building is used today,
+- **status information** – the system reports failed luminaires itself,
+- **automatic emergency lighting tests** and an up-to-date log book, when integrated with the new system,
+- **a system based on the open DALI standard** that can be extended.`
+      }
+    ],
+    faq_en: [
+      {
+        pytanie: "Does the whole installation need replacing?",
+        odpowiedz: "Not always. After the audit we show which luminaires and cabling can stay and which parts are worth replacing so that the upgrade pays off."
+      },
+      {
+        pytanie: "Will the upgrade stop the building from operating?",
+        odpowiedz: "We plan the work to affect the building as little as possible – in stages if needed, zone by zone."
+      },
+      {
+        pytanie: "How quickly does an upgrade pay for itself?",
+        odpowiedz: "Typically within 12–18 months. We prepare a more precise estimate after the audit, based on the condition of the installation and how the building is used."
       }
     ]
   }

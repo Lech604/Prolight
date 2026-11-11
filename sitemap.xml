@@ -1,43 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://prolightsolutions.pl/</loc>
     <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/"/>
+  </url>
+  <url>
+    <loc>https://prolightsolutions.pl/en/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/"/>
   </url>
   <url>
     <loc>https://prolightsolutions.pl/aktualnosci.html</loc>
     <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/aktualnosci.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/news.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/aktualnosci.html"/>
+  </url>
+  <url>
+    <loc>https://prolightsolutions.pl/en/news.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/aktualnosci.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/news.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/aktualnosci.html"/>
   </url>
   <url>
     <loc>https://prolightsolutions.pl/uslugi/uruchomienie-systemow-sterowania-oswietleniem/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/uslugi/uruchomienie-systemow-sterowania-oswietleniem/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/services/lighting-control-commissioning/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/uslugi/uruchomienie-systemow-sterowania-oswietleniem/"/>
+  </url>
+  <url>
+    <loc>https://prolightsolutions.pl/en/services/lighting-control-commissioning/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/uslugi/uruchomienie-systemow-sterowania-oswietleniem/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/services/lighting-control-commissioning/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/uslugi/uruchomienie-systemow-sterowania-oswietleniem/"/>
   </url>
   <url>
     <loc>https://prolightsolutions.pl/uslugi/nadzor-oswietlenia-awaryjnego/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/uslugi/nadzor-oswietlenia-awaryjnego/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/services/emergency-lighting-monitoring/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/uslugi/nadzor-oswietlenia-awaryjnego/"/>
+  </url>
+  <url>
+    <loc>https://prolightsolutions.pl/en/services/emergency-lighting-monitoring/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/uslugi/nadzor-oswietlenia-awaryjnego/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/services/emergency-lighting-monitoring/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/uslugi/nadzor-oswietlenia-awaryjnego/"/>
   </url>
   <url>
     <loc>https://prolightsolutions.pl/uslugi/serwis-systemow-sterowania-oswietleniem/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/uslugi/serwis-systemow-sterowania-oswietleniem/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/services/lighting-control-service-maintenance/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/uslugi/serwis-systemow-sterowania-oswietleniem/"/>
+  </url>
+  <url>
+    <loc>https://prolightsolutions.pl/en/services/lighting-control-service-maintenance/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/uslugi/serwis-systemow-sterowania-oswietleniem/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/services/lighting-control-service-maintenance/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/uslugi/serwis-systemow-sterowania-oswietleniem/"/>
   </url>
   <url>
     <loc>https://prolightsolutions.pl/uslugi/modernizacja-oswietlenia/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/uslugi/modernizacja-oswietlenia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/services/lighting-control-upgrades/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/uslugi/modernizacja-oswietlenia/"/>
+  </url>
+  <url>
+    <loc>https://prolightsolutions.pl/en/services/lighting-control-upgrades/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/uslugi/modernizacja-oswietlenia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/services/lighting-control-upgrades/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/uslugi/modernizacja-oswietlenia/"/>
   </url>
   <url>
     <loc>https://prolightsolutions.pl/aktualnosci/toyota-bemowo/</loc>
     <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/aktualnosci/toyota-bemowo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/news/toyota-bemowo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/aktualnosci/toyota-bemowo/"/>
+  </url>
+  <url>
+    <loc>https://prolightsolutions.pl/en/news/toyota-bemowo/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/aktualnosci/toyota-bemowo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/news/toyota-bemowo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/aktualnosci/toyota-bemowo/"/>
   </url>
   <url>
     <loc>https://prolightsolutions.pl/aktualnosci/biuro-glamox/</loc>
     <lastmod>2026-10-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/aktualnosci/biuro-glamox/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/news/biuro-glamox/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/aktualnosci/biuro-glamox/"/>
+  </url>
+  <url>
+    <loc>https://prolightsolutions.pl/en/news/biuro-glamox/</loc>
+    <lastmod>2026-10-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/aktualnosci/biuro-glamox/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/news/biuro-glamox/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/aktualnosci/biuro-glamox/"/>
   </url>
   <url>
     <loc>https://prolightsolutions.pl/aktualnosci/regeneracja-cti-3x64/</loc>
     <lastmod>2025-02-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/aktualnosci/regeneracja-cti-3x64/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/news/regeneracja-cti-3x64/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/aktualnosci/regeneracja-cti-3x64/"/>
+  </url>
+  <url>
+    <loc>https://prolightsolutions.pl/en/news/regeneracja-cti-3x64/</loc>
+    <lastmod>2025-02-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/aktualnosci/regeneracja-cti-3x64/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/news/regeneracja-cti-3x64/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/aktualnosci/regeneracja-cti-3x64/"/>
   </url>
   <url>
     <loc>https://prolightsolutions.pl/aktualnosci/sezon-kontroli-ppoz/</loc>
     <lastmod>2025-02-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/aktualnosci/sezon-kontroli-ppoz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/news/sezon-kontroli-ppoz/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/aktualnosci/sezon-kontroli-ppoz/"/>
+  </url>
+  <url>
+    <loc>https://prolightsolutions.pl/en/news/sezon-kontroli-ppoz/</loc>
+    <lastmod>2025-02-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/aktualnosci/sezon-kontroli-ppoz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/news/sezon-kontroli-ppoz/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/aktualnosci/sezon-kontroli-ppoz/"/>
   </url>
   <url>
     <loc>https://prolightsolutions.pl/aktualnosci/modernizacja-helvar/</loc>
     <lastmod>2025-01-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/aktualnosci/modernizacja-helvar/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/news/modernizacja-helvar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/aktualnosci/modernizacja-helvar/"/>
+  </url>
+  <url>
+    <loc>https://prolightsolutions.pl/en/news/modernizacja-helvar/</loc>
+    <lastmod>2025-01-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/aktualnosci/modernizacja-helvar/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/news/modernizacja-helvar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/aktualnosci/modernizacja-helvar/"/>
   </url>
 </urlset>

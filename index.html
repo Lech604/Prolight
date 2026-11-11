@@ -8,6 +8,9 @@
   <meta name="robots" content="index, follow">
   <meta name="author" content="Prolight Solutions">
   <link rel="canonical" href="https://prolightsolutions.pl/">
+  <link rel="alternate" hreflang="pl" href="https://prolightsolutions.pl/">
+  <link rel="alternate" hreflang="en" href="https://prolightsolutions.pl/en/">
+  <link rel="alternate" hreflang="x-default" href="https://prolightsolutions.pl/">
   <!-- Ikony -->
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" href="favicon-192.png" type="image/png" sizes="192x192">
@@ -50,10 +53,16 @@
     "addressRegion": "małopolskie",
     "addressCountry": "PL"
   },
-  "areaServed": {
-    "@type": "Country",
-    "name": "Polska"
-  },
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "Polska"
+    },
+    {
+      "@type": "Place",
+      "name": "Europa"
+    }
+  ],
   "knowsAbout": [
     "systemy sterowania oświetleniem",
     "DALI",
@@ -69,35 +78,50 @@
     {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "availableLanguage": "pl",
+      "availableLanguage": [
+        "pl",
+        "en"
+      ],
       "telephone": "+48 608 633 434",
       "name": "Karol"
     },
     {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "availableLanguage": "pl",
+      "availableLanguage": [
+        "pl",
+        "en"
+      ],
       "telephone": "+48 698 028 684",
       "name": "Michał"
     },
     {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "availableLanguage": "pl",
+      "availableLanguage": [
+        "pl",
+        "en"
+      ],
       "telephone": "+48 601 685 025",
       "name": "Michał"
     },
     {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "availableLanguage": "pl",
+      "availableLanguage": [
+        "pl",
+        "en"
+      ],
       "telephone": "+48 513 144 502",
       "name": "Leszek"
     },
     {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "availableLanguage": "pl",
+      "availableLanguage": [
+        "pl",
+        "en"
+      ],
       "email": "biuro@prolightsolutions.pl"
     }
   ]
@@ -1231,7 +1255,7 @@ footer {
   
 @media (max-width: 768px) {
   nav { padding: 0 20px; }
-  .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
+  .nav-links li:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3)) { display: none; }
   .hero-content { padding: 60px 20px 40px; }
   .hero-stats-bar { grid-template-columns: 1fr 1fr; }
   .hero-stat { padding: 20px; }
@@ -1296,6 +1320,11 @@ footer {
   0%, 80%, 100% { transform: scale(0.55); opacity: 0.25; }
   40% { transform: scale(1); opacity: 1; }
 }
+
+/* ─── PRZEŁĄCZNIK JĘZYKA ─── */
+.nav-links a.nav-lang { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; border: 1px solid rgba(255,255,255,0.28); border-radius: 999px; padding: 5px 11px; line-height: 1; }
+.nav-links a.nav-lang:hover { border-color: var(--amber); color: var(--white); }
+@media (max-width: 480px) { .nav-links li:not(:last-child):not(.nav-lang-item) { display: none; } .nav-links { gap: 10px; } }
 </style>
 <style>
 /* ─── CZYTELNOŚĆ (wszystkie ekrany) ─── */
@@ -1354,6 +1383,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidde
     <li><a href="#oferta">Oferta</a></li>
     <li><a href="#o-nas">O nas</a></li>
     <li><a href="aktualnosci.html">Aktualności</a></li>
+    <li class="nav-lang-item"><a class="nav-lang" href="en/" hreflang="en" lang="en" aria-label="English version">EN</a></li>
     <li><a href="#kontakt" class="nav-cta">Zapytaj o wycenę</a></li>
   </ul>
 </nav>
@@ -1733,10 +1763,10 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 })();
 </script>
 <!-- Przy zmianie kodu strony zwiększ numer v=, żeby przeglądarki pobrały świeże pliki -->
-<script src="posts-data.js?v=8"></script>
-<script src="wpisy.js?v=11"></script>
-<script src="lightbox.js?v=7"></script>
-<script src="do-gory.js?v=8"></script>
+<script src="posts-data.js?v=9"></script>
+<script src="wpisy.js?v=12"></script>
+<script src="lightbox.js?v=8"></script>
+<script src="do-gory.js?v=9"></script>
 <script src="kontakty.js?v=1"></script>
 <script>
 // Kafelki kontaktowe z pliku kontakty.js (odświeżenie, gdyby strona nie była jeszcze przebudowana)
@@ -1759,7 +1789,7 @@ return prolightCardHTML(post);
 }
 var grid = document.getElementById("news-grid");
 if (grid) {
-var najnowsze = PROLIGHT_POSTS.slice().sort(function(a,b){ return new Date(b.date) - new Date(a.date); }).slice(0,3);
+var najnowsze = prolightSortedPosts().slice(0,3);
 grid.innerHTML = najnowsze.map(kartaHTML).join("");
 }
 })();
