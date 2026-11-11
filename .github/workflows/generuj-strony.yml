@@ -17,6 +17,8 @@ on:
       - szablon-uslugi.html
       - index.html
       - aktualnosci.html
+      - en/index.html
+      - en/news.html
       - zdjecia/**
       - narzedzia/**
       - .github/workflows/generuj-strony.yml
@@ -41,7 +43,7 @@ jobs:
         run: node narzedzia/generuj-strony.js
       - name: Zapisz zmiany
         run: |
-          git add -A aktualnosci uslugi aktualnosci.html index.html sitemap.xml
+          git add -A aktualnosci uslugi en aktualnosci.html index.html sitemap.xml
           if git diff --cached --quiet; then
             echo "Brak zmian."
             exit 0
