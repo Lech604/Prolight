@@ -234,6 +234,9 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidde
 .post-body p { font-size: 18px; line-height: 1.75; color: #1f2937; margin-bottom: 20px; }
 .post-body p a { color: #b45309; text-decoration: underline; text-underline-offset: 2px; overflow-wrap: anywhere; }
 .post-body p a:hover { color: var(--amber); }
+.post-services { margin-top: 32px; font-size: 16px; color: var(--mid); display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+.post-services a { color: #b45309; font-weight: 700; text-decoration: none; border: 1px solid rgba(180,83,9,0.3); border-radius: 999px; padding: 6px 14px; }
+.post-services a:hover { border-color: var(--amber); background: var(--amber-dim); }
 .post-cta { margin-top: 48px; padding: 28px 32px; border-radius: 14px; background: var(--ink); color: var(--white); display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
 .post-cta p { font-size: 19px; font-weight: 600; margin: 0; color: var(--white); }
 .post-cta a { background: var(--amber); color: var(--ink); text-decoration: none; font-weight: 700; padding: 12px 22px; border-radius: 8px; white-space: nowrap; }
@@ -278,6 +281,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidde
   <div class="post-inner">
   <div class="post-gallery" id="post-gallery"><img class="news-card-img" src="zdjecia/bemowo-1.jpg" alt="Toyota Bemowo - uruchomienie systemu" data-gallery="[&quot;zdjecia/bemowo-1.jpg&quot;,&quot;zdjecia/bemowo-2.jpg&quot;,&quot;zdjecia/bemowo-3.png&quot;]" data-start="0"><div class="post-thumbs"><img class="news-card-img" src="zdjecia/bemowo-2.jpg" alt="Toyota Bemowo - uruchomienie systemu – zdjęcie 2" data-gallery="[&quot;zdjecia/bemowo-1.jpg&quot;,&quot;zdjecia/bemowo-2.jpg&quot;,&quot;zdjecia/bemowo-3.png&quot;]" data-start="1" loading="lazy"><img class="news-card-img" src="zdjecia/bemowo-3.png" alt="Toyota Bemowo - uruchomienie systemu – zdjęcie 3" data-gallery="[&quot;zdjecia/bemowo-1.jpg&quot;,&quot;zdjecia/bemowo-2.jpg&quot;,&quot;zdjecia/bemowo-3.png&quot;]" data-start="2" loading="lazy"></div></div>
   <div class="post-body" id="post-body"><p><strong>Toyota Bemowo: 688 urządzeń pod kontrolą jednego systemu</strong></p><p><strong>System w liczbach</strong></p><ul><li>7 sterowników Vertex</li><li>21 linii DALI, wszystkie aktywne</li><li>429 opraw oświetlenia ogólnego</li><li>179 opraw oświetlenia awaryjnego</li><li>80 urządzeń sterujących</li></ul><p><strong>Łącznie 688 urządzeń</strong> skonfigurowanych i uruchomionych w jednym, spójnie zarządzanym systemie.<br>Skonfigurowaliśmy i uruchomiliśmy system sterowania oświetleniem w nowym,<br>trzykondygnacyjnym kompleksie dealerskim Toyoty na warszawskim Bemowie.<br>To ponad 6300 m² powierzchni o bardzo różnych potrzebach: od salonów ekspozycyjnych, przez halę serwisową, po strefę obsługi klienta.<br><strong>Obiekt</strong> Salon Toyoty zajmuje ok. 560 m². Na ekspozycji stanie łącznie 50 samochodów.<br>Klienci czekający na samochód mają do dyspozycji strefę komfortu o powierzchni ponad 200 m².<br>W całym budynku jest 180 stanowisk pracy.<br>Więcej o otwarciu salonu na <a href="https://www.toyota.pl/swiat-toyoty/nowosci/toyota-i-lexus-otwieraja-nowe-salony-z-warszawie" target="_blank" rel="noopener">stronie Toyoty</a>.</p></div>
+  <p class="post-services">Zakres prac: <a href="uslugi/uruchomienie-systemow-sterowania-oswietleniem/">Uruchomienie systemów sterowania</a><a href="uslugi/nadzor-oswietlenia-awaryjnego/">Nadzór oświetlenia awaryjnego</a></p>
   <div class="post-cta">
     <p>Masz podobny obiekt lub instalację?</p>
     <a href="index.html#kontakt">Zapytaj o wycenę</a>
@@ -302,7 +306,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidde
   </footer>
 
   <!-- Przy zmianie kodu strony zwiększ numer v=, żeby przeglądarki pobrały świeże pliki -->
-  <script src="wpisy.js?v=10"></script>
+  <script src="wpisy.js?v=11"></script>
   <script src="lightbox.js?v=7"></script>
   <script src="do-gory.js?v=8"></script>
 </body>
