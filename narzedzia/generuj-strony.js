@@ -10,7 +10,9 @@
 //     żeby Google widział wpis bez uruchamiania JavaScriptu).
 //  2. Wstawia karty wpisów do aktualnosci.html i 3 najnowsze do index.html.
 //  3. Wstawia kontakty i dane firmy (dla Google) do index.html.
-//  4. Tworzy sitemap.xml.
+//  4. Tworzy strony usług uslugi/<adres>/index.html i kafelki „Co robimy”
+//     na stronie głównej (z uslugi-data.js).
+//  5. Tworzy sitemap.xml.
 //  Gdy w posts-data.js jest błąd, kończy się komunikatem i niczego nie zmienia.
 // =====================================================================
 
@@ -47,14 +49,41 @@ const atrapa = { createElement: () => ({}), head: { appendChild() {} } };
 let D;
 try {
   D = vm.runInNewContext(
-    czytaj("posts-data.js") + "\n;\n" + czytaj("kontakty.js") + "\n;\n" + czytaj("wpisy.js") +
-    "\n;({ PROLIGHT_POSTS, PROLIGHT_CATEGORIES, PROLIGHT_KONTAKTY, prolightPostId, prolightPostUrl," +
+    czytaj("posts-data.js") + "\n;\n" + czytaj("kontakty.js") + "\n;\n" + czytaj("uslugi-data.js") + "\n;\n" + czytaj("wpisy.js") +
+    "\n;({ PROLIGHT_POSTS, PROLIGHT_CATEGORIES, PROLIGHT_KONTAKTY, PROLIGHT_USLUGI, prolightPostId, prolightPostUrl," +
     " prolightImages, prolightFormatText, prolightCategoryLabel, prolightFormatDate, prolightSortedPosts," +
-    " prolightCardHTML, prolightDescription, prolightKontaktyHTML })",
-    { document: atrapa, console }, { filename: "posts-data.js + kontakty.js + wpisy.js" });
+    " prolightCardHTML, prolightDescription, prolightPlainText, prolightKontaktyHTML })",
+    { document: atrapa, console }, { filename: "posts-data.js + kontakty.js + uslugi-data.js + wpisy.js" });
 } catch (e) {
-  blad("Błąd w posts-data.js lub kontakty.js (najczęściej brak przecinka albo cudzysłowu):\n   " + e.message);
+  blad("Błąd w posts-data.js, kontakty.js lub uslugi-data.js (najczęściej brak przecinka albo cudzysłowu):\n   " + e.message);
 }
+
+// ---------------------------------------------------------------------
+// Sprawdzenie usług
+// ---------------------------------------------------------------------
+const uslugi = D.PROLIGHT_USLUGI;
+const uslugaPoId = new Map();
+const adresyUslug = new Set();
+for (const u of uslugi) {
+  const nazwa = "Usługa „" + (u.nazwa || u.id || "(bez nazwy)") + "”";
+  for (const pole of ["id", "adres", "nazwa", "krotko", "wstep"]) {
+    if (!u[pole] || !String(u[pole]).trim()) blad(nazwa + " w uslugi-data.js: brak pola " + pole + ".");
+  }
+  if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(u.adres))
+    blad(nazwa + ": adres może mieć tylko małe litery bez polskich znaków, cyfry i myślniki, jest: " + u.adres);
+  if (uslugaPoId.has(u.id)) blad(nazwa + ": id „" + u.id + "” jest już użyte w innej usłudze.");
+  if (adresyUslug.has(u.adres)) blad(nazwa + ": adres „" + u.adres + "” jest już użyty w innej usłudze.");
+  uslugaPoId.set(u.id, u);
+  adresyUslug.add(u.adres);
+  (u.sekcje || []).forEach((sek, i) => {
+    if (!sek.naglowek || !sek.tekst) blad(nazwa + ": sekcja nr " + (i + 1) + " musi mieć naglowek i tekst.");
+  });
+  (u.faq || []).forEach((f, i) => {
+    if (!f.pytanie || !f.odpowiedz) blad(nazwa + ": pytanie FAQ nr " + (i + 1) + " musi mieć pytanie i odpowiedz.");
+  });
+}
+const uslugaUrl = u => "uslugi/" + u.adres + "/";
+const uslugiWpisu = p => [].concat(p.usluga || []).filter(Boolean);
 
 // ---------------------------------------------------------------------
 // Sprawdzenie wpisów
@@ -72,6 +101,10 @@ for (const p of posty) {
     blad(nazwa + ": data musi mieć format RRRR-MM-DD, jest: " + p.date);
   if (!kategorie.has(p.category))
     blad(nazwa + ": nieznana kategoria „" + p.category + "”. Dozwolone: " + [...kategorie].join(", "));
+  for (const id of uslugiWpisu(p)) {
+    if (!uslugaPoId.has(id))
+      blad(nazwa + ": nieznana usługa „" + id + "”. Dozwolone: " + [...uslugaPoId.keys()].join(", "));
+  }
   for (const z of D.prolightImages(p)) {
     if (!/^https?:/.test(z) && !fs.existsSync(plik(z)))
       blad(nazwa + ": nie ma pliku zdjęcia „" + z + "” (sprawdź nazwę, wielkość liter i rozszerzenie).");
@@ -195,6 +228,12 @@ for (const p of posty) {
     TRESC: D.prolightFormatText(p.excerpt),
     INNE: inne.map(D.prolightCardHTML).join(""),
     UKRYJ_INNE: inne.length ? "" : ' style="display:none"',
+    USLUGI_WPISU: uslugiWpisu(p).length
+      ? '<p class="post-services">Zakres prac: ' + uslugiWpisu(p).map(id => {
+          const u = uslugaPoId.get(id);
+          return '<a href="' + uslugaUrl(u) + '">' + esc(u.nazwa) + "</a>";
+        }).join("") + "</p>"
+      : "",
     ROK: rok
   };
   let html = szablon.replace(/\{\{([A-Z_]+)\}\}/g, (m, k) => {
@@ -218,6 +257,102 @@ if (fs.existsSync(folderWpisow)) {
 }
 
 // ---------------------------------------------------------------------
+// Strony usług
+// ---------------------------------------------------------------------
+const szablonUslugi = czytaj("szablon-uslugi.html");
+for (const u of uslugi) {
+  const url = ADRES_STRONY + uslugaUrl(u);
+  const opis = u.opis ? String(u.opis).trim() : D.prolightDescription({ excerpt: u.wstep });
+  const realizacje = posty.filter(p => uslugiWpisu(p).includes(u.id));
+  const sekcje = (u.sekcje || []).map(sek =>
+    '<section class="svc-section"><h2>' + esc(sek.naglowek) + "</h2>" + D.prolightFormatText(sek.tekst) + "</section>").join("\n  ");
+  const faq = (u.faq || []).length
+    ? '<section class="svc-section svc-faq"><h2>Najczęstsze pytania</h2>' + u.faq.map(f =>
+        "<details><summary>" + esc(f.pytanie) + '</summary><div class="svc-answer">' + D.prolightFormatText(f.odpowiedz) + "</div></details>").join("") + "</section>"
+    : "";
+  const inneUslugi = uslugi.filter(x => x !== u).map(x =>
+    '<a class="svc-other" href="' + uslugaUrl(x) + '"><div class="svc-other-num">' + esc(x.numer || "") + "</div><h3>" + esc(x.nazwa) +
+    "</h3><p>" + esc(x.krotko) + '</p><span class="svc-other-more">Więcej →</span></a>').join("");
+
+  const schema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: u.nazwa,
+      serviceType: u.nazwa,
+      description: opis,
+      url,
+      areaServed: { "@type": "Country", name: "Polska" },
+      provider: { "@id": ADRES_STRONY + "#firma", "@type": "LocalBusiness", name: FIRMA.nazwa, url: ADRES_STRONY }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Strona główna", item: ADRES_STRONY },
+        { "@type": "ListItem", position: 2, name: "Oferta", item: ADRES_STRONY + "#oferta" },
+        { "@type": "ListItem", position: 3, name: u.nazwa, item: url }
+      ]
+    }
+  ];
+  if ((u.faq || []).length) schema.push({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: u.faq.map(f => ({
+      "@type": "Question",
+      name: f.pytanie,
+      acceptedAnswer: { "@type": "Answer", text: D.prolightPlainText(f.odpowiedz) }
+    }))
+  });
+
+  const pola = {
+    TYTUL_STRONY: esc(u.tytulSeo || (u.nazwa + " – Prolight Solutions")),
+    TYTUL: esc(u.tytulSeo || u.nazwa),
+    OPIS: esc(opis),
+    ADRES: esc(url),
+    OBRAZ: ADRES_STRONY + "og-image.jpg",
+    SCHEMA: json(schema),
+    NUMER: esc(u.numer || ""),
+    NAZWA: esc(u.nazwa),
+    WSTEP: esc(u.wstep),
+    TAG: esc(u.tag || ""),
+    SEKCJE: sekcje,
+    FAQ: faq,
+    REALIZACJE: realizacje.map(D.prolightCardHTML).join(""),
+    UKRYJ_REALIZACJE: realizacje.length ? "" : ' style="display:none"',
+    INNE_USLUGI: inneUslugi,
+    ROK: rok
+  };
+  let html = szablonUslugi.replace(/\{\{([A-Z_]+)\}\}/g, (m, k) => {
+    if (!(k in pola)) blad("Nieznane pole {{" + k + "}} w szablon-uslugi.html");
+    return pola[k];
+  });
+  html = html.replace(/\s*<!--\s*SZABLON STRONY USŁUGI[\s\S]*?-->/, "\n  <!-- Strona utworzona automatycznie z uslugi-data.js – nie edytuj jej ręcznie. -->");
+  if (!u.tag) html = html.replace(/\s*<span class="svc-tag"><\/span>/, "");
+  zapisz("uslugi/" + u.adres + "/index.html", html);
+}
+
+const folderUslug = plik("uslugi");
+if (fs.existsSync(folderUslug)) {
+  for (const f of fs.readdirSync(folderUslug)) {
+    if (!adresyUslug.has(f) && fs.existsSync(path.join(folderUslug, f, "index.html"))) {
+      fs.rmSync(path.join(folderUslug, f), { recursive: true });
+      zmienione.push("uslugi/" + f + "/ (usunięto)");
+    }
+  }
+}
+
+const opoznienia = ["", " d1", " d2", " d3"];
+const kafelki = uslugi.map((u, i) =>
+  '\n      <a class="offer-card reveal' + (opoznienia[i % 4]) + '" href="' + uslugaUrl(u) + '">' +
+  '\n        <div class="offer-num">' + esc(u.numer || "") + "</div>" +
+  "\n        <h3>" + esc(u.nazwa) + "</h3>" +
+  "\n        <p>" + esc(u.krotko) + "</p>" +
+  (u.tag ? '\n        <span class="offer-tag">' + esc(u.tag) + "</span>" : "") +
+  '\n        <span class="offer-more">Więcej <span aria-hidden="true">→</span></span>' +
+  "\n      </a>").join("") + "\n    ";
+
+// ---------------------------------------------------------------------
 // 2–3. Lista wpisów, strona główna, kontakty, dane firmy
 // ---------------------------------------------------------------------
 let aktualnosci = czytaj("aktualnosci.html");
@@ -227,6 +362,7 @@ zapisz("aktualnosci.html", aktualnosci);
 
 let index = czytaj("index.html");
 index = wstaw(index, "najnowsze", posty.slice(0, 3).map(D.prolightCardHTML).join(""), "index.html");
+index = wstaw(index, "uslugi", kafelki, "index.html");
 index = wstaw(index, "kontakty", D.prolightKontaktyHTML(D.PROLIGHT_KONTAKTY), "index.html");
 index = wstaw(index, "rok", rok, "index.html");
 index = wstaw(index, "firma", '\n  <script type="application/ld+json">\n' + json(firmaSchema) + "\n  </script>\n  ", "index.html");
@@ -241,6 +377,7 @@ const sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://w
   [
     wpisUrl(ADRES_STRONY, najnowszaData),
     wpisUrl(ADRES_STRONY + "aktualnosci.html", najnowszaData),
+    ...uslugi.map(u => wpisUrl(ADRES_STRONY + uslugaUrl(u))),
     ...posty.map(p => wpisUrl(ADRES_STRONY + D.prolightPostUrl(p), p.date))
   ].join("\n") + "\n</urlset>\n";
 zapisz("sitemap.xml", sitemap);
