@@ -3,5 +3,5 @@ Allow: /
 Disallow: /projekt-logo/
 Disallow: /narzedzia/
 Disallow: /szablon-wpisu.html
-
+Disallow: /szablon-uslugi.html
 Sitemap: https://prolightsolutions.pl/sitemap.xml
