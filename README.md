@@ -3,6 +3,15 @@
 Statyczna strona firmy Prolight Solutions, hostowana na GitHub Pages.
 Każda zmiana zapisana w gałęzi `main` po 1–2 minutach pojawia się na stronie.
 
+## Usługi (sekcja „Co robimy”)
+
+Teksty kafelków i stron usług są w `uslugi-data.js` (opis pól na górze pliku).
+Po zapisie GitHub sam przebudowuje kafelki na stronie głównej i strony `uslugi/<adres>/`.
+Wpis z Aktualności pojawi się na stronie usługi jako realizacja, gdy dopiszesz do niego w `posts-data.js`
+pole `usluga: "awaryjne"` (dozwolone: `uruchomienie`, `awaryjne`, `serwis`, `modernizacja`;
+kilka naraz: `usluga: ["uruchomienie", "awaryjne"]`).
+Nie zmieniaj `id` ani `adres` usługi po publikacji.
+
 ## Automatyczne strony wpisów (SEO)
 
 Po każdym zapisie `posts-data.js` lub `kontakty.js` GitHub sam (zakładka **Actions**, „Generuj strony”):
@@ -22,6 +31,9 @@ Nie edytuj ręcznie fragmentów między znacznikami `<!-- GEN:... -->` – są n
 |---|---|
 | `index.html` | Strona główna (oferta, o nas, kontakt, 3 najnowsze aktualności) |
 | `aktualnosci/<id>/` | **Strony wpisów – tworzą się same** (np. `aktualnosci/toyota-bemowo/`). Nie edytuj ich ręcznie |
+| `uslugi-data.js` | **Teksty usług** – kafelki „Co robimy” i strony usług |
+| `uslugi/<adres>/` | **Strony usług – tworzą się same** z `uslugi-data.js`. Nie edytuj ich ręcznie |
+| `szablon-uslugi.html` | Wygląd strony usługi |
 | `szablon-wpisu.html` | Wygląd strony pojedynczego wpisu (z niego powstają strony w `aktualnosci/`) |
 | `wpis.html` | Stary adres wpisów (`wpis.html?id=...`) – przekierowuje na nowy |
 | `narzedzia/generuj-strony.js` | Generator stron wpisów, kontaktów i `sitemap.xml` (uruchamia go GitHub) |

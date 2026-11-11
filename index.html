@@ -679,6 +679,13 @@ h1.hero-tag { font-size: 14px; line-height: 1.3; }
 
 .offer-card:hover::after { transform: scaleX(1); }
 .offer-card:hover { background: var(--off); }
+a.offer-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; cursor: pointer; }
+a.offer-card:focus-visible { outline: 3px solid var(--amber); outline-offset: -3px; }
+a.offer-card:focus-visible::after { transform: scaleX(1); }
+.offer-card .offer-tag { align-self: flex-start; }
+.offer-more { margin-top: auto; padding-top: 22px; font-weight: 700; font-size: 15px; color: #b45309; display: inline-flex; gap: 6px; align-items: center; }
+.offer-more span { transition: transform 0.2s; }
+a.offer-card:hover .offer-more span { transform: translateX(4px); }
 .offer-num {
     font-family: var(--font-head);
     font-size: 48px;
@@ -1477,31 +1484,36 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidde
   <div class="offer-inner">
     <div class="section-eyebrow reveal">Oferta</div>
     <h2 class="section-title reveal">Co robimy</h2>
-    <div class="offer-grid">
-      <div class="offer-card reveal">
+    <div class="offer-grid"><!-- GEN:uslugi -->
+      <a class="offer-card reveal" href="uslugi/uruchomienie-systemow-sterowania-oswietleniem/">
         <div class="offer-num">01</div>
         <h3>Uruchomienie systemów sterowania</h3>
         <p>Instalacja i konfiguracja systemów sterowania oświetleniem podstawowym. Optymalne działanie i energooszczędność od pierwszego dnia.</p>
         <span class="offer-tag">Helvar · Vertex · WAGO</span>
-      </div>
-      <div class="offer-card reveal d1">
+        <span class="offer-more">Więcej <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="offer-card reveal d1" href="uslugi/nadzor-oswietlenia-awaryjnego/">
         <div class="offer-num">02</div>
         <h3>Nadzór oświetlenia awaryjnego</h3>
         <p>Konfiguracja i uruchomienie systemów monitorowania opraw awaryjnych. Pełna zgodność z normami i dokumentacja dla kontroli.</p>
         <span class="offer-tag">Glamox · GFS · TM Tech</span>
-      </div>
-      <div class="offer-card reveal d2">
+        <span class="offer-more">Więcej <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="offer-card reveal d2" href="uslugi/serwis-systemow-sterowania-oswietleniem/">
         <div class="offer-num">03</div>
         <h3>Serwis i konserwacja</h3>
         <p>Diagnostyka, konserwacja i naprawy. Reakcja serwisowa do 48h. Utrzymujemy Twój system sprawnym przez cały cykl eksploatacji.</p>
         <span class="offer-tag">Wszystkie systemy</span>
-      </div>
-      <div class="offer-card reveal d3">
+        <span class="offer-more">Więcej <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="offer-card reveal d3" href="uslugi/modernizacja-oswietlenia/">
         <div class="offer-num">04</div>
         <h3>Modernizacja instalacji</h3>
         <p>Unowocześniamy przestarzałe systemy sterowania i instalacje oświetleniowe. Lepsza efektywność energetyczna, niższe koszty.</p>
         <span class="offer-tag">Audyt + projekt + realizacja</span>
-      </div>
+        <span class="offer-more">Więcej <span aria-hidden="true">→</span></span>
+      </a>
+    <!-- /GEN:uslugi -->
     </div>
   </div>
 </section>
@@ -1722,7 +1734,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 <!-- Przy zmianie kodu strony zwiększ numer v=, żeby przeglądarki pobrały świeże pliki -->
 <script src="posts-data.js?v=8"></script>
-<script src="wpisy.js?v=10"></script>
+<script src="wpisy.js?v=11"></script>
 <script src="lightbox.js?v=7"></script>
 <script src="do-gory.js?v=8"></script>
 <script src="kontakty.js?v=1"></script>

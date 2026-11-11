@@ -52,8 +52,9 @@ function prolightCardMedia(post) {
 // Gdy tylkoPierwszy = true, zwraca tylko 1. akapit (na karty).
 function prolightFormatText(tekst, tylkoPierwszy) {
   const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  // linki do innych stron otwierają się w nowej karcie, linki wewnątrz strony – w tej samej
   const link = (adres, opis) =>
-    '<a href="' + adres + '" target="_blank" rel="noopener">' + opis + "</a>";
+    '<a href="' + adres + '"' + (/^https?:/.test(adres) ? ' target="_blank" rel="noopener"' : "") + ">" + opis + "</a>";
 
   // formatowanie w obrębie jednej linii
   function wLinii(t) {

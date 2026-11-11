@@ -11,6 +11,7 @@
 //      id: "krotki-adres-wpisu",
 //      date: "2025-03-01",
 //      category: "serwis",
+//      usluga: "serwis",
 //      title: "Tytuł wpisu",
 //      excerpt: "Krótki opis wpisu, 1–3 zdania.",
 //      opis: "",
@@ -30,6 +31,9 @@
 //             (małymi literami, bez polskich znaków – jak w liście niżej).
 //  title    – tytuł.
 //  excerpt  – treść wpisu. Może mieć akapity i linki – patrz niżej.
+//  usluga   – (nieobowiązkowe) usługa z uslugi-data.js, przy której wpis
+//             pokaże się jako realizacja: "uruchomienie", "awaryjne",
+//             "serwis" albo "modernizacja". Kilka: ["uruchomienie", "awaryjne"].
 //  opis     – (nieobowiązkowe) 1–2 zdania, do ok. 155 znaków, które Google
 //             pokaże pod tytułem w wynikach wyszukiwania. Jeśli pole jest
 //             puste lub go nie ma, opis utworzy się z początku treści.
@@ -84,6 +88,7 @@ const PROLIGHT_POSTS = [
       id: "toyota-bemowo",
       date: "2026-10-21",
       category: "realizacja",
+      usluga: ["uruchomienie", "awaryjne"],
       title: "Toyota Bemowo - uruchomienie systemu",
       excerpt:`**Toyota Bemowo: 688 urządzeń pod kontrolą jednego systemu**
 
@@ -109,6 +114,7 @@ Więcej o otwarciu salonu na [stronie Toyoty](https://www.toyota.pl/swiat-toyoty
       id: "biuro-glamox",
       date: "2026-10-01",
       category: "realizacja",
+      usluga: "uruchomienie",
       title: "Nowe biuro Glamox",
       excerpt: `**Nowe biuro Glamox: 447 urządzeń, każda oprawa ustawiona indywidualnie**
 
@@ -132,6 +138,7 @@ Wiecej o nowym biurze na stronie [Glamox](https://www.glamox.com/pl/pbs/realizac
     id: "regeneracja-cti-3x64",
     date: "2025-02-18",
     category: "nowa-usluga",
+    usluga: "serwis",
     title: "Regeneracja sterowników CTI 3×64",
     excerpt: "Rozszerzamy ofertę serwisową o pełną regenerację sterowników CTI 3×64 produkcji ES System. Diagnostyka, naprawa i przywrócenie pełnej sprawności bez wymiany na nowy sprzęt.",
     image: null
@@ -140,6 +147,7 @@ Wiecej o nowym biurze na stronie [Glamox](https://www.glamox.com/pl/pbs/realizac
     id: "sezon-kontroli-ppoz",
     date: "2025-02-05",
     category: "zgodnosc",
+    usluga: "awaryjne",
     title: "Sezon kontroli ppoż. tuż za rogiem",
     excerpt: "Przypominamy o obowiązku prowadzenia dziennika testów oświetlenia awaryjnego zgodnie z normą PN-EN 50172. Pomagamy uzupełnić dokumentację przed kontrolą.",
     image: null
@@ -148,6 +156,7 @@ Wiecej o nowym biurze na stronie [Glamox](https://www.glamox.com/pl/pbs/realizac
     id: "modernizacja-helvar",
     date: "2025-01-20",
     category: "serwis",
+    usluga: "modernizacja",
     title: "Zakończyliśmy modernizację systemu Helvar",
     excerpt: "W hali produkcyjnej zmodernizowaliśmy system sterowania oświetleniem Helvar, redukując zużycie energii o 22%. Inwestycja zwróci się w mniej niż półtora roku.",
     image: null
