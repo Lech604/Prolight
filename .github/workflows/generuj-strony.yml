@@ -1,5 +1,5 @@
-# Po każdej zmianie wpisów, kontaktów, zdjęć lub szablonu GitHub sam
-# przebudowuje strony wpisów, listę aktualności, stronę główną i sitemap.xml
+# Po każdej zmianie wpisów, usług, kontaktów, zdjęć lub szablonów GitHub sam
+# przebudowuje strony wpisów, strony usług, listę aktualności, stronę główną i sitemap.xml
 # (skrypt narzedzia/generuj-strony.js) i zapisuje wynik w tej samej gałęzi.
 # Gdy w posts-data.js jest błąd, w zakładce Actions pojawi się czerwony krzyżyk
 # z opisem, co poprawić – strona zostaje wtedy w poprzedniej, działającej wersji.
@@ -11,8 +11,10 @@ on:
     paths:
       - posts-data.js
       - kontakty.js
+      - uslugi-data.js
       - wpisy.js
       - szablon-wpisu.html
+      - szablon-uslugi.html
       - index.html
       - aktualnosci.html
       - zdjecia/**
@@ -39,7 +41,7 @@ jobs:
         run: node narzedzia/generuj-strony.js
       - name: Zapisz zmiany
         run: |
-          git add -A aktualnosci aktualnosci.html index.html sitemap.xml
+          git add -A aktualnosci uslugi aktualnosci.html index.html sitemap.xml
           if git diff --cached --quiet; then
             echo "Brak zmian."
             exit 0
